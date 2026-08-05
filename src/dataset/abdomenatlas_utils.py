@@ -57,3 +57,19 @@ def split_pancreatic_lesion_dataset(
     )
     return train_ids, test_ids
 
+
+def stratified_sample_bdmap_ids(
+    ids: list[str],
+    cooccurring_ids: set[str],
+    sample_size: int,
+    seed: int,
+) -> list[str]:
+    is_cooccurring = [bdmap_id in cooccurring_ids for bdmap_id in ids]
+    sampled_ids, _ = train_test_split(
+        ids,
+        train_size=sample_size,
+        random_state=seed,
+        stratify=is_cooccurring,
+    )
+    return sampled_ids
+
