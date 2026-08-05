@@ -4,6 +4,8 @@ testing/merlin/data
 
 testing/AbdomenAtlas/data
 
+testing/PanTS/data
+
 src/data/*.csv
 
 __pycache__
