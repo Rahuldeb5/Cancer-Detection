@@ -3,3 +3,7 @@
 testing/merlin/data
 
 testing/AbdomenAtlas/data
+
+src/data/*.csv
+
+__pycache__
