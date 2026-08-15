@@ -6,8 +6,8 @@ testing/AbdomenAtlas/data
 
 testing/PanTS/data
 
-src/data/*.csv
-
 __pycache__
 
 .env
+
+.npy
