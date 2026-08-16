@@ -1,5 +1,4 @@
 from pathlib import Path
-import itertools
 import os
 from dotenv import load_dotenv
 import nibabel as nib
@@ -13,13 +12,16 @@ from monai.transforms import (
     EnsureChannelFirstd,
     Orientationd,
     Spacingd,
-    ScaleIntensityRanged,
-    NormalizeIntensityd,
 )
 
 import logging
 import gc
 import ctypes
+import json
+
+TARGET_SPACING = (1.0, 1.0, 1.5)
+
+FINGERPRINT_PATH = Path(__file__).resolve().parent.parent / "data" / "fingerprint.json"
 
 logger = logging.getLogger(__name__)
 
@@ -85,10 +87,10 @@ def _collect_pancreas_hu(case_id: str, image_index: dict, mask_index: dict):
         logger.error(f"Error processing {case_id}: {e}")
         return None
 
-def compute_fold_fingerprint(train_ids, image_index, mask_index, max_workers=16):
+def compute_global_fingerprint(case_ids, image_index, mask_index, max_workers=16):
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         worker = partial(_collect_pancreas_hu, image_index=image_index, mask_index=mask_index)
-        chunks = list(executor.map(worker, train_ids))
+        chunks = list(executor.map(worker, case_ids))
 
     pooled = np.concatenate([c for c in chunks if c is not None and c.size > 0])
 
@@ -101,17 +103,27 @@ def compute_fold_fingerprint(train_ids, image_index, mask_index, max_workers=16)
         "std": float(pooled.std()),
     }
 
-def build_preprocess_transform(fingerprint: dict) -> Compose:
+def get_or_compute_fingerprint(case_ids, image_index, mask_index):
+    if FINGERPRINT_PATH.exists():
+        logger.info(f"loading cached fingerprint from {FINGERPRINT_PATH}")
+        return json.loads(FINGERPRINT_PATH.read_text())
+
+    logger.info(f"computing global fingerprint over {len(case_ids)} scans")
+    fingerprint = compute_global_fingerprint(case_ids, image_index, mask_index)
+    logger.info(f"fingerprint: {fingerprint}")
+
+    FINGERPRINT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    FINGERPRINT_PATH.write_text(json.dumps(fingerprint, indent=2))
+
+    return fingerprint
+
+def build_cache_transform() -> Compose:
     return Compose([
         LoadImaged(keys=["image", "label"]),
         EnsureChannelFirstd(keys=["image", "label"]),
         Orientationd(keys=["image", "label"], axcodes="RAS"),
-        Spacingd(keys=["image", "label"], pixdim=(1, 1, 1),
+        Spacingd(keys=["image", "label"], pixdim=TARGET_SPACING,
                  mode=("bilinear", "nearest")),
-        ScaleIntensityRanged(keys="image", a_min=fingerprint["lo"], a_max=fingerprint["hi"],
-                             b_min=fingerprint["lo"], b_max=fingerprint["hi"], clip=True),
-        NormalizeIntensityd(keys="image",
-                            subtrahend=fingerprint["mean"], divisor=fingerprint["std"]),
     ])
 
 def preprocess_scan(case_id: str, transform: Compose, image_index: dict, mask_index: dict, cache_dir: Path):
@@ -125,7 +137,7 @@ def preprocess_scan(case_id: str, transform: Compose, image_index: dict, mask_in
 
         data = transform({"image": image_path, "label": label_path})
 
-        image = data["image"].numpy().astype(np.float32)
+        image = np.round(data["image"].numpy()).astype(np.int16)
         label = data["label"].numpy().astype(np.uint8)
 
         scan_dir.mkdir(parents=True, exist_ok=True)
@@ -140,7 +152,7 @@ def preprocess_scan(case_id: str, transform: Compose, image_index: dict, mask_in
         return False
 
 
-def _run_preprocess_pool(case_ids, transform, image_index, mask_index, cache_dir, fold, split_name, max_workers):
+def _run_preprocess_pool(case_ids, transform, image_index, mask_index, cache_dir, max_workers):
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         worker = partial(preprocess_scan, transform=transform, image_index=image_index,
                           mask_index=mask_index, cache_dir=cache_dir)
@@ -150,34 +162,30 @@ def _run_preprocess_pool(case_ids, transform, image_index, mask_index, cache_dir
             case_id = futures[future]
             ok = future.result()
             status = "ok" if ok else "FAILED"
-            logger.info(f"[{fold}] {split_name} {i}/{len(case_ids)}: {case_id} [{status}]")
+            logger.info(f"{i}/{len(case_ids)}: {case_id} [{status}]")
 
             if i % 25 == 0:
                 _trim_memory()
 
 
-def preprocess_dataset(dataset: dict):
+def preprocess_dataset():
     image_index = index_by_id([x for x in (dataset_dir / "images").iterdir() if x.is_dir()])
     mask_index = index_by_id([x for x in (dataset_dir / "masks").iterdir() if x.is_dir()])
 
-    for fold in dataset.keys():
-        train_set = [f[1] for f in dataset.items() if f[0] != fold]
-        train_set = list(itertools.chain.from_iterable(train_set))
-        test_set = dataset[fold]
+    case_ids = sorted(image_index.keys())
 
-        logger.info(f"[{fold}] computing fingerprint over {len(train_set)} train scans")
-        fingerprint = compute_fold_fingerprint(train_set, image_index, mask_index)
-        logger.info(f"[{fold}] fingerprint: {fingerprint}")
+    # geometry (orient/resample) and intensity normalization stats are both computed/cached
+    # once, globally; normalization itself (clip + z-score) is applied later, at training time
+    fingerprint = get_or_compute_fingerprint(case_ids, image_index, mask_index)
 
-        transform = build_preprocess_transform(fingerprint)
+    transform = build_cache_transform()
+    cache_dir = dataset_dir / "cache"
 
-        train_cache_dir = dataset_dir / "cache" / f"{fold}_train"
-        val_cache_dir = dataset_dir / "cache" / f"{fold}_val"
+    _run_preprocess_pool(case_ids, transform, image_index, mask_index, cache_dir, max_workers=2)
 
-        _run_preprocess_pool(train_set, transform, image_index, mask_index, train_cache_dir, fold, "train", max_workers=2)
-        _run_preprocess_pool(test_set, transform, image_index, mask_index, val_cache_dir, fold, "val", max_workers=2)
+    logger.info(f"done: {len(case_ids)} scans cached")
 
-        logger.info(f"[{fold}] done: {len(train_set)} train, {len(test_set)} val cached")
+    return fingerprint
 
 
 if __name__ == "__main__":
@@ -185,5 +193,5 @@ if __name__ == "__main__":
     setup_logging(log_path)
 
     logger.info("Starting dataset preprocessing")
-    preprocess_dataset(get_folds())
+    preprocess_dataset()
     logger.info("Finished dataset preprocessing")
