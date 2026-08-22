@@ -31,4 +31,8 @@ val_freq: 5
 sw_batch_size: 4
 sw_overlap: 0.5
 
+# NSD "how close counts as matched" tolerance in mm -- no official value for pancreatic
+# tumors, 2mm is a reasonable starting point at this dataset's ~1x1x1.5mm spacing
+nsd_tolerance_mm: 2.0
+
 reproduce_seed: null

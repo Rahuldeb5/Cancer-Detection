@@ -113,6 +113,18 @@ def save_configure(args):
         yaml.dump(serializable, f, default_flow_style=False)
 
 
+def unwrap_model(net):
+    # peel off DistributedDataParallel's `.module` and/or torch.compile's `._orig_mod`
+    # wrapper so state_dict() keys and eval-time calls always hit the raw nn.Module
+    if net is None:
+        return None
+    if hasattr(net, 'module'):
+        net = net.module
+    if hasattr(net, '_orig_mod'):
+        net = net._orig_mod
+    return net
+
+
 def resume_load_model_checkpoint(net, ema_net, args):
     checkpoint = torch.load(args.load, map_location='cpu', weights_only=True)
     net.load_state_dict(checkpoint['model_state_dict'])
@@ -130,19 +142,50 @@ def resume_load_optimizer_checkpoint(optimizer, args):
     logging.info(f"Resumed optimizer from {args.load}")
 
 
-def log_evaluation_result(writer, dice_list, ASD_list, HD_list, tag, epoch, args):
-    for i in range(args.classes):
-        writer.add_scalar(f'{tag}/Dice_class_{i}', dice_list[i], epoch + 1)
-        writer.add_scalar(f'{tag}/ASD_class_{i}', ASD_list[i], epoch + 1)
-        writer.add_scalar(f'{tag}/HD_class_{i}', HD_list[i], epoch + 1)
-
-    writer.add_scalar(f'{tag}/Dice_mean', dice_list.mean(), epoch + 1)
-    writer.add_scalar(f'{tag}/ASD_mean', ASD_list.mean(), epoch + 1)
-    writer.add_scalar(f'{tag}/HD_mean', HD_list.mean(), epoch + 1)
-
-    logging.info(f"{tag} - Dice: {dice_list}, ASD: {ASD_list}, HD: {HD_list}")
+# per-class segmentation-quality metrics (voxel/surface overlap); 'sensitivity' etc. below
+# are case-level detection scalars, not per-class, and logged separately
+ARRAY_METRICS = ('dice', 'nsd', 'hd95', 'asd')
+SCALAR_METRICS = ('sensitivity', 'specificity', 'f1', 'auc')
 
 
-def filter_validation_results(dice_list, ASD_list, HD_list, args):
+def log_evaluation_result(writer, results, tag, epoch, args):
+    for name in ARRAY_METRICS:
+        values = results[name]
+        for i in range(args.classes):
+            writer.add_scalar(f'{tag}/{name}_class_{i}', values[i], epoch + 1)
+        writer.add_scalar(f'{tag}/{name}_mean', values.mean(), epoch + 1)
+
+    for name in SCALAR_METRICS:
+        writer.add_scalar(f'{tag}/{name}', results[name], epoch + 1)
+
+    array_str = ", ".join(f"{name.upper()}: {results[name]}" for name in ARRAY_METRICS)
+    scalar_str = ", ".join(f"{name}: {results[name]:.4f}" for name in SCALAR_METRICS)
+    logging.info(f"{tag} - {array_str}, {scalar_str}")
+
+
+def filter_validation_results(results, args):
     # single-class binary task: nothing to filter out, kept only for interface parity
-    return dice_list, ASD_list, HD_list
+    return results
+
+
+def write_cross_validation_results(fold_results, cp_path, dataset, unique_name, k_fold):
+    # fold_results: list of the per-fold best-checkpoint result dicts returned by train_net()
+    np.set_printoptions(precision=4, suppress=True)
+    out_path = Path(cp_path) / dataset / unique_name / "cross_validation.txt"
+
+    with open(out_path, 'w') as f:
+        for name in ARRAY_METRICS:
+            stacked = np.vstack([r[name] for r in fold_results])
+            f.write(f"{name.upper()}\n")
+            for i in range(k_fold):
+                f.write(f"Fold {i}: {fold_results[i][name]}\n")
+            f.write(f"Each Class Avg: {np.mean(stacked, axis=0)}\n")
+            f.write(f"Each Class Std: {np.std(stacked, axis=0)}\n")
+            f.write(f"All classes Avg: {stacked.mean()}\n")
+            f.write(f"All classes Std: {np.mean(stacked, axis=1).std()}\n\n")
+
+        f.write("Detection metrics (case-level tumor presence/absence, not segmentation quality --\n")
+        f.write("see validation.py docstring)\n")
+        for name in SCALAR_METRICS:
+            values = np.array([r[name] for r in fold_results], dtype=float)
+            f.write(f"{name}: per-fold {values}, avg {np.nanmean(values):.4f}, std {np.nanstd(values):.4f}\n")

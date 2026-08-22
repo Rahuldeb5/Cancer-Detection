@@ -16,13 +16,14 @@ from monai.transforms import (
 )
 
 class PanTSDataset(Dataset):
-    def __init__(self, filenames: list[str], cache_dir: Path, fingerprint: dict, train: bool):
+    def __init__(self, filenames: list[str], cache_dir: Path, fingerprint: dict, train: bool,
+                 spatial_size=(128, 128, 128), pos=2, neg=1, num_samples=4):
         self.filenames = filenames
         self.cache_dir = cache_dir
         self.fingerprint = fingerprint
         self.train = train
 
-        self.train_transforms = get_train_transforms()
+        self.train_transforms = get_train_transforms(spatial_size=tuple(spatial_size), pos=pos, neg=neg, num_samples=num_samples)
         self.val_transforms = get_val_transforms()
 
     def __len__(self):

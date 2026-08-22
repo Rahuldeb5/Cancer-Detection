@@ -10,9 +10,12 @@ from pathlib import Path
 
 import numpy as np
 import torch
+import torch.distributed as dist
 import torch.nn as nn
 import yaml
+from torch.nn.parallel import DistributedDataParallel
 from torch.utils.data import DataLoader
+from torch.utils.data.distributed import DistributedSampler
 from torch.utils.tensorboard import SummaryWriter
 from monai.data.utils import list_data_collate
 
@@ -28,7 +31,9 @@ from .utils import (
     resume_load_model_checkpoint,
     resume_load_optimizer_checkpoint,
     save_configure,
+    unwrap_model,
     update_ema_variables,
+    write_cross_validation_results,
 )
 from .losses import DiceLoss
 from .validation import validation
@@ -49,12 +54,19 @@ def train_net(net, args, ema_net=None, fold_idx=0):
     train_filenames, test_filenames = load_fold_filenames(data_dir, args.k_fold, fold_idx)
     fingerprint = json.loads((data_dir / "fingerprint.json").read_text())
 
-    trainset = PanTSDataset(train_filenames, Path(args.cache_dir).expanduser(), fingerprint, train=True)
+    trainset = PanTSDataset(
+        train_filenames, Path(args.cache_dir).expanduser(), fingerprint, train=True,
+        spatial_size=args.spatial_size, pos=args.pos, neg=args.neg, num_samples=args.num_samples,
+    )
 
+    # each rank's DataLoader only sees its own shard of the dataset under DDP; batch_size
+    # below is therefore per-GPU -- the effective global batch is args.batch_size * world_size
+    train_sampler = DistributedSampler(trainset, shuffle=True) if args.distributed else None
     trainLoader = DataLoader(
         trainset,
         batch_size=args.batch_size,
-        shuffle=True,
+        shuffle=(train_sampler is None),
+        sampler=train_sampler,
         pin_memory=(args.aug_device != 'gpu'),
         num_workers=args.num_workers,
         persistent_workers=(args.num_workers > 0),
@@ -68,7 +80,10 @@ def train_net(net, args, ema_net=None, fold_idx=0):
 
     ################################################################################
     # Initialize tensorboard, optimizer and etc
-    writer = SummaryWriter(f"{args.log_path}{args.unique_name}/fold_{fold_idx}")
+    # validation/checkpointing/tensorboard only happen on rank 0 -- every rank has an
+    # identical copy of the full testset, so re-running eval on every rank would be
+    # redundant work (and N processes writing the same files would race)
+    writer = SummaryWriter(f"{args.log_path}{args.unique_name}/fold_{fold_idx}") if args.rank == 0 else None
 
     optimizer = get_optimizer(args, net)
 
@@ -82,11 +97,21 @@ def train_net(net, args, ema_net=None, fold_idx=0):
 
     ################################################################################
     # Start training
-    best_Dice = np.zeros(args.classes)
-    best_HD = np.ones(args.classes) * 1000
-    best_ASD = np.ones(args.classes) * 1000
+    best_results = {
+        'dice': np.zeros(args.classes),
+        'nsd': np.zeros(args.classes),
+        'hd95': np.ones(args.classes) * 1000,
+        'asd': np.ones(args.classes) * 1000,
+        'sensitivity': 0.0,
+        'specificity': 0.0,
+        'f1': 0.0,
+        'auc': 0.5,  # random-chance baseline
+    }
 
     for epoch in range(args.start_epoch, args.epochs):
+        if train_sampler is not None:
+            train_sampler.set_epoch(epoch)  # reshuffles differently per epoch across ranks
+
         logging.info(f"Starting epoch {epoch+1}/{args.epochs}")
         exp_scheduler = exp_lr_scheduler_with_warmup(optimizer, init_lr=args.base_lr, epoch=epoch, warmup_epoch=args.warmup_epoch, max_epoch=args.epochs)
         logging.info(f"Current lr: {exp_scheduler:.4e}")
@@ -97,39 +122,49 @@ def train_net(net, args, ema_net=None, fold_idx=0):
         # Evaluation, save checkpoint and log training info
         net_for_eval = ema_net if args.ema else net
 
-        # save the latest checkpoint, including net, ema_net, and optimizer
-        torch.save({
-            'epoch': epoch + 1,
-            'model_state_dict': net.state_dict() if not args.torch_compile else net._orig_mod.state_dict(),
-            'ema_model_state_dict': ema_net.state_dict() if args.ema else None,
-            'optimizer_state_dict': optimizer.state_dict(),
-        }, f"{args.cp_dir}/fold_{fold_idx}_latest.pth")
+        if args.rank == 0:
+            # save the latest checkpoint, including net, ema_net, and optimizer
+            torch.save({
+                'epoch': epoch + 1,
+                'model_state_dict': unwrap_model(net).state_dict(),
+                'ema_model_state_dict': unwrap_model(ema_net).state_dict() if args.ema else None,
+                'optimizer_state_dict': optimizer.state_dict(),
+            }, f"{args.cp_dir}/fold_{fold_idx}_latest.pth")
 
         if (epoch + 1) % args.val_freq == 0:
 
-            dice_list_test, ASD_list_test, HD_list_test = validation(net_for_eval, testLoader, args)
-            dice_list_test, ASD_list_test, HD_list_test = filter_validation_results(dice_list_test, ASD_list_test, HD_list_test, args)
-            log_evaluation_result(writer, dice_list_test, ASD_list_test, HD_list_test, 'test', epoch, args)
+            if args.rank == 0:
+                results = validation(unwrap_model(net_for_eval), testLoader, args)
+                results = filter_validation_results(results, args)
+                log_evaluation_result(writer, results, 'test', epoch, args)
 
-            if dice_list_test.mean() >= best_Dice.mean():
-                best_Dice = dice_list_test
-                best_HD = HD_list_test
-                best_ASD = ASD_list_test
+                if results['dice'].mean() >= best_results['dice'].mean():
+                    best_results = results
 
-                # Save the checkpoint with best performance
-                torch.save({
-                    'epoch': epoch + 1,
-                    'model_state_dict': net.state_dict() if not args.torch_compile else net._orig_mod.state_dict(),
-                    'ema_model_state_dict': ema_net.state_dict() if args.ema else None,
-                    'optimizer_state_dict': optimizer.state_dict(),
-                }, f"{args.cp_dir}/fold_{fold_idx}_best.pth")
+                    # Save the checkpoint with best performance
+                    torch.save({
+                        'epoch': epoch + 1,
+                        'model_state_dict': unwrap_model(net).state_dict(),
+                        'ema_model_state_dict': unwrap_model(ema_net).state_dict() if args.ema else None,
+                        'optimizer_state_dict': optimizer.state_dict(),
+                    }, f"{args.cp_dir}/fold_{fold_idx}_best.pth")
 
-            logging.info("Evaluation Done")
-            logging.info(f"Dice: {dice_list_test.mean():.4f}/Best Dice: {best_Dice.mean():.4f}")
+                logging.info("Evaluation Done")
+                logging.info(f"Dice: {results['dice'].mean():.4f}/Best Dice: {best_results['dice'].mean():.4f}")
 
-        writer.add_scalar('LR', exp_scheduler, epoch + 1)
+            if args.distributed:
+                # rank 0 is off doing validation + checkpointing (no DDP collective calls
+                # happen during that); without this, other ranks would race ahead into next
+                # epoch's training before rank 0 rejoins
+                dist.barrier()
 
-    return best_Dice, best_HD, best_ASD
+        if args.rank == 0:
+            writer.add_scalar('LR', exp_scheduler, epoch + 1)
+
+    if writer is not None:
+        writer.close()
+
+    return best_results
 
 
 def train_epoch(trainLoader, net, ema_net, optimizer, epoch, writer, criterion, criterion_dl, scaler, args):
@@ -199,7 +234,8 @@ def train_epoch(trainLoader, net, ema_net, optimizer, epoch, writer, criterion, 
             if iter_num_per_epoch > args.iter_per_epoch:
                 break
 
-    writer.add_scalar('Train/Loss', epoch_loss.avg, epoch + 1)
+    if writer is not None:
+        writer.add_scalar('Train/Loss', epoch_loss.avg, epoch + 1)
 
 
 def get_parser():
@@ -261,84 +297,85 @@ def init_network(args):
 if __name__ == '__main__':
 
     args = get_parser()
-    os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
     torch.multiprocessing.set_start_method('spawn')
     torch.multiprocessing.set_sharing_strategy('file_system')
+
+    # torchrun sets WORLD_SIZE/RANK/LOCAL_RANK; a plain `python -m src.training.train` run
+    # leaves them unset, so this auto-detects single-GPU vs DDP with no extra flag needed
+    args.distributed = int(os.environ.get('WORLD_SIZE', 1)) > 1
+    if args.distributed:
+        dist.init_process_group(backend='nccl')
+        args.local_rank = int(os.environ['LOCAL_RANK'])
+        args.rank = dist.get_rank()
+        args.world_size = dist.get_world_size()
+        torch.cuda.set_device(args.local_rank)
+        device = torch.device('cuda', args.local_rank)
+    else:
+        os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
+        args.local_rank = 0
+        args.rank = 0
+        args.world_size = 1
+        device = torch.device('cuda')
 
     args.log_path = args.log_path + '%s/' % args.dataset
 
     if args.reproduce_seed is not None:
-        random.seed(args.reproduce_seed)
-        np.random.seed(args.reproduce_seed)
-        torch.manual_seed(args.reproduce_seed)
+        seed = args.reproduce_seed + args.rank  # avoid identical augmentation streams across ranks
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
 
         torch.backends.cudnn.benchmark = False
         torch.backends.cudnn.deterministic = True
 
-    Dice_list, HD_list, ASD_list = [], [], []
+    fold_results = []
 
     for fold_idx in range(args.k_fold):
 
         args.cp_dir = f"{args.cp_path}/{args.dataset}/{args.unique_name}"
-        os.makedirs(args.cp_dir, exist_ok=True)
-        configure_logger(0, args.cp_dir + f"/fold_{fold_idx}.txt")
-        save_configure(args)
+        if args.rank == 0:
+            os.makedirs(args.cp_dir, exist_ok=True)
+        configure_logger(args.rank, args.cp_dir + f"/fold_{fold_idx}.txt")
+        if args.rank == 0:
+            save_configure(args)
         logging.info(
             f"\nDataset: {args.dataset},\n"
             + f"Model: {args.model},\n"
-            + f"Dimension: {args.dimension}"
+            + f"Dimension: {args.dimension},\n"
+            + f"Distributed: {args.distributed} (world_size={args.world_size})"
         )
 
         net, ema_net = init_network(args)
 
-        net.cuda()
+        net.to(device)
         if args.ema:
-            ema_net.cuda()
+            ema_net.to(device)
+
+        if args.distributed:
+            # no-op for InstanceNorm3d (this config's default) -- only matters if norm: bn
+            net = nn.SyncBatchNorm.convert_sync_batchnorm(net)
+            net = DistributedDataParallel(net, device_ids=[args.local_rank])
+            # ema_net is intentionally left unwrapped: it's updated by directly averaging
+            # .data in-place (update_ema_variables), never through backward(), so it needs
+            # no gradient sync. DDP already broadcasts net's initial weights from rank 0;
+            # only rank 0's ema_net is ever read (validation/checkpointing are rank-0-only),
+            # so the other ranks' independently-initialized ema_net copies are harmless.
+
         logging.info("Created Model")
-        best_Dice, best_HD, best_ASD = train_net(net, args, ema_net, fold_idx=fold_idx)
+        best_results = train_net(net, args, ema_net, fold_idx=fold_idx)
 
         logging.info(f"Training and evaluation on Fold {fold_idx} is done")
 
-        Dice_list.append(best_Dice)
-        HD_list.append(best_HD)
-        ASD_list.append(best_ASD)
+        fold_results.append(best_results)
 
     ############################################################################################
     # Save the cross validation results
-    total_Dice = np.vstack(Dice_list)
-    total_HD = np.vstack(HD_list)
-    total_ASD = np.vstack(ASD_list)
+    # only rank 0 ever runs validation (see train_net), so only its fold_results are real
+    if args.rank == 0:
+        write_cross_validation_results(fold_results, args.cp_path, args.dataset, args.unique_name, args.k_fold)
+        print(f'All {args.k_fold} folds done.')
 
-    with open(f"{args.cp_path}/{args.dataset}/{args.unique_name}/cross_validation.txt", 'w') as f:
-        np.set_printoptions(precision=4, suppress=True)
-        f.write('Dice\n')
-        for i in range(args.k_fold):
-            f.write(f"Fold {i}: {Dice_list[i]}\n")
-        f.write(f"Each Class Dice Avg: {np.mean(total_Dice, axis=0)}\n")
-        f.write(f"Each Class Dice Std: {np.std(total_Dice, axis=0)}\n")
-        f.write(f"All classes Dice Avg: {total_Dice.mean()}\n")
-        f.write(f"All classes Dice Std: {np.mean(total_Dice, axis=1).std()}\n")
-
-        f.write("\n")
-
-        f.write("HD\n")
-        for i in range(args.k_fold):
-            f.write(f"Fold {i}: {HD_list[i]}\n")
-        f.write(f"Each Class HD Avg: {np.mean(total_HD, axis=0)}\n")
-        f.write(f"Each Class HD Std: {np.std(total_HD, axis=0)}\n")
-        f.write(f"All classes HD Avg: {total_HD.mean()}\n")
-        f.write(f"All classes HD Std: {np.mean(total_HD, axis=1).std()}\n")
-
-        f.write("\n")
-
-        f.write("ASD\n")
-        for i in range(args.k_fold):
-            f.write(f"Fold {i}: {ASD_list[i]}\n")
-        f.write(f"Each Class ASD Avg: {np.mean(total_ASD, axis=0)}\n")
-        f.write(f"Each Class ASD Std: {np.std(total_ASD, axis=0)}\n")
-        f.write(f"All classes ASD Avg: {total_ASD.mean()}\n")
-        f.write(f"All classes ASD Std: {np.mean(total_ASD, axis=1).std()}\n")
-
-    print(f'All {args.k_fold} folds done.')
+    if args.distributed:
+        dist.destroy_process_group()
 
     sys.exit(0)
