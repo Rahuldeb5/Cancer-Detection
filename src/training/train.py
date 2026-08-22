@@ -248,6 +248,8 @@ def get_parser():
     parser.add_argument('--torch_compile', action='store_true', help='use torch.compile, only supported by pytorch2.0')
 
     parser.add_argument('--batch_size', default=2, type=int, help='batch size')
+    parser.add_argument('--spatial_size', type=int, nargs=3, default=None, help='override yaml spatial_size, e.g. --spatial_size 96 96 96')
+    parser.add_argument('--num_samples', type=int, default=None, help='override yaml num_samples (crops per case)')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
     parser.add_argument('--cp_path', type=str, default='./exp/', help='checkpoint path')
@@ -257,6 +259,9 @@ def get_parser():
     parser.add_argument('--gpu', type=str, default='0')
 
     args = parser.parse_args()
+    # snapshot before the yaml loop below unconditionally overwrites same-named attributes
+    cli_spatial_size = args.spatial_size
+    cli_num_samples = args.num_samples
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
     if not config_path.exists():
@@ -269,6 +274,12 @@ def get_parser():
 
     for key, value in config.items():
         setattr(args, key, value)
+
+    # CLI overrides win over the yaml
+    if cli_spatial_size is not None:
+        args.spatial_size = list(cli_spatial_size)
+    if cli_num_samples is not None:
+        args.num_samples = cli_num_samples
 
     args.start_epoch = 0
 
