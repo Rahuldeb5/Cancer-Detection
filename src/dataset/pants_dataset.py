@@ -16,11 +16,14 @@ from monai.transforms import (
 )
 
 class PanTSDataset(Dataset):
-    def __init__(self, filenames: list[str], cache_dir: Path, fingerprint: dict, transforms: Compose | None = None):
+    def __init__(self, filenames: list[str], cache_dir: Path, fingerprint: dict, train: bool):
         self.filenames = filenames
         self.cache_dir = cache_dir
         self.fingerprint = fingerprint
-        self.transforms = transforms
+        self.train = train
+
+        self.train_transforms = get_train_transforms()
+        self.val_transforms = get_val_transforms()
 
     def __len__(self):
         return len(self.filenames)
@@ -42,8 +45,10 @@ class PanTSDataset(Dataset):
             "label": lab
         }
 
-        if self.transforms is not None:
-            data = self.transforms(data)
+        if self.train:
+            data = self.train_transforms(data)
+        else:
+            data = self.val_transforms(data)
 
         return data
 

@@ -1,0 +1,34 @@
+# binary tumor segmentation: 1 output channel (sigmoid), not one class per organ
+classes: 1
+aux_loss: true
+aux_weight: [1.0, 0.4]
+
+cache_dir: ~/research/datasets/pants/cache
+k_fold: 5
+
+spatial_size: [128, 128, 128]
+pos: 2
+neg: 1
+num_samples: 4
+
+# starting point only -- retune against the in-patch pos/neg ratio, see project notes
+pos_weight: 60.0
+
+epochs: 200
+base_lr: 0.0006
+weight_decay: 0.05
+warmup_epoch: 5
+
+num_workers: 4
+aug_device: cpu
+
+ema: false
+ema_alpha: 0.99
+
+iter_per_epoch: 250
+print_freq: 20
+val_freq: 5
+sw_batch_size: 4
+sw_overlap: 0.5
+
+reproduce_seed: null
