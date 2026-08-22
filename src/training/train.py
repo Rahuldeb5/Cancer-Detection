@@ -6,6 +6,7 @@ import random
 import sys
 import time
 import warnings
+from datetime import timedelta
 from pathlib import Path
 
 import numpy as np
@@ -250,6 +251,7 @@ def get_parser():
     parser.add_argument('--batch_size', default=2, type=int, help='batch size')
     parser.add_argument('--spatial_size', type=int, nargs=3, default=None, help='override yaml spatial_size, e.g. --spatial_size 96 96 96')
     parser.add_argument('--num_samples', type=int, default=None, help='override yaml num_samples (crops per case)')
+    parser.add_argument('--sw_batch_size', type=int, default=None, help='override yaml sw_batch_size (sliding-window inference batch, validation only)')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
     parser.add_argument('--cp_path', type=str, default='./exp/', help='checkpoint path')
@@ -262,6 +264,7 @@ def get_parser():
     # snapshot before the yaml loop below unconditionally overwrites same-named attributes
     cli_spatial_size = args.spatial_size
     cli_num_samples = args.num_samples
+    cli_sw_batch_size = args.sw_batch_size
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
     if not config_path.exists():
@@ -280,6 +283,8 @@ def get_parser():
         args.spatial_size = list(cli_spatial_size)
     if cli_num_samples is not None:
         args.num_samples = cli_num_samples
+    if cli_sw_batch_size is not None:
+        args.sw_batch_size = cli_sw_batch_size
 
     args.start_epoch = 0
 
@@ -315,7 +320,10 @@ if __name__ == '__main__':
     # leaves them unset, so this auto-detects single-GPU vs DDP with no extra flag needed
     args.distributed = int(os.environ.get('WORLD_SIZE', 1)) > 1
     if args.distributed:
-        dist.init_process_group(backend='nccl')
+        # default NCCL collective timeout is 10 minutes -- too short for the dist.barrier()
+        # after full-fold validation (rank 0 alone runs sliding-window inference over the
+        # whole test fold while other ranks wait there), which can easily take longer
+        dist.init_process_group(backend='nccl', timeout=timedelta(hours=3))
         args.local_rank = int(os.environ['LOCAL_RANK'])
         args.rank = dist.get_rank()
         args.world_size = dist.get_world_size()
