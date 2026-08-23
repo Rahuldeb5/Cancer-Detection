@@ -74,7 +74,14 @@ def train_net(net, args, ema_net=None, fold_idx=0):
         collate_fn=list_data_collate,  # RandCropByPosNegLabeld(num_samples>1) returns a list of crops per index
     )
 
-    testset = PanTSDataset(test_filenames, Path(args.cache_dir).expanduser(), fingerprint, train=False)
+    val_filenames = test_filenames
+    if getattr(args, 'val_subset_size', None):
+        # fixed seed so every validation pass in this run samples the same subset --
+        # otherwise "Dice improved" comparisons across epochs would be apples-to-oranges
+        val_filenames = random.Random(42).sample(test_filenames, min(args.val_subset_size, len(test_filenames)))
+        logging.info(f"Validating on a fixed {len(val_filenames)}-case subset of the {len(test_filenames)}-case test fold")
+
+    testset = PanTSDataset(val_filenames, Path(args.cache_dir).expanduser(), fingerprint, train=False)
     testLoader = DataLoader(testset, batch_size=1, pin_memory=True, shuffle=False, num_workers=2)
 
     logging.info("Created Dataset and DataLoader")
@@ -255,6 +262,8 @@ def get_parser():
     parser.add_argument('--epochs', type=int, default=None, help='override yaml epochs')
     parser.add_argument('--val_freq', type=int, default=None, help='override yaml val_freq (epochs between validation passes)')
     parser.add_argument('--fold_idx', type=int, default=None, help='run only this one fold (0-indexed) instead of looping over all k_fold folds')
+    parser.add_argument('--pos_weight', type=float, default=None, help='override yaml pos_weight (BCE positive-class weight)')
+    parser.add_argument('--val_subset_size', type=int, default=None, help='validate on a random subset of this many test cases instead of the full fold (fixed seed, same subset each val pass this run)')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
     parser.add_argument('--cp_path', type=str, default='./exp/', help='checkpoint path')
@@ -270,6 +279,8 @@ def get_parser():
     cli_sw_batch_size = args.sw_batch_size
     cli_epochs = args.epochs
     cli_val_freq = args.val_freq
+    cli_pos_weight = args.pos_weight
+    # val_subset_size has no yaml key to clobber it, no snapshot needed
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
     if not config_path.exists():
@@ -294,6 +305,8 @@ def get_parser():
         args.epochs = cli_epochs
     if cli_val_freq is not None:
         args.val_freq = cli_val_freq
+    if cli_pos_weight is not None:
+        args.pos_weight = cli_pos_weight
 
     args.start_epoch = 0
 
