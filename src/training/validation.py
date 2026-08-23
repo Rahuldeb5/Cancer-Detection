@@ -1,4 +1,5 @@
 import logging
+import time
 
 import numpy as np
 import torch
@@ -47,7 +48,13 @@ def validation(net, testLoader, args):
     hd95_metric = HausdorffDistanceMetric(percentile=95, include_background=True, reduction='mean')
     asd_metric = SurfaceDistanceMetric(include_background=True, symmetric=True, reduction='mean')
 
-    for batch in testLoader:
+    # sliding-window inference over full volumes is slow with no other progress signal --
+    # without this, a multi-hour validation pass looks identical to a hang
+    n_cases = len(testLoader)
+    t_start = time.time()
+    logging.info(f"Starting validation over {n_cases} cases")
+
+    for i, batch in enumerate(testLoader):
         img, label = batch['image'], batch['label']
         img = img.cuda(non_blocking=True)
         label = label.cuda(non_blocking=True).float()
@@ -75,6 +82,12 @@ def validation(net, testLoader, args):
         gt_present.append(0 if gt_empty else 1)
         pred_present.append(0 if pred_empty else 1)
         max_prob.append(probs.max().item())
+
+        if (i + 1) % 10 == 0 or (i + 1) == n_cases:
+            elapsed = time.time() - t_start
+            rate = elapsed / (i + 1)
+            eta = rate * (n_cases - (i + 1))
+            logging.info(f"Validation {i+1}/{n_cases} ({elapsed:.0f}s elapsed, ~{eta:.0f}s remaining)")
 
         if gt_empty:
             # true/false-positive-on-negative-scan: no tumor surface exists, so surface-based
