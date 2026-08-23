@@ -253,6 +253,7 @@ def get_parser():
     parser.add_argument('--num_samples', type=int, default=None, help='override yaml num_samples (crops per case)')
     parser.add_argument('--sw_batch_size', type=int, default=None, help='override yaml sw_batch_size (sliding-window inference batch, validation only)')
     parser.add_argument('--epochs', type=int, default=None, help='override yaml epochs')
+    parser.add_argument('--val_freq', type=int, default=None, help='override yaml val_freq (epochs between validation passes)')
     parser.add_argument('--fold_idx', type=int, default=None, help='run only this one fold (0-indexed) instead of looping over all k_fold folds')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
@@ -268,6 +269,7 @@ def get_parser():
     cli_num_samples = args.num_samples
     cli_sw_batch_size = args.sw_batch_size
     cli_epochs = args.epochs
+    cli_val_freq = args.val_freq
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
     if not config_path.exists():
@@ -290,6 +292,8 @@ def get_parser():
         args.sw_batch_size = cli_sw_batch_size
     if cli_epochs is not None:
         args.epochs = cli_epochs
+    if cli_val_freq is not None:
+        args.val_freq = cli_val_freq
 
     args.start_epoch = 0
 
