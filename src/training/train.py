@@ -252,6 +252,8 @@ def get_parser():
     parser.add_argument('--spatial_size', type=int, nargs=3, default=None, help='override yaml spatial_size, e.g. --spatial_size 96 96 96')
     parser.add_argument('--num_samples', type=int, default=None, help='override yaml num_samples (crops per case)')
     parser.add_argument('--sw_batch_size', type=int, default=None, help='override yaml sw_batch_size (sliding-window inference batch, validation only)')
+    parser.add_argument('--epochs', type=int, default=None, help='override yaml epochs')
+    parser.add_argument('--fold_idx', type=int, default=None, help='run only this one fold (0-indexed) instead of looping over all k_fold folds')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
     parser.add_argument('--cp_path', type=str, default='./exp/', help='checkpoint path')
@@ -265,6 +267,7 @@ def get_parser():
     cli_spatial_size = args.spatial_size
     cli_num_samples = args.num_samples
     cli_sw_batch_size = args.sw_batch_size
+    cli_epochs = args.epochs
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
     if not config_path.exists():
@@ -285,6 +288,8 @@ def get_parser():
         args.num_samples = cli_num_samples
     if cli_sw_batch_size is not None:
         args.sw_batch_size = cli_sw_batch_size
+    if cli_epochs is not None:
+        args.epochs = cli_epochs
 
     args.start_epoch = 0
 
@@ -348,8 +353,9 @@ if __name__ == '__main__':
         torch.backends.cudnn.deterministic = True
 
     fold_results = []
+    fold_indices = [args.fold_idx] if args.fold_idx is not None else range(args.k_fold)
 
-    for fold_idx in range(args.k_fold):
+    for fold_idx in fold_indices:
 
         args.cp_dir = f"{args.cp_path}/{args.dataset}/{args.unique_name}"
         if args.rank == 0:
@@ -391,8 +397,8 @@ if __name__ == '__main__':
     # Save the cross validation results
     # only rank 0 ever runs validation (see train_net), so only its fold_results are real
     if args.rank == 0:
-        write_cross_validation_results(fold_results, args.cp_path, args.dataset, args.unique_name, args.k_fold)
-        print(f'All {args.k_fold} folds done.')
+        write_cross_validation_results(fold_results, args.cp_path, args.dataset, args.unique_name, len(fold_results))
+        print(f'All {len(fold_results)} fold(s) done.')
 
     if args.distributed:
         dist.destroy_process_group()
