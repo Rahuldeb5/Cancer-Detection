@@ -81,7 +81,13 @@ def validation(net, testLoader, args):
 
         gt_present.append(0 if gt_empty else 1)
         pred_present.append(0 if pred_empty else 1)
-        max_prob.append(probs.max().item())
+        # fp16/AMP can occasionally produce a NaN activation somewhere in a sliding-window
+        # patch (rare, usually self-recovering during training -- see the transient
+        # "Loss (nan)" artifact seen in training logs); torch.max propagates a single NaN to
+        # the whole reduction, and sklearn's roc_auc_score hard-crashes on NaN input, so one
+        # bad voxel out of hundreds of thousands would otherwise take down the entire
+        # multi-hour validation pass at the very last step. Treat a NaN voxel as 0 probability.
+        max_prob.append(torch.nan_to_num(probs, nan=0.0).max().item())
 
         if (i + 1) % 10 == 0 or (i + 1) == n_cases:
             elapsed = time.time() - t_start
