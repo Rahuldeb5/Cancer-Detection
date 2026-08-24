@@ -262,6 +262,7 @@ def get_parser():
     parser.add_argument('--epochs', type=int, default=None, help='override yaml epochs')
     parser.add_argument('--val_freq', type=int, default=None, help='override yaml val_freq (epochs between validation passes)')
     parser.add_argument('--fold_idx', type=int, default=None, help='run only this one fold (0-indexed) instead of looping over all k_fold folds')
+    parser.add_argument('--start_fold', type=int, default=None, help='resume the fold loop from this index (0-indexed) through k_fold-1, instead of starting at 0. Ignored if --fold_idx is set.')
     parser.add_argument('--pos_weight', type=float, default=None, help='override yaml pos_weight (BCE positive-class weight)')
     parser.add_argument('--val_subset_size', type=int, default=None, help='validate on a random subset of this many test cases instead of the full fold (fixed seed, same subset each val pass this run)')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
@@ -370,7 +371,12 @@ if __name__ == '__main__':
         torch.backends.cudnn.deterministic = True
 
     fold_results = []
-    fold_indices = [args.fold_idx] if args.fold_idx is not None else range(args.k_fold)
+    if args.fold_idx is not None:
+        fold_indices = [args.fold_idx]
+    elif args.start_fold is not None:
+        fold_indices = range(args.start_fold, args.k_fold)
+    else:
+        fold_indices = range(args.k_fold)
 
     for fold_idx in fold_indices:
 
