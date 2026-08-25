@@ -144,7 +144,7 @@ def resume_load_optimizer_checkpoint(optimizer, args):
 
 # per-class segmentation-quality metrics (voxel/surface overlap); 'sensitivity' etc. below
 # are case-level detection scalars, not per-class, and logged separately
-ARRAY_METRICS = ('dice', 'nsd', 'hd95', 'asd')
+ARRAY_METRICS = ('dice', 'dice_positive_cases', 'nsd', 'hd95', 'asd')
 SCALAR_METRICS = ('sensitivity', 'specificity', 'f1', 'auc')
 
 

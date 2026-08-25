@@ -11,13 +11,22 @@ pos: 2
 neg: 1
 num_samples: 4
 
-# starting point only -- retune against the in-patch pos/neg ratio, see project notes
-pos_weight: 60.0
+# tuned via a pos_weight sweep (5/10/15/20/25/60) on 2026-08-23 -- 60 (the original
+# starting-point guess) collapsed the model to predicting positive everywhere
+# (specificity ~0.02); 20 was the best balance of specificity gains without sacrificing
+# sensitivity the way pos_weight=5 did. Re-tune if the crop config changes materially.
+pos_weight: 20.0
 
 epochs: 200
 base_lr: 0.0006
 weight_decay: 0.05
 warmup_epoch: 5
+
+# caps gradient norm before each optimizer step -- fp16/AMP training can otherwise diverge
+# silently (a NaN loss recurring for many iterations means the model has already collapsed,
+# not just hit a one-off overflow); see train_epoch's NAN_STREAK_LIMIT for the loud failure
+# mode this is meant to prevent from being needed in the first place
+grad_clip_norm: 1.0
 
 num_workers: 4
 aug_device: cpu

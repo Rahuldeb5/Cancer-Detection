@@ -1,6 +1,7 @@
 import argparse
 import json
 import logging
+import math
 import os
 import random
 import sys
@@ -107,6 +108,7 @@ def train_net(net, args, ema_net=None, fold_idx=0):
     # Start training
     best_results = {
         'dice': np.zeros(args.classes),
+        'dice_positive_cases': np.zeros(args.classes),
         'nsd': np.zeros(args.classes),
         'hd95': np.ones(args.classes) * 1000,
         'asd': np.ones(args.classes) * 1000,
@@ -146,7 +148,12 @@ def train_net(net, args, ema_net=None, fold_idx=0):
                 results = filter_validation_results(results, args)
                 log_evaluation_result(writer, results, 'test', epoch, args)
 
-                if results['dice'].mean() >= best_results['dice'].mean():
+                # dice_positive_cases (not 'dice') for selection -- 'dice' gives negative
+                # scans a trivial 1.0 for an empty-vs-empty match, so a model collapsed to
+                # predicting nothing everywhere can outscore one that's genuinely trying;
+                # dice_positive_cases only covers scans with real tumor, so it can't be
+                # gamed that way (see validation.py docstring)
+                if results['dice_positive_cases'].mean() >= best_results['dice_positive_cases'].mean():
                     best_results = results
 
                     # Save the checkpoint with best performance
@@ -158,7 +165,10 @@ def train_net(net, args, ema_net=None, fold_idx=0):
                     }, f"{args.cp_dir}/fold_{fold_idx}_best.pth")
 
                 logging.info("Evaluation Done")
-                logging.info(f"Dice: {results['dice'].mean():.4f}/Best Dice: {best_results['dice'].mean():.4f}")
+                logging.info(
+                    f"Dice (positive cases): {results['dice_positive_cases'].mean():.4f}/"
+                    f"Best: {best_results['dice_positive_cases'].mean():.4f}"
+                )
 
             if args.distributed:
                 # rank 0 is off doing validation + checkpointing (no DDP collective calls
@@ -188,6 +198,12 @@ def train_epoch(trainLoader, net, ema_net, optimizer, epoch, writer, criterion, 
 
     tic = time.time()
     iter_num_per_epoch = 0
+    nan_streak = 0
+    NAN_STREAK_LIMIT = 20  # a handful of transient NaN losses (fp16 overflow) is normal and
+    # self-recovers via GradScaler skipping the step; this many *in a row* means the model
+    # has actually diverged -- stop immediately instead of silently training on a broken
+    # model for the rest of the run (this is exactly what happened before this check existed:
+    # persistent NaN from ~epoch 71 wasn't caught until the epoch-75 validation, 25 epochs later)
     for i, inputs in enumerate(trainLoader):
         img, label = inputs["image"], inputs["label"].float()
         if args.aug_device != 'gpu':
@@ -212,6 +228,10 @@ def train_epoch(trainLoader, net, ema_net, optimizer, epoch, writer, criterion, 
                     loss = criterion(result, label) + criterion_dl(result, label)
 
             scaler.scale(loss).backward()
+            # unscale before clipping -- gradients are still fp16-scaled at this point,
+            # clipping them unscaled would clip against the wrong magnitude
+            scaler.unscale_(optimizer)
+            torch.nn.utils.clip_grad_norm_(net.parameters(), max_norm=getattr(args, 'grad_clip_norm', 1.0))
             scaler.step(optimizer)
             scaler.update()
         else:
@@ -225,12 +245,25 @@ def train_epoch(trainLoader, net, ema_net, optimizer, epoch, writer, criterion, 
                 loss = criterion(result, label) + criterion_dl(result, label)
 
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(net.parameters(), max_norm=getattr(args, 'grad_clip_norm', 1.0))
             optimizer.step()
 
         if args.ema:
             update_ema_variables(net, ema_net, args.ema_alpha, step)
 
-        epoch_loss.update(loss.item(), img.shape[0])
+        loss_value = loss.item()
+        if math.isnan(loss_value):
+            nan_streak += 1
+            if nan_streak >= NAN_STREAK_LIMIT:
+                raise RuntimeError(
+                    f"Loss has been NaN for {nan_streak} consecutive iterations at "
+                    f"epoch {epoch+1} iter {i} -- training has diverged, stopping now "
+                    f"instead of continuing on a broken model."
+                )
+        else:
+            nan_streak = 0
+
+        epoch_loss.update(loss_value, img.shape[0])
         batch_time.update(time.time() - tic)
         tic = time.time()
 
@@ -264,6 +297,7 @@ def get_parser():
     parser.add_argument('--fold_idx', type=int, default=None, help='run only this one fold (0-indexed) instead of looping over all k_fold folds')
     parser.add_argument('--start_fold', type=int, default=None, help='resume the fold loop from this index (0-indexed) through k_fold-1, instead of starting at 0. Ignored if --fold_idx is set.')
     parser.add_argument('--pos_weight', type=float, default=None, help='override yaml pos_weight (BCE positive-class weight)')
+    parser.add_argument('--grad_clip_norm', type=float, default=None, help='override yaml grad_clip_norm (max gradient norm before each optimizer step)')
     parser.add_argument('--val_subset_size', type=int, default=None, help='validate on a random subset of this many test cases instead of the full fold (fixed seed, same subset each val pass this run)')
     parser.add_argument('--resume', action='store_true', help='if resume training from checkpoint')
     parser.add_argument('--load', type=str, default=False, help='checkpoint path, used with --resume or --pretrain')
@@ -281,6 +315,7 @@ def get_parser():
     cli_epochs = args.epochs
     cli_val_freq = args.val_freq
     cli_pos_weight = args.pos_weight
+    cli_grad_clip_norm = args.grad_clip_norm
     # val_subset_size has no yaml key to clobber it, no snapshot needed
 
     config_path = REPO_SRC / "config" / args.dataset / f"{args.model}_{args.dimension}.yaml"
@@ -308,6 +343,8 @@ def get_parser():
         args.val_freq = cli_val_freq
     if cli_pos_weight is not None:
         args.pos_weight = cli_pos_weight
+    if cli_grad_clip_norm is not None:
+        args.grad_clip_norm = cli_grad_clip_norm
 
     args.start_epoch = 0
 

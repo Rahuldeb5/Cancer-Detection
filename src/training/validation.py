@@ -22,6 +22,11 @@ def validation(net, testLoader, args):
     Returns a dict of validation metrics for one fold:
       - 'dice', 'nsd', 'hd95', 'asd': per-class np.array (voxel/surface overlap quality,
         averaged only over scans where both GT and prediction have foreground -- see below)
+      - 'dice_positive_cases': like 'dice', but restricted to scans with real tumor --
+        excludes the trivial 1.0 scores negative scans get from an empty-vs-empty match.
+        Use THIS for "did this checkpoint improve" comparisons, not 'dice': with ~25% of
+        cases scan-level-negative, a model collapsed to predicting nothing everywhere can
+        outscore a model that's genuinely trying, on 'dice' alone.
       - 'sensitivity', 'specificity', 'f1', 'auc': scalars, case-level tumor
         DETECTION metrics (does this scan contain a tumor at all), not segmentation
         quality. A case counts as "predicted positive" if any voxel survives the
@@ -34,6 +39,7 @@ def validation(net, testLoader, args):
     net.eval()
 
     dice_scores = []
+    positive_dice_scores = []  # dice_scores restricted to cases with real tumor -- see below
     nsd_scores = []
     hd95_scores = []
     asd_scores = []
@@ -105,7 +111,9 @@ def validation(net, testLoader, args):
                 false_positive_scans += 1
             continue
 
-        dice_scores.append(dice_metric(pred, label).item())
+        d = dice_metric(pred, label).item()
+        dice_scores.append(d)
+        positive_dice_scores.append(d)
 
         if pred_empty:
             # missed the tumor entirely: Dice already captured this as 0 via the metric
@@ -117,6 +125,14 @@ def validation(net, testLoader, args):
         asd_scores.append(asd_metric(pred, label).item())
 
     dice_list = np.array([np.mean(dice_scores)])
+    # 'dice' includes trivial 1.0 scores for scan-level-negative cases (empty prediction
+    # correctly matching empty ground truth) -- with ~25% of cases negative, a model that
+    # has collapsed to predicting nothing everywhere can score dice_list.mean() *higher*
+    # than a model that's actually trying, which silently defeats "is this checkpoint
+    # better" comparisons. dice_positive_cases only covers cases with real tumor, so a
+    # collapsed model scores 0 here regardless of how many negatives it gets "right" --
+    # use THIS for checkpoint selection, not 'dice'.
+    dice_positive_list = np.array([np.mean(positive_dice_scores) if len(positive_dice_scores) > 0 else np.nan])
     nsd_list = np.array([np.mean(nsd_scores) if len(nsd_scores) > 0 else np.nan])
     hd95_list = np.array([np.mean(hd95_scores) if len(hd95_scores) > 0 else np.nan])
     asd_list = np.array([np.mean(asd_scores) if len(asd_scores) > 0 else np.nan])
@@ -137,6 +153,7 @@ def validation(net, testLoader, args):
 
     return {
         'dice': dice_list,
+        'dice_positive_cases': dice_positive_list,
         'nsd': nsd_list,
         'hd95': hd95_list,
         'asd': asd_list,
