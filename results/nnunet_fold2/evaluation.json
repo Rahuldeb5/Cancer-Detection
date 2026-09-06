@@ -1,0 +1,223 @@
+{
+  "pred_dir": "/home/rahul/research/nnunet_env/nnUNet_results/Dataset501_PanTSTumor/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_2/validation",
+  "surface_distance_pkg": true,
+  "segmentation_tumor": {
+    "n_ref_positive": 196,
+    "n_missed_entirely": 11,
+    "dice": {
+      "mean": 0.29755245698138744,
+      "std": 0.3218933659539787,
+      "median": 0.1420385122688747,
+      "n": 196
+    },
+    "iou": {
+      "mean": 0.22392494588634027,
+      "std": 0.26224758023378525,
+      "median": 0.07646564864790889,
+      "n": 196
+    },
+    "hd95": {
+      "mean": 85.02778725958885,
+      "std": 76.79954893863949,
+      "median": 66.44787114782629,
+      "n": 185
+    },
+    "assd": {
+      "mean": 26.921855823308835,
+      "std": 30.041071294364414,
+      "median": 17.88403263995253,
+      "n": 185
+    },
+    "nsd_1.0mm": {
+      "mean": 0.21029050183600115,
+      "std": 0.23024586460375285,
+      "median": 0.12387484130345083,
+      "n": 185
+    },
+    "nsd_2.0mm": {
+      "mean": 0.2860705759197705,
+      "std": 0.2926087272742941,
+      "median": 0.19407435661694905,
+      "n": 185
+    },
+    "nsd_3.0mm": {
+      "mean": 0.3586599369484902,
+      "std": 0.3433632134113913,
+      "median": 0.2681832544852018,
+      "n": 185
+    },
+    "rel_vol_diff": {
+      "mean": 1.0885758236160643,
+      "std": 6.635648793138128,
+      "median": -0.08861025101715894,
+      "n": 196
+    }
+  },
+  "detection_tumor": {
+    "n_cases": 261,
+    "n_positive": 196,
+    "by_volume_threshold": {
+      ">0mm3": {
+        "tp": 185,
+        "fp": 54,
+        "tn": 11,
+        "fn": 11,
+        "sensitivity": 0.9438775510204082,
+        "specificity": 0.16923076923076924,
+        "precision_ppv": 0.7740585774058577,
+        "npv": 0.5,
+        "f1": 0.8505747126436781,
+        "accuracy": 0.7509578544061303,
+        "balanced_accuracy": 0.5565541601255887,
+        "auroc": 0.7369309262166405,
+        "auprc": 0.8679579728078205
+      },
+      ">50mm3": {
+        "tp": 184,
+        "fp": 53,
+        "tn": 12,
+        "fn": 12,
+        "sensitivity": 0.9387755102040817,
+        "specificity": 0.18461538461538463,
+        "precision_ppv": 0.7763713080168776,
+        "npv": 0.5,
+        "f1": 0.8498845265588915,
+        "accuracy": 0.7509578544061303,
+        "balanced_accuracy": 0.5616954474097331,
+        "auroc": 0.7369309262166405,
+        "auprc": 0.8679579728078205
+      },
+      ">100mm3": {
+        "tp": 183,
+        "fp": 53,
+        "tn": 12,
+        "fn": 13,
+        "sensitivity": 0.9336734693877551,
+        "specificity": 0.18461538461538463,
+        "precision_ppv": 0.7754237288135594,
+        "npv": 0.48,
+        "f1": 0.8472222222222222,
+        "accuracy": 0.7471264367816092,
+        "balanced_accuracy": 0.5591444270015699,
+        "auroc": 0.7369309262166405,
+        "auprc": 0.8679579728078205
+      }
+    },
+    "score=pred_volume": {
+      "tp": 185,
+      "fp": 54,
+      "tn": 11,
+      "fn": 11,
+      "sensitivity": 0.9438775510204082,
+      "specificity": 0.16923076923076924,
+      "precision_ppv": 0.7740585774058577,
+      "npv": 0.5,
+      "f1": 0.8505747126436781,
+      "accuracy": 0.7509578544061303,
+      "balanced_accuracy": 0.5565541601255887,
+      "auroc": 0.7369309262166405,
+      "auprc": 0.8679579728078205
+    },
+    "score=max_prob": {
+      "tp": 185,
+      "fp": 54,
+      "tn": 11,
+      "fn": 11,
+      "sensitivity": 0.9438775510204082,
+      "specificity": 0.16923076923076924,
+      "precision_ppv": 0.7740585774058577,
+      "npv": 0.5,
+      "f1": 0.8505747126436781,
+      "accuracy": 0.7509578544061303,
+      "balanced_accuracy": 0.5565541601255887,
+      "auroc": 0.686342229199372,
+      "auprc": 0.8534274290966457
+    }
+  },
+  "size_stratified": {
+    "size_metric": "3D max (Feret) diameter of GT lesion connected component",
+    "bin_edges_mm": [
+      5.0,
+      10.0,
+      20.0,
+      40.0
+    ],
+    "total_gt_lesions": 252,
+    "per_lesion_by_size": {
+      "<5": {
+        "n_lesions": 10,
+        "diam_mm_median": 2.8264735098034075,
+        "lesion_dice_mean": 0.0,
+        "lesion_dice_median": 0.0,
+        "lesion_dice_mean_detected_only": 0.0,
+        "detection_rate_any_overlap": 0.0,
+        "detection_rate_iou>=0.1": 0.0
+      },
+      "5-10": {
+        "n_lesions": 5,
+        "diam_mm_median": 6.9125035442874365,
+        "lesion_dice_mean": 0.0,
+        "lesion_dice_median": 0.0,
+        "lesion_dice_mean_detected_only": 0.0,
+        "detection_rate_any_overlap": 0.0,
+        "detection_rate_iou>=0.1": 0.0
+      },
+      "10-20": {
+        "n_lesions": 52,
+        "diam_mm_median": 15.168267181926417,
+        "lesion_dice_mean": 0.05121347432217727,
+        "lesion_dice_median": 0.0,
+        "lesion_dice_mean_detected_only": 0.19022147605380132,
+        "detection_rate_any_overlap": 0.2692307692307692,
+        "detection_rate_iou>=0.1": 0.11538461538461539
+      },
+      "20-40": {
+        "n_lesions": 131,
+        "diam_mm_median": 27.27001218285619,
+        "lesion_dice_mean": 0.3044738494262108,
+        "lesion_dice_median": 0.10023278104888401,
+        "lesion_dice_mean_detected_only": 0.54638457910731,
+        "detection_rate_any_overlap": 0.5572519083969466,
+        "detection_rate_iou>=0.1": 0.4732824427480916
+      },
+      ">=40": {
+        "n_lesions": 54,
+        "diam_mm_median": 52.797046992252916,
+        "lesion_dice_mean": 0.4361651529784155,
+        "lesion_dice_median": 0.49637181037980016,
+        "lesion_dice_mean_detected_only": 0.5744614209959619,
+        "detection_rate_any_overlap": 0.7592592592592593,
+        "detection_rate_iou>=0.1": 0.6666666666666666
+      }
+    },
+    "per_scan_dice_by_largest_lesion_size": {
+      "<5": {
+        "n_scans": 0
+      },
+      "5-10": {
+        "n_scans": 0
+      },
+      "10-20": {
+        "n_scans": 30,
+        "mean": 0.06546582106183065,
+        "std": 0.13857084459121152,
+        "median": 0.0,
+        "n": 30
+      },
+      "20-40": {
+        "n_scans": 112,
+        "mean": 0.30713421270935964,
+        "std": 0.32316915407931024,
+        "median": 0.16399608580848823,
+        "n": 112
+      },
+      ">=40": {
+        "n_scans": 54,
+        "mean": 0.4066162057971989,
+        "std": 0.32679494790279273,
+        "median": 0.41564854620362046,
+        "n": 54
+      }
+    }
+  }
+}
