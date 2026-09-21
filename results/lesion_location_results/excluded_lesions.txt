@@ -1,0 +1,78 @@
+# Lesions excluded from the nnU-Net re-evaluation: detached from the pancreas in the PanTS masks.
+# Rule: < 50% of the lesion's voxels inside the union of pancreas / pancreas_head / pancreas_body /
+#   pancreas_tail, AND a gap of > 1.5 voxels (measured on the case's coarsest axis) between the
+#   lesion and the nearest voxel of that union.
+# lesion_id = component index from a 26-connectivity labeling of pancreatic_lesion.nii.gz in
+#   nibabel (x,y,z) axis order (same numbering as results/attenuation_results/lesion_dice_attenuation.csv).
+# 70 lesions in 53 cases (1308-case nnU-Net 5-fold cohort). Per-lesion details: excluded_lesions.csv
+# format: case_id lesion_id
+PanTS_00000040 1
+PanTS_00000100 2
+PanTS_00000220 1
+PanTS_00000881 1
+PanTS_00001471 2
+PanTS_00001477 2
+PanTS_00001749 2
+PanTS_00001996 1
+PanTS_00002235 2
+PanTS_00002362 2
+PanTS_00003012 4
+PanTS_00003012 5
+PanTS_00003012 6
+PanTS_00003258 2
+PanTS_00003258 3
+PanTS_00003416 3
+PanTS_00003824 2
+PanTS_00003900 1
+PanTS_00003900 2
+PanTS_00003900 3
+PanTS_00003978 1
+PanTS_00004155 2
+PanTS_00004225 1
+PanTS_00004366 1
+PanTS_00004454 4
+PanTS_00004503 2
+PanTS_00004669 1
+PanTS_00004669 2
+PanTS_00004669 3
+PanTS_00004800 1
+PanTS_00005162 1
+PanTS_00005162 2
+PanTS_00005266 1
+PanTS_00005392 2
+PanTS_00006039 2
+PanTS_00006054 1
+PanTS_00006056 1
+PanTS_00006135 1
+PanTS_00006300 2
+PanTS_00006300 3
+PanTS_00007100 3
+PanTS_00007100 4
+PanTS_00007211 2
+PanTS_00007578 1
+PanTS_00007578 2
+PanTS_00007578 4
+PanTS_00007578 5
+PanTS_00007661 2
+PanTS_00007661 3
+PanTS_00007691 3
+PanTS_00007735 1
+PanTS_00007997 2
+PanTS_00008072 1
+PanTS_00008132 1
+PanTS_00008132 2
+PanTS_00008132 3
+PanTS_00008132 4
+PanTS_00008205 1
+PanTS_00008242 1
+PanTS_00008292 2
+PanTS_00008384 2
+PanTS_00008451 5
+PanTS_00008636 1
+PanTS_00008646 1
+PanTS_00008658 7
+PanTS_00008885 1
+PanTS_00008922 2
+PanTS_00009084 1
+PanTS_00009520 1
+PanTS_00009567 1
