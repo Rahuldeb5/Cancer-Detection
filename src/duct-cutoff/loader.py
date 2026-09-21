@@ -12,7 +12,7 @@ from pathlib import Path
 
 import nibabel as nib
 import numpy as np
-from scipy.ndimage import zoom
+from scipy.ndimage import affine_transform
 
 MASK_ROOT = Path("/home/rahuldeb5/research/datasets/pants/masks/mask_only")
 FOLD_DIR = Path("src/data")
@@ -45,8 +45,12 @@ def load_ducts(case_id: str) -> dict | None:
             print(f"{case_id}: missing {p}")
             return None
 
-    cbd_img = nib.load(cbd_path)
-    mpd_img = nib.load(mpd_path)
+    try:
+        cbd_img = nib.load(cbd_path)
+        mpd_img = nib.load(mpd_path)
+    except Exception as e:  # e.g. un-pulled git-LFS pointer stub ("not a gzip file")
+        print(f"{case_id}: unreadable mask ({type(e).__name__}: {e})")
+        return None
 
     ref_shape = cbd_img.shape
     ref_affine = cbd_img.affine
@@ -61,7 +65,7 @@ def load_ducts(case_id: str) -> dict | None:
         # get_unscaled() reads the on-disk dtype (int8 label masks) directly --
         # np.asanyarray(img.dataobj) applies nibabel's scl_slope/inter scaling
         # and silently upcasts to float64, doubling memory right before we
-        # need a float32 buffer for zoom() below.
+        # need a float32 buffer for the resample below.
         raw = img.dataobj.get_unscaled()
         if np.issubdtype(raw.dtype, np.floating):
             raw = np.nan_to_num(raw, nan=0.0)
@@ -85,7 +89,7 @@ def _bbox_crop(mask: np.ndarray, pad: int) -> tuple[np.ndarray, tuple[int, int, 
     world mm via the native affine.
 
     Unlike largest_component()/clean_mask() in geometry.py, this drops no
-    voxels and merges no components -- it only avoids handing zoom() (and
+    voxels and merges no components -- it only avoids handing the resampler (and
     later, skeletonize/EDT) a full CT-grid-sized array when the duct itself
     occupies a tiny fraction of it, which is the same full-volume memory trap
     attenuation-labeling/main.py documents for distance_transform_edt.
@@ -100,33 +104,37 @@ def _bbox_crop(mask: np.ndarray, pad: int) -> tuple[np.ndarray, tuple[int, int, 
 def resample_mask_to_isotropic(
     mask: np.ndarray, spacing: tuple[float, float, float], target_mm: float = 1.0
 ) -> tuple[np.ndarray, tuple[float, float, float], tuple[int, int, int]]:
-    """Bbox-crop, then resample a *binary* mask to isotropic spacing.
+    """Bbox-crop, then resample a *binary* mask to exactly target_mm isotropic.
 
-    order=1 (linear) on the float-cast mask + 0.5 threshold, not order=0
-    (nearest-neighbor): the duct is only 2-4 voxels across at native spacing,
-    so nearest-neighbor upsampling would just duplicate the existing blocky
-    boundary instead of reconstructing a smoother one, and downstream
-    caliber/derivative estimates are sensitive to that boundary. Linear is
-    safe for a single binary label -- no risk of blending two different
-    label IDs together, since there's only one here.
+    Linear interpolation on the float-cast mask + 0.5 threshold, not
+    nearest-neighbor: the duct is only 2-4 voxels across at native spacing, so
+    nearest-neighbor upsampling would just duplicate the existing blocky
+    boundary, and caliber/derivative estimates are sensitive to it. Safe for a
+    single binary label -- nothing to blend it with.
 
-    Returns (resampled_mask, new_spacing, crop_offset); new_spacing is
-    recomputed from the actual output shape rather than assumed to be exactly
-    target_mm, since zoom() rounds output shape to the nearest integer voxel
-    count and the zoom factor it actually applied can differ slightly.
+    Uses affine_transform with an explicit scale, NOT scipy's zoom(): zoom()
+    aligns first/last voxel *centers* and rounds the output shape per array, so
+    the effective spacing drifts up to ~1% and differs between two crops of
+    the same grid (observed on real PanTS ducts). Here output index o maps to
+    input index o / factor, so spacing is exactly target_mm and voxel 0 of the
+    output is voxel 0 of the crop -- which makes the crop_offset world-mm
+    formula in load_ducts_isotropic exact.
+
+    Returns (resampled_mask, spacing_iso, crop_offset); an empty input mask
+    comes back as a zero-size array.
     """
+    iso = (target_mm,) * 3
     if not mask.any():
-        return mask, spacing, (0, 0, 0)
+        return np.zeros((0, 0, 0), dtype=bool), iso, (0, 0, 0)
 
     cropped, offset = _bbox_crop(mask, CROP_PAD_VOX)
 
-    zoom_factors = tuple(s / target_mm for s in spacing)
-    resampled = zoom(cropped.astype(np.float32), zoom_factors, order=1) > 0.5
-
-    new_spacing = tuple(
-        s * (n_in / n_out) for s, n_in, n_out in zip(spacing, cropped.shape, resampled.shape)
-    )
-    return resampled, new_spacing, offset
+    factors = np.asarray(spacing) / target_mm
+    out_shape = tuple(int(np.floor((n - 1) * f)) + 1 for n, f in zip(cropped.shape, factors))
+    resampled = affine_transform(
+        cropped.astype(np.float32), np.diag(1.0 / factors), output_shape=out_shape, order=1, mode="constant", cval=0.0
+    ) > 0.5
+    return resampled, iso, offset
 
 
 def load_ducts_isotropic(case_id: str, target_mm: float = 1.0) -> dict | None:
@@ -145,17 +153,8 @@ def load_ducts_isotropic(case_id: str, target_mm: float = 1.0) -> dict | None:
     if case is None:
         return None
 
-    cbd_iso, cbd_spacing, cbd_offset = resample_mask_to_isotropic(case["cbd"], case["spacing"], target_mm)
-    mpd_iso, mpd_spacing, mpd_offset = resample_mask_to_isotropic(case["mpd"], case["spacing"], target_mm)
-
-    # both start on the same grid/spacing (load_ducts checked this), so a
-    # fixed target_mm must resample them to the same spacing even though
-    # their crops/offsets differ -- if this ever fires, resample_mask_to_isotropic
-    # itself has a bug, not the input data.
-    assert cbd_spacing == mpd_spacing, (
-        f"{case_id}: cbd/mpd resampled to different spacing ({cbd_spacing} vs "
-        f"{mpd_spacing}) despite sharing native spacing -- should be impossible"
-    )
+    cbd_iso, spacing_iso, cbd_offset = resample_mask_to_isotropic(case["cbd"], case["spacing"], target_mm)
+    mpd_iso, _, mpd_offset = resample_mask_to_isotropic(case["mpd"], case["spacing"], target_mm)
 
     return {
         "case_id": case_id,
@@ -163,7 +162,7 @@ def load_ducts_isotropic(case_id: str, target_mm: float = 1.0) -> dict | None:
         "mpd": mpd_iso,
         "cbd_offset": cbd_offset,
         "mpd_offset": mpd_offset,
-        "spacing": cbd_spacing,
+        "spacing": spacing_iso,
         "native_spacing": case["spacing"],
         "affine": case["affine"],
     }
