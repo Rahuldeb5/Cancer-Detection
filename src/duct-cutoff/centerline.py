@@ -77,28 +77,27 @@ def label_components(mask: np.ndarray) -> tuple[np.ndarray, int, np.ndarray]:
     return labeled, n, sizes
 
 
-def skeleton_of(mask: np.ndarray) -> np.ndarray:
-    skel = skeletonize(mask)
-
-    if skel.size == 0:
+def skeleton_of(mask: np.ndarray) -> np.ndarray | None:
+    if not mask.any():
         return None
 
-    return skel
+    return skeletonize(mask)
 
 
 def skeleton_graph(skel: np.ndarray, spacing: tuple[float, float, float]) -> nx.Graph:
 
     coords = np.argwhere(skel)
     index = {tuple(c): i for i, c in enumerate(coords)}
-    offsets = [o for o in itertools.product((-1, 0, 1), repeat=3) if o > (0, 0, 0)]   # 13 of the 26
 
     G = nx.Graph()
     G.add_nodes_from(range(len(coords)))
     for i, c in enumerate(coords):
-        for o in offsets:
+        for o in HALF_OFFSETS:
             j = index.get(tuple(c+o))
             if j is not None:
                 G.add_edge(i, j, w=np.linalg.norm(np.array(o) * spacing), bridged=False)
+
+    return G
 
 
 def double_sweep(G: nx.Graph) -> tuple[int, int]:
@@ -158,11 +157,10 @@ def bridge_components(G: nx.Graph, coords: np.ndarray, max_bridge_mm: float, spa
     return gap_lengths_mm
     
 
-# ---- later steps (stubs so the module shape is visible) ---------------------
-
 def order_trunk(G: nx.Graph) -> list[int]:
     """shortest_path(G, a, b, weight='w') between the double_sweep endpoints."""
-    raise NotImplementedError
+    a, b = double_sweep(G)
+    return nx.shortest_path(G, a, b, weight='w')
 
 
 def extract_centerline(mask: np.ndarray, spacing: tuple[float, float, float],
