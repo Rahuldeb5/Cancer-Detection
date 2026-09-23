@@ -12,7 +12,7 @@ Convention: s = 0 at the head/ampullary end, s increasing toward the tail.
 from __future__ import annotations
 
 import itertools
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 import networkx as nx
 import numpy as np
@@ -52,7 +52,10 @@ class CenterlineResult:
     n_bridged_gaps: int = 0
     gap_lengths_mm: list[float] = field(default_factory=list)
     n_dropped_components: int = 0   # < min_component_vox, excluded before skeletonizing
+    n_unbridged_components: int = 0  # real pieces left OUT of the trunk (gap > max_bridge_mm) -- >0 means a truncated duct
     n_branch_points: int = 0        # not computed yet -- wire up when you write Phantom A3/A4
+    flipped: bool = False                   # orient_head_to_tail reversed the path
+    orientation_margin_mm: float = float("nan")  # how decisively the head end was identified
     total_len_mm: float = float("nan")
     path_xyz: np.ndarray | None = None      # (n, 3) ordered iso-voxel coords, head -> tail
     bridged: np.ndarray | None = None       # (n,) bool: sample lies on a bridge edge
@@ -256,11 +259,79 @@ def extract_centerline(mask: np.ndarray, spacing: tuple[float, float, float],
         n_components=n,
         component_sizes=list(sizes),
         n_dropped_components=n_dropped,
+        n_unbridged_components=len(comps) - 1,
         n_bridged_gaps=len(gap_lengths),
         gap_lengths_mm=gap_lengths,
         total_len_mm=total_len_mm,
         path_xyz=path_xyz,
         bridged=bridged,
+    )
+
+
+# ---- orientation: s = 0 at the head/ampullary end ---------------------------
+
+def iso_to_world_mm(pts_iso: np.ndarray, crop_offset: tuple, spacing_iso: tuple,
+                    native_spacing: tuple, affine: np.ndarray) -> np.ndarray:
+    """Points in a loader.py isotropic crop (index units) -> world mm.
+    Inverse of what resample_mask_to_isotropic did: output index o was read
+    from crop index o * spacing_iso / native_spacing, and the crop starts at
+    crop_offset in the native array."""
+    native_idx = np.asarray(crop_offset) + np.asarray(pts_iso) * (
+        np.asarray(spacing_iso) / np.asarray(native_spacing)
+    )
+    return native_idx @ affine[:3, :3].T + affine[:3, 3]
+
+
+def mask_centroid_mm(mask: np.ndarray, affine: np.ndarray) -> np.ndarray | None:
+    """Centroid of a NATIVE-grid bool mask in world mm; None if empty."""
+    if not mask.any():
+        return None
+    return np.argwhere(mask).mean(axis=0) @ affine[:3, :3].T + affine[:3, 3]
+
+
+def orient_head_to_tail(res: CenterlineResult, crop_offset: tuple, spacing_iso: tuple,
+                        native_spacing: tuple, affine: np.ndarray,
+                        head_centroid_mm: np.ndarray,
+                        tail_centroid_mm: np.ndarray | None = None,
+                        min_margin_mm: float = 10.0) -> CenterlineResult:
+    """Reverse path_xyz/bridged if needed so index 0 is the head/ampullary end.
+
+    Primary signal: the end nearer the pancreas-head centroid is s = 0. That
+    holds for the MPD (head end vs tail end) and the CBD (ampullary end sits in
+    the head; the other end is up in the hepatoduodenal ligament).
+    Second signal, MPD only: projection onto the head->tail centroid axis. Pass
+    tail_centroid_mm=None for the CBD -- it runs mostly perpendicular to that
+    axis, so the projection is meaningless there.
+
+    Status becomes "orient_ambiguous" (path still oriented by the primary
+    signal, so diagnostics stay sensible) if the two signals disagree or the
+    two ends are within min_margin_mm of equally far from the head centroid.
+    Callers should exclude non-"ok" cases and count them.
+    """
+    if res.status != "ok" or res.path_xyz is None:
+        return res
+
+    ends = iso_to_world_mm(res.path_xyz[[0, -1]], crop_offset, spacing_iso, native_spacing, affine)
+    d = np.linalg.norm(ends - head_centroid_mm, axis=1)
+    flip = bool(d[0] > d[1])
+    margin = float(abs(d[0] - d[1]))
+
+    status = res.status
+    if margin < min_margin_mm:
+        status = "orient_ambiguous"
+    if tail_centroid_mm is not None:
+        axis = tail_centroid_mm - head_centroid_mm
+        proj = (ends - head_centroid_mm) @ axis / np.linalg.norm(axis)
+        if bool(proj[0] > proj[1]) != flip:
+            status = "orient_ambiguous"
+
+    return replace(
+        res,
+        status=status,
+        path_xyz=res.path_xyz[::-1].copy() if flip else res.path_xyz,
+        bridged=res.bridged[::-1].copy() if flip else res.bridged,
+        flipped=flip,
+        orientation_margin_mm=margin,
     )
 
 

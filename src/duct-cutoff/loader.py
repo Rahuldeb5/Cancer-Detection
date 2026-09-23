@@ -30,6 +30,17 @@ def case_ids() -> list[str]:
     return sorted(ids)
 
 
+def load_bool_mask(img) -> np.ndarray:
+    # get_unscaled() reads the on-disk dtype (int8 label masks) directly --
+    # np.asanyarray(img.dataobj) applies nibabel's scl_slope/inter scaling
+    # and silently upcasts to float64, doubling memory right before we
+    # need a float32 buffer for the resample below.
+    raw = img.dataobj.get_unscaled()
+    if np.issubdtype(raw.dtype, np.floating):
+        raw = np.nan_to_num(raw, nan=0.0)
+    return raw > 0.5
+
+
 def load_ducts(case_id: str) -> dict | None:
     """Load CBD + MPD masks for one case, on the same grid, at native spacing.
 
@@ -60,16 +71,6 @@ def load_ducts(case_id: str) -> dict | None:
     if not np.allclose(mpd_img.affine, ref_affine, atol=1e-3):
         print(f"{case_id}: affine mismatch cbd vs mpd")
         return None
-
-    def load_bool_mask(img) -> np.ndarray:
-        # get_unscaled() reads the on-disk dtype (int8 label masks) directly --
-        # np.asanyarray(img.dataobj) applies nibabel's scl_slope/inter scaling
-        # and silently upcasts to float64, doubling memory right before we
-        # need a float32 buffer for the resample below.
-        raw = img.dataobj.get_unscaled()
-        if np.issubdtype(raw.dtype, np.floating):
-            raw = np.nan_to_num(raw, nan=0.0)
-        return raw > 0.5
 
     spacing = nib.affines.voxel_sizes(ref_affine)  # array-axis order, robust to permuted affines
 
@@ -166,3 +167,26 @@ def load_ducts_isotropic(case_id: str, target_mm: float = 1.0) -> dict | None:
         "native_spacing": case["spacing"],
         "affine": case["affine"],
     }
+
+
+def load_pancreas_regions(case_id: str, ref_shape: tuple, ref_affine: np.ndarray) -> dict | None:
+    """Load pancreas head/body/tail GT masks on the SAME grid as the ducts
+    (pass load_ducts()'s shape/affine). Returns None with a printed reason on
+    any problem, like load_ducts()."""
+    seg_dir = MASK_ROOT / case_id / "segmentations"
+    out = {}
+    for name in ("head", "body", "tail"):
+        path = seg_dir / f"pancreas_{name}.nii.gz"
+        if not path.exists():
+            print(f"{case_id}: missing {path}")
+            return None
+        try:
+            img = nib.load(path)
+        except Exception as e:
+            print(f"{case_id}: unreadable mask ({type(e).__name__}: {e})")
+            return None
+        if img.shape != ref_shape or not np.allclose(img.affine, ref_affine, atol=1e-3):
+            print(f"{case_id}: pancreas_{name} grid differs from duct grid")
+            return None
+        out[name] = load_bool_mask(img)
+    return out
