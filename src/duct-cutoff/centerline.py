@@ -12,12 +12,14 @@ Convention: s = 0 at the head/ampullary end, s increasing toward the tail.
 from __future__ import annotations
 
 import itertools
+import warnings
 from dataclasses import dataclass, field, replace
 
 import networkx as nx
 import numpy as np
+from numpy.lib.stride_tricks import sliding_window_view
 from scipy.interpolate import splev, splprep
-from scipy.ndimage import label
+from scipy.ndimage import binary_dilation, distance_transform_edt, label, map_coordinates
 from scipy.spatial.distance import cdist
 from skimage.morphology import skeletonize
 
@@ -42,6 +44,8 @@ class CutoffParams:
     ratio_thresh: float = 2.0
     persistence_mm: float = 15.0
     step_mm: float = 1.0         # arc-length resampling step
+    down_floor_mm: float = 1.0   # ratio denominator floor: <1 mm is unresolvable at 1 mm voxels
+    min_window_frac: float = 0.6  # a window needs this fraction of finite (non-bridged) samples
 
 
 @dataclass
@@ -336,15 +340,114 @@ def orient_head_to_tail(res: CenterlineResult, crop_offset: tuple, spacing_iso: 
 
 
 def caliber_profile(mask: np.ndarray, centerline: CenterlineResult,
-                    spacing: tuple[float, float, float], step_mm: float) -> np.ndarray:
-    """2 * EDT sampled at centerline points (map_coordinates, order=1);
-    NaN on bridged samples."""
-    raise NotImplementedError
+                    spacing: tuple[float, float, float], step_mm: float,
+                    edt_offset_mm: float = 0.0, bridge_pad_mm: float = 3.0) -> np.ndarray:
+    """Caliber (mm) at each centerline sample; sample i is at arc position i * step_mm.
+
+    `mask` must be the exact isotropic array given to extract_centerline (path_xyz
+    is in its index units). Returns an empty array unless centerline.status is
+    "ok", so unoriented / failed centerlines never reach detect_cutoff.
+
+    edt_offset_mm is subtracted from 2*EDT. Default 0: on phantoms plain 2*EDT is
+    already near the true diameter, and Session 2's half-voxel correction
+    over-subtracts ~1 mm. Calibrate it on your own phantoms.
+
+    Samples on a bridged span, plus bridge_pad_mm either side, are NaN -- EDT
+    drops near a cut face and there is no real duct on the bridge itself.
+    """
+    if centerline.status != "ok" or centerline.path_xyz is None:
+        return np.array([])
+
+    edt = distance_transform_edt(mask, sampling=spacing)
+    radius = map_coordinates(edt, centerline.path_xyz.T, order=1, mode="nearest")
+    caliber = 2 * radius - edt_offset_mm
+
+    pad = int(round(bridge_pad_mm / step_mm))
+    caliber[binary_dilation(centerline.bridged, structure=np.ones(2 * pad + 1, bool))] = np.nan
+    return caliber
+
+
+def _window_medians(x: np.ndarray, w: int, min_frac: float) -> np.ndarray:
+    """med[k] = nanmedian(x[k-w : k]) for k = 0 .. len(x)+w  (length n+w+1).
+    NaN where fewer than min_frac*w of the window's samples are finite, which
+    also NaNs windows hanging off either end of the array."""
+    pad = np.concatenate([np.full(w, np.nan), x, np.full(w, np.nan)])
+    win = sliding_window_view(pad, w)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)   # all-NaN slice
+        med = np.nanmedian(win, axis=1)
+    med[np.isfinite(win).sum(axis=1) < min_frac * w] = np.nan
+    return med
 
 
 def detect_cutoff(caliber: np.ndarray, bridged: np.ndarray,
                   p: CutoffParams = CutoffParams(),
                   end_margin_mm: float = 5.0) -> CutoffResult:
-    """Windowed up/down median step statistic over several scales, gated by
-    dilate_thresh, ratio, persistence, end margins and bridges."""
-    raise NotImplementedError
+    """Abrupt-narrowing cutoff on a head->tail oriented caliber profile.
+
+    Flow is tail -> head, so UPSTREAM is the tail side (larger s). At candidate
+    index i, up = median(caliber[i+1 : i+1+w]) (tail side), down = median(
+    caliber[i-w : i]) (head side). A cutoff is dilated-then-narrow going toward
+    the head: up >= dilate_thresh, up/down >= ratio_thresh, and the dilated
+    condition holds continuously for >= persistence_mm past i. Tried at every
+    window in p.window_mm; the best (highest log2 ratio) passing scale wins per
+    index. NaN (bridged / unmeasured) samples never count as narrow or dilated.
+
+    Returns detected=False (all else NaN) for an empty profile -- callers should
+    check the centerline status to tell "no cutoff" from "could not evaluate".
+    """
+    n = len(caliber)
+    if n == 0:
+        return CutoffResult()
+    step = p.step_mm
+
+    margin = int(np.ceil(end_margin_mm / step))
+    valid = np.zeros(n, bool)
+    valid[margin:n - margin] = True
+    valid &= np.isfinite(caliber)
+
+    # dilated = 5 mm-smoothed caliber over threshold; NaN -> not dilated (breaks the run)
+    smooth = _window_medians(caliber, 5, p.min_window_frac)[3:3 + n]
+    with np.errstate(invalid="ignore"):
+        dilated = smooth >= p.dilate_thresh_mm
+    run = np.zeros(n + 1, int)
+    for i in range(n - 1, -1, -1):
+        run[i] = run[i + 1] + 1 if dilated[i] else 0
+    persist = run[1:] * step          # persist[i]: dilated stretch just past i, mm
+
+    best = np.full(n, -np.inf)
+    best_w = np.zeros(n, int)
+    best_up = np.full(n, np.nan)
+    best_down = np.full(n, np.nan)
+    best_ratio = np.full(n, np.nan)
+    for w_mm in p.window_mm:
+        w = max(2, int(round(w_mm / step)))
+        med = _window_medians(caliber, w, p.min_window_frac)
+        down, up = med[:n], med[w + 1:w + 1 + n]
+        ratio = up / np.maximum(down, p.down_floor_mm)
+        with np.errstate(invalid="ignore"):
+            ok = valid & (up >= p.dilate_thresh_mm) & (ratio >= p.ratio_thresh) & (persist >= p.persistence_mm)
+        score = np.where(ok, np.log2(np.where(ok, ratio, 1.0)), -np.inf)
+        better = score > best
+        best[better], best_w[better] = score[better], w
+        best_up[better], best_down[better], best_ratio[better] = up[better], down[better], ratio[better]
+
+    cand = np.flatnonzero(np.isfinite(best))
+    if cand.size == 0:
+        return CutoffResult(detected=False)
+
+    i = int(np.argmax(best))
+    w = best_w[i]
+    gap = int(round(5.0 / step))       # candidates > 5 mm apart are separate peaks
+    return CutoffResult(
+        detected=True,
+        score=float(best[i]),
+        arc_mm=float(i * step),
+        scale_mm=float(w * step),
+        up_caliber_mm=float(best_up[i]),
+        down_caliber_mm=float(best_down[i]),
+        ratio=float(best_ratio[i]),
+        persistence_mm=float(persist[i]),
+        n_candidates=int(1 + np.sum(np.diff(cand) > gap)),
+        on_bridge=bool(np.asarray(bridged)[max(0, i - w):min(n, i + w + 1)].any()),
+    )
