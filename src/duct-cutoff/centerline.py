@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 
 import networkx as nx
 import numpy as np
+from scipy.interpolate import splev, splprep
 from scipy.ndimage import label
 from scipy.spatial.distance import cdist
 from skimage.morphology import skeletonize
@@ -30,6 +31,7 @@ class CenterlineParams:
     min_component_vox: int = 20  # noise floor; counted, never silently dropped
     spur_len_mm: float = 5.0     # off-trunk pieces shorter than this are spurs
     end_margin_mm: float = 5.0   # no cutoff allowed this close to either duct end
+    step_mm: float = 1.0         # arc-length resampling step (extract_centerline uses this)
 
 
 @dataclass
@@ -49,7 +51,8 @@ class CenterlineResult:
     component_sizes: list[int] = field(default_factory=list)
     n_bridged_gaps: int = 0
     gap_lengths_mm: list[float] = field(default_factory=list)
-    n_branch_points: int = 0
+    n_dropped_components: int = 0   # < min_component_vox, excluded before skeletonizing
+    n_branch_points: int = 0        # not computed yet -- wire up when you write Phantom A3/A4
     total_len_mm: float = float("nan")
     path_xyz: np.ndarray | None = None      # (n, 3) ordered iso-voxel coords, head -> tail
     bridged: np.ndarray | None = None       # (n,) bool: sample lies on a bridge edge
@@ -157,16 +160,108 @@ def bridge_components(G: nx.Graph, coords: np.ndarray, max_bridge_mm: float, spa
     return gap_lengths_mm
     
 
-def order_trunk(G: nx.Graph) -> list[int]:
-    """shortest_path(G, a, b, weight='w') between the double_sweep endpoints."""
+def order_trunk(G: nx.Graph) -> tuple[list[int], float]:
+    """Ordered node path between the two farthest-apart nodes of G, via
+    shortest_path (edges weighted by true mm). Call this on a SINGLE connected
+    component's subgraph -- extract_centerline picks that component first."""
     a, b = double_sweep(G)
-    return nx.shortest_path(G, a, b, weight='w')
+    path = nx.shortest_path(G, a, b, weight="w")
+    return path, nx.path_weight(G, path, weight="w")
 
 
 def extract_centerline(mask: np.ndarray, spacing: tuple[float, float, float],
                        p: CenterlineParams = CenterlineParams()) -> CenterlineResult:
     """mask -> label -> skeleton -> graph -> bridge -> ordered, arc-resampled path."""
-    raise NotImplementedError
+    if not mask.any():
+        return CenterlineResult(status="no_mask")
+
+    labeled, n, sizes = label_components(mask)
+    keep_labels = [i + 1 for i, sz in enumerate(sizes) if sz >= p.min_component_vox]
+    n_dropped = n - len(keep_labels)
+    mask_filtered = np.isin(labeled, keep_labels)
+
+    skel = skeleton_of(mask_filtered)
+    if skel is None or not skel.any():
+        return CenterlineResult(status="too_small", n_components=n,
+                                component_sizes=list(sizes), n_dropped_components=n_dropped)
+
+    # skeleton_graph() computes its own np.argwhere(skel) internally, and node
+    # ids are indices into that array -- this recomputes it identically (same
+    # skel, not mutated in between) so path/coords stay aligned below.
+    coords = np.argwhere(skel)
+    G = skeleton_graph(skel, spacing)
+
+    gap_lengths = bridge_components(G, coords, p.max_bridge_mm, spacing)
+
+    comps = list(nx.connected_components(G))
+
+    def comp_len(nodes):
+        a, b = double_sweep(G.subgraph(nodes))
+        return nx.shortest_path_length(G.subgraph(nodes), a, b, weight="w")
+
+    trunk_nodes = max(comps, key=comp_len)
+    trunk = G.subgraph(trunk_nodes)
+
+    # 26-connectivity gives 3-cycles from diagonal steps on ANY clean line --
+    # only a cycle whose true physical perimeter is large is a real loop.
+    for cycle in nx.cycle_basis(trunk):
+        cyc_len = sum(
+            trunk[cycle[i]][cycle[(i + 1) % len(cycle)]]["w"]
+            for i in range(len(cycle))
+        )
+        if cyc_len > 10.0:
+            return CenterlineResult(status="loop_in_skeleton", n_components=n,
+                                    component_sizes=list(sizes), n_dropped_components=n_dropped,
+                                    n_bridged_gaps=len(gap_lengths), gap_lengths_mm=gap_lengths)
+
+    path, _ = order_trunk(trunk)
+    if len(path) < 2:
+        return CenterlineResult(status="too_small", n_components=n,
+                                component_sizes=list(sizes), n_dropped_components=n_dropped)
+
+    spacing_arr = np.array(spacing)
+    raw_pts_mm = coords[path] * spacing_arr                          # (m, 3) mm, still jagged
+    raw_bridged_edge = np.array(
+        [trunk[path[i]][path[i + 1]]["bridged"] for i in range(len(path) - 1)]
+    )
+    raw_seg_len = np.linalg.norm(np.diff(raw_pts_mm, axis=0), axis=1)
+    raw_chord = np.concatenate([[0.0], np.cumsum(raw_seg_len)])      # true arc length so far, mm
+    total_len_mm = float(raw_chord[-1])
+
+    # parameterize the spline BY raw arc length (not splprep's own guess) so
+    # resampled points and the raw per-segment bridge flags share one scale
+    u = raw_chord / total_len_mm
+    k = min(3, len(path) - 1)
+    s = len(path) * (0.5 ** 2)   # ~0.5mm avg deviation tolerance -- verify this in your phantom test
+    tck, _ = splprep(raw_pts_mm.T, u=u, s=s, k=k)
+
+    u_dense = np.linspace(0, 1, max(2000, len(path) * 4))
+    dense = np.array(splev(u_dense, tck)).T
+    dense_arc = u_dense * total_len_mm
+
+    arc_targets = np.arange(0.0, total_len_mm, p.step_mm)
+    resampled_mm = np.column_stack(
+        [np.interp(arc_targets, dense_arc, dense[:, ax]) for ax in range(3)]
+    )
+    path_xyz = resampled_mm / spacing_arr    # back to iso-voxel index units, for map_coordinates later
+
+    # bridged flag per resampled sample: which raw segment did this arc
+    # position fall into, and was that segment a bridge edge
+    seg_idx = np.clip(np.searchsorted(raw_chord, arc_targets, side="right") - 1,
+                      0, len(raw_bridged_edge) - 1)
+    bridged = raw_bridged_edge[seg_idx]
+
+    return CenterlineResult(
+        status="ok",
+        n_components=n,
+        component_sizes=list(sizes),
+        n_dropped_components=n_dropped,
+        n_bridged_gaps=len(gap_lengths),
+        gap_lengths_mm=gap_lengths,
+        total_len_mm=total_len_mm,
+        path_xyz=path_xyz,
+        bridged=bridged,
+    )
 
 
 def caliber_profile(mask: np.ndarray, centerline: CenterlineResult,
