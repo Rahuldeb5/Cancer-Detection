@@ -1,0 +1,124 @@
+section,metric,fold,baseline,excluded,delta
+case_level,n_cases,0,264.0,260.0,-4.0
+case_level,n_ref_positive,0,198.0,194.0,-4.0
+case_level,n_missed_entirely,0,10.0,9.0,-1.0
+case_level,dice_mean,0,0.351,0.3527,0.0017
+case_level,dice_median,0,0.3002,0.3145,0.0143
+case_level,hd95_mean_mm,0,71.3145,71.6513,0.3367
+case_level,nsd_2mm_mean,0,0.3316,0.3306,-0.001
+case_level,detect[vol>0]_sensitivity,0,0.9495,0.9536,0.0041
+case_level,detect[vol>0]_specificity,0,0.197,0.197,0.0
+case_level,detect[vol>0]_precision,0,0.7801,0.7773,-0.0028
+case_level,detect[vol>0]_f1,0,0.8565,0.8565,-0.0
+case_level,detect[maxprob>0.5]_sensitivity,0,0.9495,0.9536,0.0041
+case_level,detect[maxprob>0.5]_specificity,0,0.197,0.197,0.0
+case_level,detect[maxprob>0.5]_precision,0,0.7801,0.7773,-0.0028
+case_level,detect[maxprob>0.5]_f1,0,0.8565,0.8565,-0.0
+case_level,auroc_maxprob,0,0.7252,0.7261,0.0009
+case_level,n_cases,1,263.0,259.0,-4.0
+case_level,n_ref_positive,1,197.0,193.0,-4.0
+case_level,n_missed_entirely,1,16.0,15.0,-1.0
+case_level,dice_mean,1,0.2934,0.2981,0.0047
+case_level,dice_median,1,0.1544,0.1619,0.0075
+case_level,hd95_mean_mm,1,69.3076,69.4923,0.1847
+case_level,nsd_2mm_mean,1,0.2855,0.2879,0.0024
+case_level,detect[vol>0]_sensitivity,1,0.9188,0.9223,0.0035
+case_level,detect[vol>0]_specificity,1,0.2273,0.2273,0.0
+case_level,detect[vol>0]_precision,1,0.7802,0.7773,-0.0029
+case_level,detect[vol>0]_f1,1,0.8438,0.8436,-0.0002
+case_level,detect[maxprob>0.5]_sensitivity,1,0.9188,0.9223,0.0035
+case_level,detect[maxprob>0.5]_specificity,1,0.2273,0.2273,0.0
+case_level,detect[maxprob>0.5]_precision,1,0.7802,0.7773,-0.0029
+case_level,detect[maxprob>0.5]_f1,1,0.8438,0.8436,-0.0002
+case_level,auroc_maxprob,1,0.7111,0.7132,0.0021
+case_level,n_cases,2,261.0,258.0,-3.0
+case_level,n_ref_positive,2,196.0,193.0,-3.0
+case_level,n_missed_entirely,2,11.0,11.0,0.0
+case_level,dice_mean,2,0.2976,0.3031,0.0056
+case_level,dice_median,2,0.142,0.1786,0.0365
+case_level,hd95_mean_mm,2,85.0278,85.9628,0.935
+case_level,nsd_2mm_mean,2,0.2861,0.2921,0.0061
+case_level,detect[vol>0]_sensitivity,2,0.9439,0.943,-0.0009
+case_level,detect[vol>0]_specificity,2,0.1692,0.1692,0.0
+case_level,detect[vol>0]_precision,2,0.7741,0.7712,-0.0029
+case_level,detect[vol>0]_f1,2,0.8506,0.8485,-0.0021
+case_level,detect[maxprob>0.5]_sensitivity,2,0.9439,0.943,-0.0009
+case_level,detect[maxprob>0.5]_specificity,2,0.1692,0.1692,0.0
+case_level,detect[maxprob>0.5]_precision,2,0.7741,0.7712,-0.0029
+case_level,detect[maxprob>0.5]_f1,2,0.8506,0.8485,-0.0021
+case_level,auroc_maxprob,2,0.6863,0.6819,-0.0044
+case_level,n_cases,3,260.0,256.0,-4.0
+case_level,n_ref_positive,3,195.0,191.0,-4.0
+case_level,n_missed_entirely,3,9.0,9.0,0.0
+case_level,dice_mean,3,0.3367,0.3429,0.0061
+case_level,dice_median,3,0.3298,0.3508,0.021
+case_level,hd95_mean_mm,3,71.1429,70.8271,-0.3158
+case_level,nsd_2mm_mean,3,0.3057,0.3113,0.0056
+case_level,detect[vol>0]_sensitivity,3,0.9538,0.9529,-0.001
+case_level,detect[vol>0]_specificity,3,0.2462,0.2462,0.0
+case_level,detect[vol>0]_precision,3,0.7915,0.7879,-0.0036
+case_level,detect[vol>0]_f1,3,0.8651,0.8626,-0.0026
+case_level,detect[maxprob>0.5]_sensitivity,3,0.9538,0.9529,-0.001
+case_level,detect[maxprob>0.5]_specificity,3,0.2462,0.2462,0.0
+case_level,detect[maxprob>0.5]_precision,3,0.7915,0.7879,-0.0036
+case_level,detect[maxprob>0.5]_f1,3,0.8651,0.8626,-0.0026
+case_level,auroc_maxprob,3,0.6583,0.6611,0.0028
+case_level,n_cases,4,260.0,257.0,-3.0
+case_level,n_ref_positive,4,195.0,192.0,-3.0
+case_level,n_missed_entirely,4,16.0,15.0,-1.0
+case_level,dice_mean,4,0.2831,0.2876,0.0045
+case_level,dice_median,4,0.1315,0.1702,0.0387
+case_level,hd95_mean_mm,4,80.2568,81.6942,1.4373
+case_level,nsd_2mm_mean,4,0.2809,0.2842,0.0034
+case_level,detect[vol>0]_sensitivity,4,0.9179,0.9219,0.0039
+case_level,detect[vol>0]_specificity,4,0.2769,0.2769,0.0
+case_level,detect[vol>0]_precision,4,0.792,0.7902,-0.0019
+case_level,detect[vol>0]_f1,4,0.8504,0.851,0.0006
+case_level,detect[maxprob>0.5]_sensitivity,4,0.9179,0.9219,0.0039
+case_level,detect[maxprob>0.5]_specificity,4,0.2769,0.2769,0.0
+case_level,detect[maxprob>0.5]_precision,4,0.792,0.7902,-0.0019
+case_level,detect[maxprob>0.5]_f1,4,0.8504,0.851,0.0006
+case_level,auroc_maxprob,4,0.6636,0.6674,0.0038
+case_level,n_cases,pooled,1308.0,1290.0,-18.0
+case_level,n_ref_positive,pooled,981.0,963.0,-18.0
+case_level,n_missed_entirely,pooled,62.0,59.0,-3.0
+case_level,dice_mean,pooled,0.3124,0.3169,0.0045
+case_level,dice_median,pooled,0.2048,0.2248,0.02
+case_level,hd95_mean_mm,pooled,75.3868,75.9079,0.5211
+case_level,nsd_2mm_mean,pooled,0.2982,0.3015,0.0033
+case_level,detect[vol>0]_sensitivity,pooled,0.9368,0.9387,0.0019
+case_level,detect[vol>0]_specificity,pooled,0.2232,0.2232,0.0
+case_level,detect[vol>0]_precision,pooled,0.7835,0.7807,-0.0028
+case_level,detect[vol>0]_f1,pooled,0.8533,0.8524,-0.0009
+case_level,detect[maxprob>0.5]_sensitivity,pooled,0.9368,0.9387,0.0019
+case_level,detect[maxprob>0.5]_specificity,pooled,0.2232,0.2232,0.0
+case_level,detect[maxprob>0.5]_precision,pooled,0.7835,0.7807,-0.0028
+case_level,detect[maxprob>0.5]_f1,pooled,0.8533,0.8524,-0.0009
+case_level,auroc_maxprob,pooled,0.6826,0.6837,0.0011
+lesion_by_size,<5mm: n_lesions,pooled,49.0,46.0,-3.0
+lesion_by_size,<5mm: mean_lesion_dice,pooled,0.0001,0.0002,0.0
+lesion_by_size,<5mm: detected_any_overlap,pooled,0.0204,0.0217,0.0013
+lesion_by_size,<5mm: detected_iou>=0.1,pooled,0.0,0.0,0.0
+lesion_by_size,5-10mm: n_lesions,pooled,37.0,35.0,-2.0
+lesion_by_size,5-10mm: mean_lesion_dice,pooled,0.0,0.0,0.0
+lesion_by_size,5-10mm: detected_any_overlap,pooled,0.0,0.0,0.0
+lesion_by_size,5-10mm: detected_iou>=0.1,pooled,0.0,0.0,0.0
+lesion_by_size,10-15mm: n_lesions,pooled,113.0,100.0,-13.0
+lesion_by_size,10-15mm: mean_lesion_dice,pooled,0.0301,0.0287,-0.0014
+lesion_by_size,10-15mm: detected_any_overlap,pooled,0.1681,0.16,-0.0081
+lesion_by_size,10-15mm: detected_iou>=0.1,pooled,0.0619,0.06,-0.0019
+lesion_by_size,15-20mm: n_lesions,pooled,162.0,149.0,-13.0
+lesion_by_size,15-20mm: mean_lesion_dice,pooled,0.1046,0.1107,0.0061
+lesion_by_size,15-20mm: detected_any_overlap,pooled,0.321,0.3289,0.0079
+lesion_by_size,15-20mm: detected_iou>=0.1,pooled,0.1975,0.2081,0.0105
+lesion_by_size,20-40mm: n_lesions,pooled,597.0,568.0,-29.0
+lesion_by_size,20-40mm: mean_lesion_dice,pooled,0.3207,0.3326,0.012
+lesion_by_size,20-40mm: detected_any_overlap,pooled,0.598,0.6144,0.0164
+lesion_by_size,20-40mm: detected_iou>=0.1,pooled,0.5176,0.5335,0.0159
+lesion_by_size,40mm+: n_lesions,pooled,277.0,267.0,-10.0
+lesion_by_size,40mm+: mean_lesion_dice,pooled,0.4828,0.4999,0.0171
+lesion_by_size,40mm+: detected_any_overlap,pooled,0.8303,0.8502,0.0199
+lesion_by_size,40mm+: detected_iou>=0.1,pooled,0.7184,0.7453,0.0269
+lesion_all,n_lesions,pooled,1235.0,1165.0,-70.0
+lesion_all,mean_lesion_dice,pooled,0.2798,0.2934,0.0136
+lesion_all,detected_any_overlap,pooled,0.5336,0.5511,0.0175

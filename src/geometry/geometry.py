@@ -21,6 +21,12 @@ def crop_and_pad(mask: np.ndarray, pad: int = 10) -> np.ndarray:
     return np.pad(tight, pad_width=pad, mode="constant", constant_values=False)
 
 def clean_mask(mask: np.ndarray, pad: int = 10) -> np.ndarray:
+    # Cheap pre-crop to the mask's own bounding box before the expensive
+    # label() call inside largest_component -- connectivity and component-size
+    # ranking are unaffected by cropping to a box that fully contains every
+    # foreground voxel, so this doesn't change the result, only the cost
+    # (label() on the full CT-grid volume dominates memory/time otherwise).
+    mask = crop_and_pad(mask, pad=0)
     mask = largest_component(mask)
     return crop_and_pad(mask, pad=pad)
 
@@ -57,6 +63,9 @@ def caliber_stats(calibers: np.ndarray) -> dict:
 
 def max_caliber_mm(mask: np.ndarray, spacing: tuple[float, float, float], pad: int = 10) -> dict:
     """Full pipeline, steps 2-7: raw boolean mask + spacing in, caliber stats dict out."""
+    if not mask.any():  # crop_and_pad's argwhere().min() crashes on an all-zero mask
+        return {"present": False, **caliber_stats(np.array([]))}
+
     cleaned = clean_mask(mask, pad=pad)
     if not cleaned.any():
         return {"present": False, **caliber_stats(np.array([]))}

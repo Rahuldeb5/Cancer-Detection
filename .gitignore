@@ -12,3 +12,6 @@ __pycache__
 .env
 
 .npy
+src/lesion-sectioning/work/
+
+results/duct_cutoff/profiles

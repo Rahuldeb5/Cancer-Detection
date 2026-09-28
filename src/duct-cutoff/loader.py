@@ -80,6 +80,7 @@ def load_ducts(case_id: str) -> dict | None:
         "mpd": load_bool_mask(mpd_img),
         "spacing": tuple(float(s) for s in spacing),
         "affine": ref_affine,
+        "shape": tuple(ref_shape),
     }
 
 
@@ -165,6 +166,7 @@ def load_ducts_isotropic(case_id: str, target_mm: float = 1.0) -> dict | None:
         "mpd_offset": mpd_offset,
         "spacing": spacing_iso,
         "native_spacing": case["spacing"],
+        "native_shape": case["shape"],
         "affine": case["affine"],
     }
 

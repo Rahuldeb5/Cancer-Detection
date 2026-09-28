@@ -49,7 +49,12 @@ def load_ducts(case_id: str) -> dict | None:
         return None
 
     def load_bool_mask(img) -> np.ndarray:
-        raw = np.nan_to_num(np.asanyarray(img.dataobj), nan=0.0)
+        # get_unscaled() reads the on-disk dtype (int8 label masks) directly --
+        # np.asanyarray(img.dataobj) applies nibabel's scl_slope/inter scaling
+        # and silently upcasts to float64, ballooning memory 8x on large volumes
+        raw = img.dataobj.get_unscaled()
+        if np.issubdtype(raw.dtype, np.floating):
+            raw = np.nan_to_num(raw, nan=0.0)
         return raw > 0.5
 
     spacing = nib.affines.voxel_sizes(ref_affine)  # array-axis order, robust to permuted affines
