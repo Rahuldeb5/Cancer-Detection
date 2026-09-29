@@ -15,13 +15,27 @@ Note that there is a paucity of lesions < 10 mm in diameter so it's more importa
 
 ## Cohort
 - 1308 cases = union of src/data/fold_{1..5}_ids.txt: 981 tumor+ (1235 lesion components), 327 tumor-
-  (phase-matched random negatives). Train split only (IDs 1-9000). ~75% positive vs ~10.9% in PanTS overall:
+  (phase-matched random negatives). ~75% positive vs ~10.9% in PanTS overall:
   sens/spec transfer, PPV/NPV/accuracy do not.
+- Evaluation = our fixed 5-fold CV only. PanTS's own train/test ID ranges (1-9000 / 9001-9901) are irrelevant
+  here: 184 cohort cases (138 tumor+, 46 tumor-) have IDs >9000 and are ordinary CV cases.
+- Negatives are phase-matched but NOT slice-thickness-matched: median slice spacing 1.5 mm (tumor-) vs 2.5 mm
+  (tumor+) (S1).
+- Shared per-lesion join table: results/master_lesion_table/master_lesions.csv (1235 rows, key
+  (case_id, lesion_id); fold, spacing, size, tiny_flag, attenuation, Dice, region, u, tier, MPD). Join onto it
+  instead of re-deriving; column dictionary in its README.
 - Tumor label: results/PanTS_metadata_new.csv column `tumor?` (matches empty/non-empty lesion mask 1308/1308).
-- pancreatic_lesion is NOT only PDAC (other lesion types likely). No diagnosis label located yet.
+- pancreatic_lesion is NOT only PDAC (other lesion types likely). No diagnosis label exists: the metadata has no
+  such field and the structured reports are template text (location/size/volume/HU only) (S1).
+- Structured reports do not track the masks: 30/327 negatives have a "Pancreas lesions" section, 677/981
+  positives don't (S1). Don't use report text as ground truth.
 - fold_k_ids.txt <-> nnU-Net fold k-1 (fold_1 -> fold 0 ... fold_5 -> fold 4).
-- Counts in older notes disagree (926 vs 981 positives; 309/326/327 negatives; median z-spacing 1.25/1.5/2.5 mm).
-  Recompute from files; do not trust them.
+- Old-note count disagreements resolved (S1): 981/327 is correct. 926 = PanTS tumor+ over IDs 1-9000,
+  326/980 = `wc -l` on ID files without a trailing newline, 309 = an old planned negative count. Median slice
+  spacing (along the slice axis) is 2.5 mm over the 1308 (1.25 = all PanTS, 1.5 = cohort negatives);
+  52.2% >= 2.5 mm, 15.2% >= 5 mm.
+- Lesions <10 mm are mostly satellite fragments: 75/86 are not the largest lesion in their case; only 11 cases
+  have an index lesion <10 mm. 39 components are < 8 mm^3 (tiny_flag; flagged, never dropped) (S1).
 
 ## nnU-Net baseline (vanilla binary tumor, 3d_fullres, 5-fold CV, 1000 epochs)
 - Lesion Dice / detect@any-overlap by lesion Feret diameter, pooled: <5 mm 0.000/2% (n=49); 5-10 0.000/0% (37);
@@ -57,8 +71,14 @@ Possible leakage in the pancreas-location gain (pancreas mask is carved at the t
 pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to scope PDAC.
 
 ## Data gotchas (each one has already cost time)
-1. PanTS masks have scl_slope=NaN. Read with nibabel img.dataobj.get_unscaled() (int8, no float64 upcast).
-   NEVER SimpleITK BinaryThreshold (lights up the whole volume). Just check what we've implemented throughout.
+1. PanTS masks are int8 but split across two on-disk encodings (verified S0, 1308-case cohort, 5
+   pancreas/lesion masks each: 3130 files raw {0,1} slope 1; 3410 files raw {-128,127} slope 1/255
+   inter 0.502). img.header shows scl_slope=NaN for every file, but that's only because nibabel moves
+   the scaling onto img.dataobj once loaded, not because the on-disk header is NaN. Read with nibabel
+   img.dataobj.get_unscaled() (int8, no float64 upcast) and threshold at raw>0.5 in scaled units, i.e.
+   raw > (0.5-inter)/slope -- `raw != 0` or `.astype(bool)` lights up the whole volume for the second
+   encoding. NEVER SimpleITK BinaryThreshold (same failure mode). Canonical loader:
+   src/tumorlib/io.py load_mask() (tested against nibabel's own scaled reading, S0).
 2. Work in nibabel (x,y,z) order everywhere. Lesion IDs = scipy.ndimage.label with generate_binary_structure(3,3).
    Mixing SimpleITK (z,y,x) permuted IDs for ~21% of lesions. Join key = (case_id, lesion_id); assert gt_vox
    equality after every join.
@@ -91,7 +111,7 @@ pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to
 1. Oracle first: synthetic phantom or known-answer regression before any real-data run.
 2. Never report a number you did not compute this session. Label carried-over numbers as carried over.
 3. Nothing tuned on evaluation lesions. Detector settings are fixed a priori; anything learned uses
-   leave-one-nnU-Net-fold-out. Report the official test set only at the very end.
+   leave-one-nnU-Net-fold-out. All reported results are 5-fold CV (out-of-fold).
 4. Units explicit (mm vs voxels). Bin edges: <5, 5-10, 10-20, 20-40, >=40 mm (Feret diameter).
 5. results/ holds ONLY the named deliverables (one CSV + README per session). Intermediates go in a
    git-ignored work/ dir.
