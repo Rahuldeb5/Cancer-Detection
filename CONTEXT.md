@@ -47,14 +47,24 @@ Note that there is a paucity of lesions < 10 mm in diameter so it's more importa
 - OOF predictions on server: .../nnUNet_results/Dataset501_PanTSTumor/nnUNetTrainer__nnUNetPlans__3d_fullres/
   fold_{0..4}/validation/{case}.nii.gz + .npz. npz['probabilities'] is (C,z,y,x); channel 1 .transpose(2,1,0)
   matches the nibabel array.
-- Probabilities look saturated (PanTS_00000020: GT negative, max prob 0.9994).
+- Probabilities are float32 and never hit the float ceiling (max 0.9999875 over all 1308 OOF volumes, S2); the
+  histogram has a soft cap near logit 6 (p~0.9975). PanTS_00000020: GT negative, max prob 0.9994.
+- S2 (results/nnunet_subthreshold/): missed <10 mm lesions peak at median p 1.3e-4 in lesion+2 mm; for the
+  median one, 82% of negatives' search-region peaks are >= it. nnU-Net FROC ladder (t 0.9..0.001, peak-in-2mm
+  and touch rules) in nnunet_froc_points.csv; float16 prob/logit crops + component tables on the PC at
+  ~/research/nnunet_probs/. 11 negatives have empty pancreas masks -> no search region.
 - Failure is NOT explained by z-undersampling (an old "49%" claim was wrong; 4-26% depending on definition).
 
-## Attenuation (existing v2 labels, being audited in S3)
-dHU = median tumor HU - median parenchyma HU (pool excludes lesion + 2.5 mm shell); hyper >+10, iso within +-10,
-hypo <-10. Counts: hypo 561 / iso 503 / hyper 168 / unknown 3. Below 10 mm every class has Dice 0.000 (size, not
-contrast); iso is worse only at 10-40 mm. Report-text attenuation is only 75.6% self-consistent - not truth.
-Iso 40.7% looks high vs my recollection of the PDAC literature (~5-15%, unverified) - hence the audit.
+## Attenuation (v2 audited in S3 -> v3; use results/attenuation_v3/attenuation_labels_v3.csv)
+v2: dHU = median tumor HU - median parenchyma HU (pool excludes lesion + 2.5 mm shell); hyper >+10, iso within +-10,
+hypo <-10. Counts: hypo 561 / iso 503 / hyper 168 / unknown 3 (reproduced exactly in S3). Below 10 mm every class
+has Dice 0.000 (size, not contrast); iso is worse only at 10-40 mm. Report-text attenuation is only 75.6%
+self-consistent - not truth.
+v3 (S3): PV-aware eroded-core median vs envelope pool minus lesions+5 mm minus ducts/CBD. Phantom: whole-mask median
+loses 16-27% of contrast at r=4 mm, 8-14% at r=8; core fixes r>=4, nothing fixes r=2. Iso 40.7% -> 37.3% (134/1235
+change class, both directions). Iso is mostly real: venous >=10 mm 30.8% (CI 27-35%), flat with size >=10 mm;
+non-contrast scans are 1/3 of lesions and ~50% iso. Residual: >4 mm slices have the highest iso in every phase.
+"Arterial" parenchyma median 61 HU < venous 81 HU: phase labels may be early-arterial/noisy.
 
 ## Location
 Head holds ~50% of gland tissue but 63-70% of lesions. Small (<20 mm) tumors are found more often in the head
@@ -103,8 +113,8 @@ pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to
   Has unrelated uncommitted work: only add files, never reset/commit others.
 - Server (ssh rahul@deep-server.tail8e65db.ts.net, 12 cores, 31 GB, py at ~/nnunet_setup/.venv/bin/python;
   source ~/research/nnunet_env/env.sh): nnU-Net predictions/checkpoints, preprocessed data, gt_segmentations,
-  6 masks/case in ~/research/datasets/pants/duct_masks/. Its repo has uncommitted work: move files with scp,
-  never git pull/reset there. Untracked-on-server scripts (evaluate.py etc.) must be brought into git.
+  6 masks/case in ~/research/datasets/pants/duct_masks/. Its repo was force-synced to origin/main in S2
+  (old uncommitted MedFormer edits backed up in ~/repo_backup_pre_S2_2026-09-28/; untracked exp/ log/ kept). Untracked-on-server scripts (evaluate.py etc.) must be brought into git.
 - For CPU intensive tasks use the PC, for GPU intensive tasks use the server (only use the 2 2080 TIs)
 
 ## Rules
