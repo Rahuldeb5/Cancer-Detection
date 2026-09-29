@@ -15,3 +15,5 @@ __pycache__
 src/lesion-sectioning/work/
 
 results/geometry_results/duct_cutoff/profiles
+# session intermediates (master lesion table and later sessions)
+work/
