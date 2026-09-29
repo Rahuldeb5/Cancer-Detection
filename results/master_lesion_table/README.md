@@ -21,7 +21,7 @@ which is git-ignored. The `work/` line was added to `.gitignore` this session.
 |---|---|---|
 | `case_id`, `lesion_id` | | key. `lesion_id` is the `scipy.ndimage.label` index (26-conn, nibabel order) |
 | `fold` | 0-4 | nnU-Net fold. `fold_k_ids.txt` gives fold k-1 |
-| `official_split` | train / test | PanTS official split by ID: 1-9000 train, 9001-9901 test. **See audit a** |
+| `official_split` | train / test | PanTS's own ID ranges (1-9000 train, 9001-9901 test). Informational only: evaluation is our 5-fold CV |
 | `ct_phase` | Venous / Non-contrast / Arterial / Delay | metadata `ct phase`. NaN ×1: PanTS_00003188 has no phase in the metadata |
 | `spacing_x_mm`, `spacing_y_mm`, `spacing_z_mm` | mm | `nib.affines.voxel_sizes(CT affine)` in **voxel-axis order** (nibabel x,y,z array axes, not world axes). Equal to header zooms in 1308/1308 cases |
 | `slice_axis` | 0/1/2 | voxel axis most aligned with world superior-inferior. It is 0 in 39 cases, where `spacing_z_mm` is in-plane |
@@ -80,10 +80,9 @@ which is git-ignored. The `work/` line was added to `.gitignore` this session.
 The authoritative numbers are **981 / 327**. 926 is the official-train positive count, 326 is a `wc -l` artefact,
 and 309 is an old planned negative count that was never the realised cohort.
 
-**The cohort is not "train split only".** 184 of the 1308 cases (**138 tumor+, 46 tumor−**; 146 of 1235 lesions)
-have IDs 9001-9901. That range is PanTS's official **test** split: the dataset tarball is
-`PanTSMini_ImageTe_00009001_00009901`. CONTEXT.md says otherwise and should be corrected. These cases were in the
-nnU-Net 5-fold CV, so they are not an untouched test set. Filter with `official_split`.
+184 of the 1308 cases (138 tumor+, 46 tumor−; 146 of 1235 lesions) have IDs 9001-9901, which PanTS labels
+as its test range (`PanTSMini_ImageTe_00009001_00009901`). The project evaluates only with its own fixed 5-fold CV,
+so these are ordinary CV cases. `official_split` is kept for information only.
 
 ### b. Slice thickness (spacing along the slice axis) over the 1308
 | p0 | p5 | p10 | p25 | **p50** | p75 | p90 | p95 | max | mean |
@@ -167,7 +166,7 @@ The 5th-percentile diameter moves from **7.2 → 11.1 mm**.
   does not write. It is added later by `plot_duct_position.py` (PC1 fallback), which this table reproduces.
 
 ## What surprised me
-1. 184 cohort cases are from the official PanTS **test** split, contradicting CONTEXT.
+1. 184 cohort cases come from PanTS's test ID range (irrelevant here: the project uses its own 5-fold CV).
 2. Negatives are systematically thinner-sliced than positives (1.5 vs 2.5 mm median).
 3. Report lesion sections disagree with the masks in both directions (30 cohort negatives have one, 677 positives
    don't).
