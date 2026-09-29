@@ -76,6 +76,7 @@ Pygments==2.20.0
 pyogrio==0.13.0
 pyparsing==3.3.2
 pyproj==3.7.2
+pytest==9.1.1
 python-dateutil==2.9.0.post0
 PyYAML==6.0.3
 pyzmq==27.1.0

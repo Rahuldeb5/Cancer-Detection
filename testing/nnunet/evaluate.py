@@ -29,11 +29,15 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 import warnings
 from pathlib import Path
 
 import numpy as np
 import SimpleITK as sitk
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from tumorlib.lesions import feret_mm  # noqa: E402 -- needs the path insert above
 
 try:
     from surface_distance import (
@@ -125,22 +129,8 @@ def boundary_metrics(gt: np.ndarray, pred: np.ndarray, spacing_zyx) -> dict:
 
 
 # ----------------------------------------------------- per-lesion / size bins
-def feret_mm(coords_vox: np.ndarray, spacing_zyx) -> float:
-    """3D max caliper (Feret) diameter: max spacing-weighted pairwise distance."""
-    from scipy.spatial.distance import pdist
-
-    pts = coords_vox * np.asarray(spacing_zyx)
-    if len(pts) < 2:
-        return 0.0
-    if len(pts) > 200:
-        try:
-            from scipy.spatial import ConvexHull
-
-            pts = pts[ConvexHull(pts).vertices]
-        except Exception:  # noqa: BLE001 - coplanar / degenerate
-            idx = np.random.default_rng(0).choice(len(pts), 200, replace=False)
-            pts = pts[idx]
-    return float(pdist(pts).max())
+# feret_mm is order-agnostic (elementwise coords * spacing), so it works with
+# this file's (z, y, x) SimpleITK convention as-is -- see src/tumorlib/lesions.py.
 
 
 def bin_index(diam_mm: float) -> int:

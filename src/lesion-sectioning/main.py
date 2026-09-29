@@ -18,14 +18,16 @@ Usage (from repo root): .venv/bin/python3 src/lesion-sectioning/main.py
 from __future__ import annotations
 
 import multiprocessing as mp
+import sys
 from pathlib import Path
 
 import nibabel as nib
 import numpy as np
 import pandas as pd
 from scipy.ndimage import distance_transform_edt, generate_binary_structure, label as cc_label
-from scipy.spatial import ConvexHull
-from scipy.spatial.distance import pdist
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from tumorlib.lesions import feret_mm  # noqa: E402 -- needs the path insert above
 
 MASK_ROOT = Path("/home/rahuldeb5/research/datasets/pants/masks/mask_only")
 FOLD_DIR = Path("src/data")
@@ -56,20 +58,6 @@ def load_bool(path: Path) -> tuple[np.ndarray, tuple[float, float, float]]:
     img = nib.load(path)
     raw = np.nan_to_num(np.asanyarray(img.dataobj), nan=0.0)
     return raw > 0.5, img.header.get_zooms()[:3]
-
-
-def feret_mm(coords_vox: np.ndarray, spacing) -> float:
-    """Max pairwise voxel-center distance in mm -- the lesion's long-axis diameter."""
-    pts = coords_vox * np.asarray(spacing)
-    if len(pts) < 2:
-        return 0.0
-    if len(pts) > 200:
-        try:
-            pts = pts[ConvexHull(pts).vertices]
-        except Exception:  # noqa: BLE001 - coplanar / degenerate
-            idx = np.random.default_rng(0).choice(len(pts), 200, replace=False)
-            pts = pts[idx]
-    return float(pdist(pts).max())
 
 
 def diam_bin(diam_mm: float) -> str:

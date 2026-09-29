@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 from pathlib import Path
 
 import nibabel as nib
@@ -32,8 +33,9 @@ import numpy as np
 import pandas as pd
 from scipy.ndimage import generate_binary_structure
 from scipy.ndimage import label as cc_label
-from scipy.spatial import ConvexHull
-from scipy.spatial.distance import pdist
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from tumorlib.lesions import feret_mm  # noqa: E402 -- needs the path insert above
 
 CC_STRUCT = generate_binary_structure(3, 3)  # full 26-connectivity, axis-order agnostic
 SIZE_EDGES_MM = (5.0, 10.0, 20.0, 40.0)
@@ -50,19 +52,6 @@ def bin_labels() -> list[str]:
 
 def bin_index(diam_mm: float) -> int:
     return int(np.digitize([diam_mm], SIZE_EDGES_MM)[0])
-
-
-def feret_mm(coords_vox: np.ndarray, spacing) -> float:
-    pts = coords_vox * np.asarray(spacing)
-    if len(pts) < 2:
-        return 0.0
-    if len(pts) > 200:
-        try:
-            pts = pts[ConvexHull(pts).vertices]
-        except Exception:  # noqa: BLE001 - coplanar / degenerate
-            idx = np.random.default_rng(0).choice(len(pts), 200, replace=False)
-            pts = pts[idx]
-    return float(pdist(pts).max())
 
 
 def load_bool(path: Path) -> tuple[np.ndarray, tuple[float, float, float]]:
