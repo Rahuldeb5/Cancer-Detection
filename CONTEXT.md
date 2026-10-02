@@ -3,11 +3,19 @@ MSKCC collaboration. Author: Rahul (intermediate Python dev; wants to understand
 each step - explain design choices in 1-2 sentences, run phantom/oracle checks BEFORE real data,
 ask before changing existing scripts).
 
-## Goal
-Raise recall (and Dice/Iou) for small (<20 mm) (and possibly low-contrast although not as important) pancreatic tumors that nnU-Net misses, using a simple
-interpretable candidate generator (scale-normalized LoG / Hessian blob map, pancreas-restricted) combined
-with nnU-Net, judged by lesion-level FROC. The paper only exists if the blob map finds small tumors that
-nnU-Net misses at EVERY nnU-Net threshold. A negative result is acceptable and reportable. 
+## Goal (updated after S4)
+Original aim: raise recall for small (<20 mm) tumors with a LoG blob candidate generator + nnU-Net. S4 result: NEGATIVE
+(see "S4 result"). Current priorities:
+1. Stronger baseline: multi-class nnU-Net (pancreas + lesion), same folds (S7 build/launch, S8 evaluation).
+   Pancreas is a TRAINING label only, never an input (the carved-out hole marks the tumor; an input mask would leak).
+2. Decompose >=20 mm failures. Approx. (derived from baseline tables, recompute before citing): 20-40 mm has ~40% of
+   lesions fully missed and Dice among detected ~0.54, so Dice gain there is mostly detection; >=40 mm is
+   under-segmentation (carried over: recall 0.41, precision 0.66).
+3. 10-20 mm remains the open frontier. Idea, NOT started: normative/anomaly model fit on unlabeled normal pancreas
+   patches (extra negatives from the ~8,500 unused PanTS cases; cohort negatives held out for evaluation), scored by
+   within-scan rank vs random same-size patches; requires a same-data nnU-Net control and a patient-overlap check.
+Segmentation quality (Dice/IoU), not only detection, is the end goal. Priority lesions: 10-20 mm (<10 mm is too sparse).
+Session status: S0-S4 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline.
 
 ## Some notes to keep in mind
 
