@@ -80,6 +80,23 @@ Head holds ~50% of gland tissue but 63-70% of lesions. Small (<20 mm) tumors are
 Lesion tiers vs pancreas envelope: inside 880, embedded 111, abutting 174, separated 70
 (results/lesion_location_results/excluded_lesions.csv lists the 70 separated). Report results with and without them.
 
+## S4 result (pancreas-restricted scale-normalized LoG blob map): NEGATIVE
+- Target group (10-20 mm, hypo/hyper v3, contrast-enhanced, n=106): the lesion's strongest blob response is beaten by a
+  median 76.5% of same-size random patches from the same pancreas. 10 candidates/case (8.3 FP/case) finds 2.8%
+  (CI 1.0-8.0); 50 candidates finds 14.2% (8.8-22.0) at 41.6 FP/case; at <=3 FP/case target sensitivity is 0%.
+  On nnU-Net-missed ∩ target (n=74): 12.2% hit, 0% at rank 1.
+- Featureless at <=20 mm in every stratum (3.6% of 10-20 mm lesions exceed the phantom noise floor); clutter-dominated
+  only at >=40 mm. Iso within +-5 HU undetectable.
+- z = response/MAD sends ~81% of candidates to sigma=1.5 mm (MAD rises with sigma on real scans). Fixed sigma=5 mm gets
+  20.8% into the top 10 but was NOT adopted (tuning on evaluation lesions); even then ~7 clutter peaks outscore the lesion.
+- Blobness points the wrong way (in-lesion 0.086 vs false peaks 0.123).
+- Negatives understate false peaks by ~1/3; slice-thickness reweighting barely changes it; thicker slices give MORE false
+  peaks. Default FP denominator in later work = source (b): positives, search region >10 mm from every GT lesion.
+- 73/1235 lesions lie entirely outside the search region (mostly `abutting` tier).
+- Top false peaks sit on vessels (30.4%) and duodenum (24.9%).
+- Files: results/log_candidates/, notes/LoG_notes/SESSION_4.md, src/log-candidates/. Vessel/bowel masks for the 1308
+  cohort cases were git-lfs pulled on the PC (~2 GB).
+
 ## Duct work (PARKED - ablation only)
 Step-cutoff detector fires in 7.1% of tumor+ (0/327 neg): GT MPD masks are short fragments (median centerline
 28 mm; 255 empty). Head-end dilation: 56.8% of evaluable tumor+ MPDs vs 5.1% of negatives, concentrated in
@@ -112,6 +129,11 @@ pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to
 7. Un-pulled git-LFS masks are ~131-byte pointer stubs ("not a gzip file"). Scoped `git lfs pull -I` include
    string must stay under 131072 bytes.
 8. Do NOT run src/nnunet/cleanup.sh (deletes ct_staging, needed for CT-based work).
+9. Multi-class labels (Dataset502_PanTSPancLesion): 0 background; 1 pancreas = union(pancreas, head, body, tail, lesion)
+   (carved-out lesion voxels kept, no morphological ops); 2 lesion (overrides; identical to the Dataset501 binary label).
+   nnU-Net regions: labels {background:0, pancreas:[1,2], lesion:2}, regions_class_order [1,2]. 11 negatives have all four
+   pancreas masks empty: kept in validation, excluded from every fold's TRAIN list. Server has no raw CTs: build and
+   preprocess on the PC, rsync nnUNet_preprocessed to the server, train there (GPUs 0,1 only).
 
 ## Machines
 - Laptop (WSL, /home/rahuldeb5/Cancer-Detection, ssh rahuldeb5@100.81.217.58, but there is nothing extra there and it could be offline): code + result CSVs, NO dataset. IDE has twice overwritten
