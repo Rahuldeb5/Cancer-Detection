@@ -15,7 +15,11 @@ Original aim: raise recall for small (<20 mm) tumors with a LoG blob candidate g
    patches (extra negatives from the ~8,500 unused PanTS cases; cohort negatives held out for evaluation), scored by
    within-scan rank vs random same-size patches; requires a same-data nnU-Net control and a patient-overlap check.
 Segmentation quality (Dice/IoU), not only detection, is the end goal. Priority lesions: 10-20 mm (<10 mm is too sparse).
-Session status: S0-S4 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline.
+Session status: S0-S4 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline. S9 = normative-model pilot (PC): normal-patch bank from 300 non-cohort PanTS negatives (phase/thickness-matched to
+cohort positives); k-means (Rahul's method) and k-NN scores in PCA space, stratified by phase x thickness x gland
+position; within-scan percentile rank as the primary metric; fixed gates (>=40 mm control >= 90th percentile; 10-20 mm
+target >= 90th percentile and beating S4). No cohort case ever enters the bank. If it passes, the next step is the
+fairness control (nnU-Net retrained with the same extra negatives) before any claim.
 
 ## Some notes to keep in mind
 
