@@ -15,7 +15,7 @@ Original aim: raise recall for small (<20 mm) tumors with a LoG blob candidate g
    patches (extra negatives from the ~8,500 unused PanTS cases; cohort negatives held out for evaluation), scored by
    within-scan rank vs random same-size patches; requires a same-data nnU-Net control and a patient-overlap check.
 Segmentation quality (Dice/IoU), not only detection, is the end goal. Priority lesions: 10-20 mm (<10 mm is too sparse).
-Session status: S0-S4, S9, S11 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline. S9 = normative-model pilot (PC): normal-patch bank from 300 non-cohort PanTS negatives (phase/thickness-matched to
+Session status: S0-S4, S9, S11, S12 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline. S9 = normative-model pilot (PC): normal-patch bank from 300 non-cohort PanTS negatives (phase/thickness-matched to
 cohort positives); k-means (Rahul's method) and k-NN scores in PCA space, stratified by phase x thickness x gland
 position; within-scan percentile rank as the primary metric; fixed gates (>=40 mm control >= 90th percentile; 10-20 mm
 target >= 90th percentile and beating S4). No cohort case ever enters the bank. If it passes, the next step is the
@@ -27,12 +27,13 @@ Note that there is a paucity of lesions < 10 mm in diameter so it's more importa
 
 ## Cohort
 - 1308 cases = union of src/data/fold_{1..5}_ids.txt: 981 tumor+ (1235 lesion components), 327 tumor-
-  (phase-matched random negatives). ~75% positive vs ~10.9% in PanTS overall:
+  (random negatives matched on the METADATA phase label, which is noisy - see S12). ~75% positive vs ~10.9% in PanTS overall:
   sens/spec transfer, PPV/NPV/accuracy do not.
 - Evaluation = our fixed 5-fold CV only. PanTS's own train/test ID ranges (1-9000 / 9001-9901) are irrelevant
   here: 184 cohort cases (138 tumor+, 46 tumor-) have IDs >9000 and are ordinary CV cases.
-- Negatives are phase-matched but NOT slice-thickness-matched: median slice spacing 1.5 mm (tumor-) vs 2.5 mm
-  (tumor+) (S1).
+- Negatives are NOT slice-thickness-matched: median slice spacing 1.5 mm (tumor-) vs 2.5 mm (tumor+) (S1).
+  They are matched on metadata phase only; by scan-derived phase they are NOT matched (S12: venous 58.6% tumor+
+  vs 41.6% tumor-, p 8e-6). Within estimated venous the thickness gap persists (1.5 vs 2.5 mm).
 - Shared per-lesion join table: results/master_lesion_table/master_lesions.csv (1235 rows, key
   (case_id, lesion_id); fold, spacing, size, tiny_flag, attenuation, Dice, region, u, tier, MPD). Join onto it
   instead of re-deriving; column dictionary in its README.
@@ -76,7 +77,22 @@ v3 (S3): PV-aware eroded-core median vs envelope pool minus lesions+5 mm minus d
 loses 16-27% of contrast at r=4 mm, 8-14% at r=8; core fixes r>=4, nothing fixes r=2. Iso 40.7% -> 37.3% (134/1235
 change class, both directions). Iso is mostly real: venous >=10 mm 30.8% (CI 27-35%), flat with size >=10 mm;
 non-contrast scans are 1/3 of lesions and ~50% iso. Residual: >4 mm slices have the highest iso in every phase.
-"Arterial" parenchyma median 61 HU < venous 81 HU: phase labels may be early-arterial/noisy.
+"Arterial" parenchyma median 61 HU < venous 81 HU: explained in S12 - metadata "Arterial" is a mixture (venous,
+early arterial, non-contrast); scan-derived late-arterial gland is 93 HU > venous 81. The S3 per-phase iso fractions
+use the metadata label - recompute by est_phase before citing.
+
+## Contrast phase (S12; use results/phase_estimate/phase_estimate.csv, NOT metadata `ct phase`)
+- est_phase per case from a frozen 3-component GMM on (aorta HU, portal-vein HU): eroded (1 voxel) median over the
+  middle 80% of vessel slices; masks aorta.nii.gz + veins.nii.gz (PanTS `veins` = portal/splenic system, inferred
+  from geometry). Max posterior < 0.8 -> uncertain (53); 17 unmeasurable (mostly empty veins masks, 13 negatives).
+  Code src/phase/. Centroids (aorta, PV): non-contrast (41, 39), venous (148, 163), arterial (243, 125).
+- Metadata phase agrees only 69.0% (CI 66-72). 143/380 metadata "Non-contrast" are enhanced; metadata "Arterial"
+  (282) = 34.8% venous-looking, 32.3% early arterial, 16.0% late arterial, 12.8% non-contrast. Gland HU (not in the
+  rule) follows the estimate: est non-contrast 33 HU, early arterial 64, venous 81, late arterial 93.
+- Phase ~ thickness: est non-contrast median 0.8 mm (84% <= 2 mm), arterial 1.25, venous 2.5.
+- Arterial is a fan (early -> pancreatic phase), not a blob; `early_arterial` = PV enhancement fraction < 0.5.
+  The wide arterial component claims 10 scans with PV >= aorta; filter `aorta_hu > pv_hu` for clean arterial.
+- Oracle caveat: 1-voxel-shifted r=5 mm vein reads up to -7.2 HU low (fails 5 HU tolerance; aorta passes).
 
 ## Location
 Head holds ~50% of gland tissue but 63-70% of lesions. Small (<20 mm) tumors are found more often in the head
@@ -134,6 +150,9 @@ pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to
    z-spacing goes up to 7.5 mm.
 4. 9 cases have corrupted mask affines (tumor+: PanTS_00000259, 00005731, 00006447, 00006466, 00006927, 00007151;
    neg: 00005915, 00007132, 00009737). Voxel grids are still aligned: use the CT grid/affine, warn, don't reject.
+   aorta.nii.gz is much worse: its affine differs from the CT in 367/1308 cohort cases (300 LPS vs CT RAS,
+   55 translation only, 12 other flips), yet the voxels still align on the CT grid (world-remapping puts it on the
+   veins; S12 src/phase/affine_check.py). load_mask does the right thing; never resample masks by their own affine.
 5. Pancreas masks: lesion is carved out of pancreas.nii.gz in many cases; head/body/tail disagree with it.
    Use envelope = union(pancreas, head, body, tail) and hole-fill for any candidate search. NEVER let a search
    region read the lesion mask.
