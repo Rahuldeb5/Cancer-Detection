@@ -15,7 +15,7 @@ Original aim: raise recall for small (<20 mm) tumors with a LoG blob candidate g
    patches (extra negatives from the ~8,500 unused PanTS cases; cohort negatives held out for evaluation), scored by
    within-scan rank vs random same-size patches; requires a same-data nnU-Net control and a patient-overlap check.
 Segmentation quality (Dice/IoU), not only detection, is the end goal. Priority lesions: 10-20 mm (<10 mm is too sparse).
-Session status: S0-S4 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline. S9 = normative-model pilot (PC): normal-patch bank from 300 non-cohort PanTS negatives (phase/thickness-matched to
+Session status: S0-S4, S9, S11 done; S5 (union FROC) NOT run (S4 negative); S6 (leakage audit) pending; S7/S8 = multi-class baseline. S9 = normative-model pilot (PC): normal-patch bank from 300 non-cohort PanTS negatives (phase/thickness-matched to
 cohort positives); k-means (Rahul's method) and k-NN scores in PCA space, stratified by phase x thickness x gland
 position; within-scan percentile rank as the primary metric; fixed gates (>=40 mm control >= 90th percentile; 10-20 mm
 target >= 90th percentile and beating S4). No cohort case ever enters the bank. If it passes, the next step is the
@@ -100,6 +100,15 @@ Lesion tiers vs pancreas envelope: inside 880, embedded 111, abutting 174, separ
 - Top false peaks sit on vessels (30.4%) and duodenum (24.9%).
 - Files: results/log_candidates/, notes/LoG_notes/SESSION_4.md, src/log-candidates/. Vessel/bowel masks for the 1308
   cohort cases were git-lfs pulled on the PC (~2 GB).
+
+## S11 rescue check (results/rescue_check/): gate PASS on paper, carried by a chance-level signal
+- Missed 20-40 mm (n=240): union of nnU-Net faint guess (t=0.01, case rank<=3; 17.9%), S9 top-10 (33.0%) and duct
+  (mpd_dilated|head-end AND <=10 mm from MPD; 20.1% of evaluable) = 47.5% (CI 41-54); S9 unique 19.6% -> fixed gate PASS.
+- But S9 top-10 = uniform-placement chance (32.8%; footprint ~3.5% of lattice), and nnU-Net|duct alone = 27.9% (fails).
+  All signals fire MORE on detected than missed lesions. Head-end dilation adds ~nothing over mpd_dilated.
+- Dataset502 fold 0 (only fold done at S11): recovers 25/36 of 501's missed 20-40 mm, newly misses 4, FP comps/case
+  0.39 vs 1.60 (negatives with any lesion pred 26% vs 80%). Fold 0 only. Rerun S11 on 502 via --pred_source.
+- Duct CSVs live in results/geometry_results/duct_cutoff/ (not results/duct_cutoff/).
 
 ## Duct work (PARKED - ablation only)
 Step-cutoff detector fires in 7.1% of tumor+ (0/327 neg): GT MPD masks are short fragments (median centerline
