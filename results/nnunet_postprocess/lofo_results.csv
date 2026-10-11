@@ -1,0 +1,882 @@
+section,family,metric,stratum,fold,value,n,ci_lo,ci_hi,setting,note
+picks,A,train_objective_baseline,,0,0.527492,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002876
+picks,A,train_objective,,0,0.530368,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002876
+picks,A,heldout_objective_baseline,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002876
+picks,A,heldout_objective,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002876
+picks,A,train_objective_baseline,,1,0.529401,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002871
+picks,A,train_objective,,1,0.532272,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002871
+picks,A,heldout_objective_baseline,,1,0.553459,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002871
+picks,A,heldout_objective,,1,0.553469,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002871
+picks,A,train_objective_baseline,,2,0.541659,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.001913
+picks,A,train_objective,,2,0.543572,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.001913
+picks,A,heldout_objective_baseline,,2,0.504472,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.001913
+picks,A,heldout_objective,,2,0.508303,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.001913
+picks,A,train_objective_baseline,,3,0.535192,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002865
+picks,A,train_objective,,3,0.538057,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002865
+picks,A,heldout_objective_baseline,,3,0.530396,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002865
+picks,A,heldout_objective,,3,0.530397,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.002865
+picks,A,train_objective_baseline,,4,0.537416,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.000957
+picks,A,train_objective,,4,0.538373,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.000957
+picks,A,heldout_objective_baseline,,4,0.52143,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.000957
+picks,A,heldout_objective,,4,0.529122,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 1; margin to 2nd best 0.000957
+picks,B,train_objective_baseline,,0,0.527492,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective,,0,0.527492,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective_baseline,,0,0.560918,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective,,0,0.560918,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective_baseline,,1,0.529401,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective,,1,0.529401,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective_baseline,,1,0.553459,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective,,1,0.553459,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective_baseline,,2,0.541659,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective,,2,0.541659,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective_baseline,,2,0.504472,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective,,2,0.504472,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective_baseline,,3,0.535192,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective,,3,0.535192,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective_baseline,,3,0.530396,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective,,3,0.530396,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective_baseline,,4,0.537416,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,train_objective,,4,0.537418,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective_baseline,,4,0.52143,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,B,heldout_objective,,4,0.52134,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,D,train_objective_baseline,,0,0.527492,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000088
+picks,D,train_objective,,0,0.53862,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000088
+picks,D,heldout_objective_baseline,,0,0.560918,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000088
+picks,D,heldout_objective,,0,0.568675,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000088
+picks,D,train_objective_baseline,,1,0.529401,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000060
+picks,D,train_objective,,1,0.539726,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000060
+picks,D,heldout_objective_baseline,,1,0.553459,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000060
+picks,D,heldout_objective,,1,0.564391,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000060
+picks,D,train_objective_baseline,,2,0.541659,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000117
+picks,D,train_objective,,2,0.551441,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000117
+picks,D,heldout_objective_baseline,,2,0.504472,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000117
+picks,D,heldout_objective,,2,0.517589,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000117
+picks,D,train_objective_baseline,,3,0.535192,,,,A=none tlow=0.0001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000019
+picks,D,train_objective,,3,0.545406,,,,A=none tlow=0.0001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000019
+picks,D,heldout_objective_baseline,,3,0.530396,,,,A=none tlow=0.0001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000019
+picks,D,heldout_objective,,3,0.541526,,,,A=none tlow=0.0001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000019
+picks,D,train_objective_baseline,,4,0.537416,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000036
+picks,D,train_objective,,4,0.54826,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000036
+picks,D,heldout_objective_baseline,,4,0.52143,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000036
+picks,D,heldout_objective,,4,0.530281,,,,A=none tlow=0.1 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000036
+picks,ABD,train_objective_baseline,,0,0.527492,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective,,0,0.530368,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective_baseline,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective_baseline,,1,0.529401,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective,,1,0.532272,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective_baseline,,1,0.553459,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective,,1,0.553469,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective_baseline,,2,0.541659,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective,,2,0.543572,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective_baseline,,2,0.504472,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective,,2,0.508303,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective_baseline,,3,0.535192,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective,,3,0.538057,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective_baseline,,3,0.530396,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective,,3,0.530397,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective_baseline,,4,0.537416,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,train_objective,,4,0.538375,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective_baseline,,4,0.52143,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABD,heldout_objective,,4,0.529033,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,AB,train_objective_baseline,,0,0.527492,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective,,0,0.530368,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective_baseline,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective,,0,0.560918,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective_baseline,,1,0.529401,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective,,1,0.532272,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective_baseline,,1,0.553459,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective,,1,0.553469,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective_baseline,,2,0.541659,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective,,2,0.543572,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective_baseline,,2,0.504472,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective,,2,0.508303,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective_baseline,,3,0.535192,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective,,3,0.538057,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective_baseline,,3,0.530396,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective,,3,0.530397,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective_baseline,,4,0.537416,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,train_objective,,4,0.538375,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective_baseline,,4,0.52143,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,AB,heldout_objective,,4,0.529033,,,,"A=d0mm/half tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 3; margin to 2nd best 0.000000
+picks,BD,train_objective_baseline,,0,0.527492,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective,,0,0.527492,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective_baseline,,0,0.560918,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective,,0,0.560918,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective_baseline,,1,0.529401,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective,,1,0.529401,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective_baseline,,1,0.553459,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective,,1,0.553459,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective_baseline,,2,0.541659,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective,,2,0.541659,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective_baseline,,2,0.504472,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective,,2,0.504472,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective_baseline,,3,0.535192,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective,,3,0.535192,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective_baseline,,3,0.530396,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective,,3,0.530396,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective_baseline,,4,0.537416,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,train_objective,,4,0.537418,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective_baseline,,4,0.52143,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,BD,heldout_objective,,4,0.52134,,,,"A=none tlow=0.5 k=5,pmin=none tseg=0.5",exact ties at the max: 12; margin to 2nd best 0.000000
+picks,ABDc,train_objective_baseline,,0,0.527492,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000929
+picks,ABDc,train_objective,,0,0.545967,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000929
+picks,ABDc,heldout_objective_baseline,,0,0.560918,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000929
+picks,ABDc,heldout_objective,,0,0.578752,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000929
+picks,ABDc,train_objective_baseline,,1,0.529401,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000808
+picks,ABDc,train_objective,,1,0.549256,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000808
+picks,ABDc,heldout_objective_baseline,,1,0.553459,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000808
+picks,ABDc,heldout_objective,,1,0.565809,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.000808
+picks,ABDc,train_objective_baseline,,2,0.541659,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001971
+picks,ABDc,train_objective,,2,0.561209,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001971
+picks,ABDc,heldout_objective_baseline,,2,0.504472,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001971
+picks,ABDc,heldout_objective,,2,0.517984,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001971
+picks,ABDc,train_objective_baseline,,3,0.535192,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001534
+picks,ABDc,train_objective,,3,0.551266,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001534
+picks,ABDc,heldout_objective_baseline,,3,0.530396,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001534
+picks,ABDc,heldout_objective,,3,0.557898,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001534
+picks,ABDc,train_objective_baseline,,4,0.537416,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001754
+picks,ABDc,train_objective,,4,0.555196,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001754
+picks,ABDc,heldout_objective_baseline,,4,0.52143,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001754
+picks,ABDc,heldout_objective,,4,0.542055,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,exact ties at the max: 1; margin to 2nd best 0.001754
+pooled,baseline,objective,,,0.534239,1308,,,,
+pooled,baseline,case_dice_pos,,,0.471747,,,,,
+pooled,baseline,spec_raw,,,0.721713,,,,,
+pooled,baseline,spec_reweighted,,,0.702801,,,,,
+pooled,baseline,spec_reweight_cover,,,1,,,,,
+pooled,baseline,fp_per_neg,,,0.330275,,,,,
+pooled,baseline,fp_per_pos,,,0.334353,,,,,
+pooled,baseline,neg_any_fp,,,0.278287,,,,,
+pooled,baseline,localized,,,823,,,,,
+pooled,baseline,wrong_place,,,75,,,,,
+pooled,baseline,nothing,,,83,,,,,
+pooled,baseline,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,baseline,lesion_dice,,,0.400348,,,,,
+pooled,baseline,det_all,,,0.702834,,,,,
+pooled,baseline,n_tie_at_cut,,,0,,,,,
+pooled,baseline,spec_thick_<2.5,,,0.764706,,,,,
+pooled,baseline,n_neg_thick_<2.5,,,221,,,,,
+pooled,baseline,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,baseline,n_neg_thick_2.5-5,,,62,,,,,
+pooled,baseline,spec_thick_>=5,,,0.522727,,,,,
+pooled,baseline,n_neg_thick_>=5,,,44,,,,,
+pooled,baseline,det_<5,,,0,,,,,
+pooled,baseline,dice_<5,,,0,,,,,
+pooled,baseline,dice_det_<5,,,,,,,,
+pooled,baseline,volratio_det_<5,,,,,,,,
+pooled,baseline,n_det_<5,,,0,,,,,
+pooled,baseline,det_5-10,,,0.0810811,,,,,
+pooled,baseline,dice_5-10,,,0.0304289,,,,,
+pooled,baseline,dice_det_5-10,,,0.37529,,,,,
+pooled,baseline,volratio_det_5-10,,,2.91912,,,,,
+pooled,baseline,n_det_5-10,,,3,,,,,
+pooled,baseline,det_10-20,,,0.476364,,,,,
+pooled,baseline,dice_10-20,,,0.196406,,,,,
+pooled,baseline,dice_det_10-20,,,0.412302,,,,,
+pooled,baseline,volratio_det_10-20,,,1.17878,,,,,
+pooled,baseline,n_det_10-20,,,131,,,,,
+pooled,baseline,det_20-40,,,0.805695,,,,,
+pooled,baseline,dice_20-40,,,0.467742,,,,,
+pooled,baseline,dice_det_20-40,,,0.580544,,,,,
+pooled,baseline,volratio_det_20-40,,,0.916083,,,,,
+pooled,baseline,n_det_20-40,,,481,,,,,
+pooled,baseline,det_>=40,,,0.913357,,,,,
+pooled,baseline,dice_>=40,,,0.577799,,,,,
+pooled,baseline,dice_det_>=40,,,0.63261,,,,,
+pooled,baseline,volratio_det_>=40,,,0.777227,,,,,
+pooled,baseline,n_det_>=40,,,253,,,,,
+pooled,baseline,det_tier_inside,,,0.793182,,,,,
+pooled,baseline,dice_tier_inside,,,0.464594,,,,,
+pooled,baseline,det_tier_embedded,,,0.396396,,,,,
+pooled,baseline,dice_tier_embedded,,,0.197948,,,,,
+pooled,baseline,det_tier_abutting,,,0.637931,,,,,
+pooled,baseline,dice_tier_abutting,,,0.340841,,,,,
+pooled,baseline,det_tier_separated,,,0.214286,,,,,
+pooled,baseline,dice_tier_separated,,,0.06155,,,,,
+pooled,A,objective,,,0.536534,1308,2.16976e-06,0.00535169,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,A,case_dice_pos,,,0.47175,,,,,
+pooled,A,spec_raw,,,0.730887,,,,,
+pooled,A,spec_reweighted,,,0.710119,,,,,
+pooled,A,spec_reweight_cover,,,1,,,,,
+pooled,A,fp_per_neg,,,0.318043,,,,,
+pooled,A,fp_per_pos,,,0.332314,,,,,
+pooled,A,neg_any_fp,,,0.269113,,,,,
+pooled,A,localized,,,823,,,,,
+pooled,A,wrong_place,,,75,,,,,
+pooled,A,nothing,,,83,,,,,
+pooled,A,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,A,lesion_dice,,,0.400348,,,,,
+pooled,A,det_all,,,0.702834,,,,,
+pooled,A,n_tie_at_cut,,,0,,,,,
+pooled,A,spec_thick_<2.5,,,0.773756,,,,,
+pooled,A,n_neg_thick_<2.5,,,221,,,,,
+pooled,A,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,A,n_neg_thick_2.5-5,,,62,,,,,
+pooled,A,spec_thick_>=5,,,0.545455,,,,,
+pooled,A,n_neg_thick_>=5,,,44,,,,,
+pooled,A,det_<5,,,0,,,,,
+pooled,A,dice_<5,,,0,,,,,
+pooled,A,dice_det_<5,,,,,,,,
+pooled,A,volratio_det_<5,,,,,,,,
+pooled,A,n_det_<5,,,0,,,,,
+pooled,A,det_5-10,,,0.0810811,,,,,
+pooled,A,dice_5-10,,,0.0304289,,,,,
+pooled,A,dice_det_5-10,,,0.37529,,,,,
+pooled,A,volratio_det_5-10,,,2.91912,,,,,
+pooled,A,n_det_5-10,,,3,,,,,
+pooled,A,det_10-20,,,0.476364,,,,,
+pooled,A,dice_10-20,,,0.196406,,,,,
+pooled,A,dice_det_10-20,,,0.412302,,,,,
+pooled,A,volratio_det_10-20,,,1.17878,,,,,
+pooled,A,n_det_10-20,,,131,,,,,
+pooled,A,det_20-40,,,0.805695,,,,,
+pooled,A,dice_20-40,,,0.467742,,,,,
+pooled,A,dice_det_20-40,,,0.580544,,,,,
+pooled,A,volratio_det_20-40,,,0.916083,,,,,
+pooled,A,n_det_20-40,,,481,,,,,
+pooled,A,det_>=40,,,0.913357,,,,,
+pooled,A,dice_>=40,,,0.577799,,,,,
+pooled,A,dice_det_>=40,,,0.63261,,,,,
+pooled,A,volratio_det_>=40,,,0.777227,,,,,
+pooled,A,n_det_>=40,,,253,,,,,
+pooled,A,det_tier_inside,,,0.793182,,,,,
+pooled,A,dice_tier_inside,,,0.464594,,,,,
+pooled,A,det_tier_embedded,,,0.396396,,,,,
+pooled,A,dice_tier_embedded,,,0.197948,,,,,
+pooled,A,det_tier_abutting,,,0.637931,,,,,
+pooled,A,dice_tier_abutting,,,0.340841,,,,,
+pooled,A,det_tier_separated,,,0.214286,,,,,
+pooled,A,dice_tier_separated,,,0.06155,,,,,
+pooled,B,objective,,,0.534221,1308,-5.31582e-05,0,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,B,case_dice_pos,,,0.471724,,,,,
+pooled,B,spec_raw,,,0.721713,,,,,
+pooled,B,spec_reweighted,,,0.702801,,,,,
+pooled,B,spec_reweight_cover,,,1,,,,,
+pooled,B,fp_per_neg,,,0.330275,,,,,
+pooled,B,fp_per_pos,,,0.334353,,,,,
+pooled,B,neg_any_fp,,,0.278287,,,,,
+pooled,B,localized,,,823,,,,,
+pooled,B,wrong_place,,,75,,,,,
+pooled,B,nothing,,,83,,,,,
+pooled,B,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,B,lesion_dice,,,0.399847,,,,,
+pooled,B,det_all,,,0.701215,,,,,
+pooled,B,n_tie_at_cut,,,0,,,,,
+pooled,B,spec_thick_<2.5,,,0.764706,,,,,
+pooled,B,n_neg_thick_<2.5,,,221,,,,,
+pooled,B,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,B,n_neg_thick_2.5-5,,,62,,,,,
+pooled,B,spec_thick_>=5,,,0.522727,,,,,
+pooled,B,n_neg_thick_>=5,,,44,,,,,
+pooled,B,det_<5,,,0,,,,,
+pooled,B,dice_<5,,,0,,,,,
+pooled,B,dice_det_<5,,,,,,,,
+pooled,B,volratio_det_<5,,,,,,,,
+pooled,B,n_det_<5,,,0,,,,,
+pooled,B,det_5-10,,,0.0810811,,,,,
+pooled,B,dice_5-10,,,0.0304289,,,,,
+pooled,B,dice_det_5-10,,,0.37529,,,,,
+pooled,B,volratio_det_5-10,,,2.91912,,,,,
+pooled,B,n_det_5-10,,,3,,,,,
+pooled,B,det_10-20,,,0.472727,,,,,
+pooled,B,dice_10-20,,,0.196245,,,,,
+pooled,B,dice_det_10-20,,,0.415133,,,,,
+pooled,B,volratio_det_10-20,,,1.16563,,,,,
+pooled,B,n_det_10-20,,,130,,,,,
+pooled,B,det_20-40,,,0.80402,,,,,
+pooled,B,dice_20-40,,,0.466835,,,,,
+pooled,B,dice_det_20-40,,,0.580626,,,,,
+pooled,B,volratio_det_20-40,,,0.916131,,,,,
+pooled,B,n_det_20-40,,,480,,,,,
+pooled,B,det_>=40,,,0.913357,,,,,
+pooled,B,dice_>=40,,,0.577679,,,,,
+pooled,B,dice_det_>=40,,,0.632479,,,,,
+pooled,B,volratio_det_>=40,,,0.777227,,,,,
+pooled,B,n_det_>=40,,,253,,,,,
+pooled,B,det_tier_inside,,,0.793182,,,,,
+pooled,B,dice_tier_inside,,,0.464594,,,,,
+pooled,B,det_tier_embedded,,,0.396396,,,,,
+pooled,B,dice_tier_embedded,,,0.197948,,,,,
+pooled,B,det_tier_abutting,,,0.632184,,,,,
+pooled,B,dice_tier_abutting,,,0.337538,,,,,
+pooled,B,det_tier_separated,,,0.2,,,,,
+pooled,B,dice_tier_separated,,,0.0609165,,,,,
+pooled,D,objective,,,0.544591,1308,0.00772533,0.0127275,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,D,case_dice_pos,,,0.485551,,,,,
+pooled,D,spec_raw,,,0.721713,,,,,
+pooled,D,spec_reweighted,,,0.702801,,,,,
+pooled,D,spec_reweight_cover,,,1,,,,,
+pooled,D,fp_per_neg,,,0.314985,,,,,
+pooled,D,fp_per_pos,,,0.286442,,,,,
+pooled,D,neg_any_fp,,,0.278287,,,,,
+pooled,D,localized,,,830,,,,,
+pooled,D,wrong_place,,,68,,,,,
+pooled,D,nothing,,,83,,,,,
+pooled,D,rel_vol_diff_median,,,-0.0254187,,,,,
+pooled,D,lesion_dice,,,0.41797,,,,,
+pooled,D,det_all,,,0.718219,,,,,
+pooled,D,n_tie_at_cut,,,0,,,,,
+pooled,D,spec_thick_<2.5,,,0.764706,,,,,
+pooled,D,n_neg_thick_<2.5,,,221,,,,,
+pooled,D,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,D,n_neg_thick_2.5-5,,,62,,,,,
+pooled,D,spec_thick_>=5,,,0.522727,,,,,
+pooled,D,n_neg_thick_>=5,,,44,,,,,
+pooled,D,det_<5,,,0.0408163,,,,,
+pooled,D,dice_<5,,,9.91601e-05,,,,,
+pooled,D,dice_det_<5,,,0.00242942,,,,,
+pooled,D,volratio_det_<5,,,1371.48,,,,,
+pooled,D,n_det_<5,,,2,,,,,
+pooled,D,det_5-10,,,0.108108,,,,,
+pooled,D,dice_5-10,,,0.0264701,,,,,
+pooled,D,dice_det_5-10,,,0.244849,,,,,
+pooled,D,volratio_det_5-10,,,5.24145,,,,,
+pooled,D,n_det_5-10,,,4,,,,,
+pooled,D,det_10-20,,,0.505455,,,,,
+pooled,D,dice_10-20,,,0.215889,,,,,
+pooled,D,dice_det_10-20,,,0.427119,,,,,
+pooled,D,volratio_det_10-20,,,1.42722,,,,,
+pooled,D,n_det_10-20,,,139,,,,,
+pooled,D,det_20-40,,,0.81742,,,,,
+pooled,D,dice_20-40,,,0.485745,,,,,
+pooled,D,dice_det_20-40,,,0.594241,,,,,
+pooled,D,volratio_det_20-40,,,1.07539,,,,,
+pooled,D,n_det_20-40,,,488,,,,,
+pooled,D,det_>=40,,,0.916968,,,,,
+pooled,D,dice_>=40,,,0.598734,,,,,
+pooled,D,dice_det_>=40,,,0.65295,,,,,
+pooled,D,volratio_det_>=40,,,0.892886,,,,,
+pooled,D,n_det_>=40,,,254,,,,,
+pooled,D,det_tier_inside,,,0.805682,,,,,
+pooled,D,dice_tier_inside,,,0.482672,,,,,
+pooled,D,det_tier_embedded,,,0.432432,,,,,
+pooled,D,dice_tier_embedded,,,0.203659,,,,,
+pooled,D,det_tier_abutting,,,0.655172,,,,,
+pooled,D,dice_tier_abutting,,,0.367573,,,,,
+pooled,D,det_tier_separated,,,0.228571,,,,,
+pooled,D,dice_tier_separated,,,0.0696804,,,,,
+pooled,ABD,objective,,,0.536517,1308,-1.36653e-05,0.00531659,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,ABD,case_dice_pos,,,0.471727,,,,,
+pooled,ABD,spec_raw,,,0.730887,,,,,
+pooled,ABD,spec_reweighted,,,0.710119,,,,,
+pooled,ABD,spec_reweight_cover,,,1,,,,,
+pooled,ABD,fp_per_neg,,,0.318043,,,,,
+pooled,ABD,fp_per_pos,,,0.332314,,,,,
+pooled,ABD,neg_any_fp,,,0.269113,,,,,
+pooled,ABD,localized,,,823,,,,,
+pooled,ABD,wrong_place,,,75,,,,,
+pooled,ABD,nothing,,,83,,,,,
+pooled,ABD,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,ABD,lesion_dice,,,0.399847,,,,,
+pooled,ABD,det_all,,,0.701215,,,,,
+pooled,ABD,n_tie_at_cut,,,0,,,,,
+pooled,ABD,spec_thick_<2.5,,,0.773756,,,,,
+pooled,ABD,n_neg_thick_<2.5,,,221,,,,,
+pooled,ABD,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,ABD,n_neg_thick_2.5-5,,,62,,,,,
+pooled,ABD,spec_thick_>=5,,,0.545455,,,,,
+pooled,ABD,n_neg_thick_>=5,,,44,,,,,
+pooled,ABD,det_<5,,,0,,,,,
+pooled,ABD,dice_<5,,,0,,,,,
+pooled,ABD,dice_det_<5,,,,,,,,
+pooled,ABD,volratio_det_<5,,,,,,,,
+pooled,ABD,n_det_<5,,,0,,,,,
+pooled,ABD,det_5-10,,,0.0810811,,,,,
+pooled,ABD,dice_5-10,,,0.0304289,,,,,
+pooled,ABD,dice_det_5-10,,,0.37529,,,,,
+pooled,ABD,volratio_det_5-10,,,2.91912,,,,,
+pooled,ABD,n_det_5-10,,,3,,,,,
+pooled,ABD,det_10-20,,,0.472727,,,,,
+pooled,ABD,dice_10-20,,,0.196245,,,,,
+pooled,ABD,dice_det_10-20,,,0.415133,,,,,
+pooled,ABD,volratio_det_10-20,,,1.16563,,,,,
+pooled,ABD,n_det_10-20,,,130,,,,,
+pooled,ABD,det_20-40,,,0.80402,,,,,
+pooled,ABD,dice_20-40,,,0.466835,,,,,
+pooled,ABD,dice_det_20-40,,,0.580626,,,,,
+pooled,ABD,volratio_det_20-40,,,0.916131,,,,,
+pooled,ABD,n_det_20-40,,,480,,,,,
+pooled,ABD,det_>=40,,,0.913357,,,,,
+pooled,ABD,dice_>=40,,,0.577679,,,,,
+pooled,ABD,dice_det_>=40,,,0.632479,,,,,
+pooled,ABD,volratio_det_>=40,,,0.777227,,,,,
+pooled,ABD,n_det_>=40,,,253,,,,,
+pooled,ABD,det_tier_inside,,,0.793182,,,,,
+pooled,ABD,dice_tier_inside,,,0.464594,,,,,
+pooled,ABD,det_tier_embedded,,,0.396396,,,,,
+pooled,ABD,dice_tier_embedded,,,0.197948,,,,,
+pooled,ABD,det_tier_abutting,,,0.632184,,,,,
+pooled,ABD,dice_tier_abutting,,,0.337538,,,,,
+pooled,ABD,det_tier_separated,,,0.2,,,,,
+pooled,ABD,dice_tier_separated,,,0.0609165,,,,,
+pooled,AB,objective,,,0.536517,1308,-1.36653e-05,0.00531659,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,AB,case_dice_pos,,,0.471727,,,,,
+pooled,AB,spec_raw,,,0.730887,,,,,
+pooled,AB,spec_reweighted,,,0.710119,,,,,
+pooled,AB,spec_reweight_cover,,,1,,,,,
+pooled,AB,fp_per_neg,,,0.318043,,,,,
+pooled,AB,fp_per_pos,,,0.332314,,,,,
+pooled,AB,neg_any_fp,,,0.269113,,,,,
+pooled,AB,localized,,,823,,,,,
+pooled,AB,wrong_place,,,75,,,,,
+pooled,AB,nothing,,,83,,,,,
+pooled,AB,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,AB,lesion_dice,,,0.399847,,,,,
+pooled,AB,det_all,,,0.701215,,,,,
+pooled,AB,n_tie_at_cut,,,0,,,,,
+pooled,AB,spec_thick_<2.5,,,0.773756,,,,,
+pooled,AB,n_neg_thick_<2.5,,,221,,,,,
+pooled,AB,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,AB,n_neg_thick_2.5-5,,,62,,,,,
+pooled,AB,spec_thick_>=5,,,0.545455,,,,,
+pooled,AB,n_neg_thick_>=5,,,44,,,,,
+pooled,AB,det_<5,,,0,,,,,
+pooled,AB,dice_<5,,,0,,,,,
+pooled,AB,dice_det_<5,,,,,,,,
+pooled,AB,volratio_det_<5,,,,,,,,
+pooled,AB,n_det_<5,,,0,,,,,
+pooled,AB,det_5-10,,,0.0810811,,,,,
+pooled,AB,dice_5-10,,,0.0304289,,,,,
+pooled,AB,dice_det_5-10,,,0.37529,,,,,
+pooled,AB,volratio_det_5-10,,,2.91912,,,,,
+pooled,AB,n_det_5-10,,,3,,,,,
+pooled,AB,det_10-20,,,0.472727,,,,,
+pooled,AB,dice_10-20,,,0.196245,,,,,
+pooled,AB,dice_det_10-20,,,0.415133,,,,,
+pooled,AB,volratio_det_10-20,,,1.16563,,,,,
+pooled,AB,n_det_10-20,,,130,,,,,
+pooled,AB,det_20-40,,,0.80402,,,,,
+pooled,AB,dice_20-40,,,0.466835,,,,,
+pooled,AB,dice_det_20-40,,,0.580626,,,,,
+pooled,AB,volratio_det_20-40,,,0.916131,,,,,
+pooled,AB,n_det_20-40,,,480,,,,,
+pooled,AB,det_>=40,,,0.913357,,,,,
+pooled,AB,dice_>=40,,,0.577679,,,,,
+pooled,AB,dice_det_>=40,,,0.632479,,,,,
+pooled,AB,volratio_det_>=40,,,0.777227,,,,,
+pooled,AB,n_det_>=40,,,253,,,,,
+pooled,AB,det_tier_inside,,,0.793182,,,,,
+pooled,AB,dice_tier_inside,,,0.464594,,,,,
+pooled,AB,det_tier_embedded,,,0.396396,,,,,
+pooled,AB,dice_tier_embedded,,,0.197948,,,,,
+pooled,AB,det_tier_abutting,,,0.632184,,,,,
+pooled,AB,dice_tier_abutting,,,0.337538,,,,,
+pooled,AB,det_tier_separated,,,0.2,,,,,
+pooled,AB,dice_tier_separated,,,0.0609165,,,,,
+pooled,BD,objective,,,0.534221,1308,-5.31582e-05,0,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,BD,case_dice_pos,,,0.471724,,,,,
+pooled,BD,spec_raw,,,0.721713,,,,,
+pooled,BD,spec_reweighted,,,0.702801,,,,,
+pooled,BD,spec_reweight_cover,,,1,,,,,
+pooled,BD,fp_per_neg,,,0.330275,,,,,
+pooled,BD,fp_per_pos,,,0.334353,,,,,
+pooled,BD,neg_any_fp,,,0.278287,,,,,
+pooled,BD,localized,,,823,,,,,
+pooled,BD,wrong_place,,,75,,,,,
+pooled,BD,nothing,,,83,,,,,
+pooled,BD,rel_vol_diff_median,,,-0.186583,,,,,
+pooled,BD,lesion_dice,,,0.399847,,,,,
+pooled,BD,det_all,,,0.701215,,,,,
+pooled,BD,n_tie_at_cut,,,0,,,,,
+pooled,BD,spec_thick_<2.5,,,0.764706,,,,,
+pooled,BD,n_neg_thick_<2.5,,,221,,,,,
+pooled,BD,spec_thick_2.5-5,,,0.709677,,,,,
+pooled,BD,n_neg_thick_2.5-5,,,62,,,,,
+pooled,BD,spec_thick_>=5,,,0.522727,,,,,
+pooled,BD,n_neg_thick_>=5,,,44,,,,,
+pooled,BD,det_<5,,,0,,,,,
+pooled,BD,dice_<5,,,0,,,,,
+pooled,BD,dice_det_<5,,,,,,,,
+pooled,BD,volratio_det_<5,,,,,,,,
+pooled,BD,n_det_<5,,,0,,,,,
+pooled,BD,det_5-10,,,0.0810811,,,,,
+pooled,BD,dice_5-10,,,0.0304289,,,,,
+pooled,BD,dice_det_5-10,,,0.37529,,,,,
+pooled,BD,volratio_det_5-10,,,2.91912,,,,,
+pooled,BD,n_det_5-10,,,3,,,,,
+pooled,BD,det_10-20,,,0.472727,,,,,
+pooled,BD,dice_10-20,,,0.196245,,,,,
+pooled,BD,dice_det_10-20,,,0.415133,,,,,
+pooled,BD,volratio_det_10-20,,,1.16563,,,,,
+pooled,BD,n_det_10-20,,,130,,,,,
+pooled,BD,det_20-40,,,0.80402,,,,,
+pooled,BD,dice_20-40,,,0.466835,,,,,
+pooled,BD,dice_det_20-40,,,0.580626,,,,,
+pooled,BD,volratio_det_20-40,,,0.916131,,,,,
+pooled,BD,n_det_20-40,,,480,,,,,
+pooled,BD,det_>=40,,,0.913357,,,,,
+pooled,BD,dice_>=40,,,0.577679,,,,,
+pooled,BD,dice_det_>=40,,,0.632479,,,,,
+pooled,BD,volratio_det_>=40,,,0.777227,,,,,
+pooled,BD,n_det_>=40,,,253,,,,,
+pooled,BD,det_tier_inside,,,0.793182,,,,,
+pooled,BD,dice_tier_inside,,,0.464594,,,,,
+pooled,BD,det_tier_embedded,,,0.396396,,,,,
+pooled,BD,dice_tier_embedded,,,0.197948,,,,,
+pooled,BD,det_tier_abutting,,,0.632184,,,,,
+pooled,BD,dice_tier_abutting,,,0.337538,,,,,
+pooled,BD,det_tier_separated,,,0.2,,,,,
+pooled,BD,dice_tier_separated,,,0.0609165,,,,,
+pooled,ABDc,objective,,,0.552584,1308,0.0128315,0.0246058,,"CI = paired case bootstrap of the delta vs baseline (B=1000, seed 0)"
+pooled,ABDc,case_dice_pos,,,0.483976,,,,,
+pooled,ABDc,spec_raw,,,0.75841,,,,,
+pooled,ABDc,spec_reweighted,,,0.745569,,,,,
+pooled,ABDc,spec_reweight_cover,,,1,,,,,
+pooled,ABDc,fp_per_neg,,,0.259939,,,,,
+pooled,ABDc,fp_per_pos,,,0.254842,,,,,
+pooled,ABDc,neg_any_fp,,,0.24159,,,,,
+pooled,ABDc,localized,,,814,,,,,
+pooled,ABDc,wrong_place,,,65,,,,,
+pooled,ABDc,nothing,,,102,,,,,
+pooled,ABDc,rel_vol_diff_median,,,-0.0500231,,,,,
+pooled,ABDc,lesion_dice,,,0.413489,,,,,
+pooled,ABDc,det_all,,,0.697976,,,,,
+pooled,ABDc,n_tie_at_cut,,,0,,,,,
+pooled,ABDc,spec_thick_<2.5,,,0.791855,,,,,
+pooled,ABDc,n_neg_thick_<2.5,,,221,,,,,
+pooled,ABDc,spec_thick_2.5-5,,,0.758065,,,,,
+pooled,ABDc,n_neg_thick_2.5-5,,,62,,,,,
+pooled,ABDc,spec_thick_>=5,,,0.590909,,,,,
+pooled,ABDc,n_neg_thick_>=5,,,44,,,,,
+pooled,ABDc,det_<5,,,0.0204082,,,,,
+pooled,ABDc,dice_<5,,,9.37767e-05,,,,,
+pooled,ABDc,dice_det_<5,,,0.00459506,,,,,
+pooled,ABDc,volratio_det_<5,,,216.625,,,,,
+pooled,ABDc,n_det_<5,,,1,,,,,
+pooled,ABDc,det_5-10,,,0.108108,,,,,
+pooled,ABDc,dice_5-10,,,0.0264701,,,,,
+pooled,ABDc,dice_det_5-10,,,0.244849,,,,,
+pooled,ABDc,volratio_det_5-10,,,5.24145,,,,,
+pooled,ABDc,n_det_5-10,,,4,,,,,
+pooled,ABDc,det_10-20,,,0.498182,,,,,
+pooled,ABDc,dice_10-20,,,0.213178,,,,,
+pooled,ABDc,dice_det_10-20,,,0.427913,,,,,
+pooled,ABDc,volratio_det_10-20,,,1.42274,,,,,
+pooled,ABDc,n_det_10-20,,,137,,,,,
+pooled,ABDc,det_20-40,,,0.792295,,,,,
+pooled,ABDc,dice_20-40,,,0.479835,,,,,
+pooled,ABDc,dice_det_20-40,,,0.605626,,,,,
+pooled,ABDc,volratio_det_20-40,,,1.07253,,,,,
+pooled,ABDc,n_det_20-40,,,473,,,,,
+pooled,ABDc,det_>=40,,,0.891697,,,,,
+pooled,ABDc,dice_>=40,,,0.594185,,,,,
+pooled,ABDc,dice_det_>=40,,,0.666353,,,,,
+pooled,ABDc,volratio_det_>=40,,,0.894796,,,,,
+pooled,ABDc,n_det_>=40,,,247,,,,,
+pooled,ABDc,det_tier_inside,,,0.797727,,,,,
+pooled,ABDc,dice_tier_inside,,,0.481718,,,,,
+pooled,ABDc,det_tier_embedded,,,0.414414,,,,,
+pooled,ABDc,dice_tier_embedded,,,0.202455,,,,,
+pooled,ABDc,det_tier_abutting,,,0.586207,,,,,
+pooled,ABDc,dice_tier_abutting,,,0.346091,,,,,
+pooled,ABDc,det_tier_separated,,,0.171429,,,,,
+pooled,ABDc,dice_tier_separated,,,0.0579155,,,,,
+lesion_changes,A,recovered,diam_bin=<5,,0,,,,,
+lesion_changes,A,lost,diam_bin=<5,,0,,,,,
+lesion_changes,A,recovered,diam_bin=5-10,,0,,,,,
+lesion_changes,A,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,A,recovered,diam_bin=10-20,,0,,,,,
+lesion_changes,A,lost,diam_bin=10-20,,0,,,,,
+lesion_changes,A,recovered,diam_bin=20-40,,0,,,,,
+lesion_changes,A,lost,diam_bin=20-40,,0,,,,,
+lesion_changes,A,recovered,diam_bin=>=40,,0,,,,,
+lesion_changes,A,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,A,lost,tier=inside,,0,,,,,
+lesion_changes,A,recovered,tier=inside,,0,,,,,
+lesion_changes,A,lost,tier=embedded,,0,,,,,
+lesion_changes,A,recovered,tier=embedded,,0,,,,,
+lesion_changes,A,lost,tier=abutting,,0,,,,,
+lesion_changes,A,recovered,tier=abutting,,0,,,,,
+lesion_changes,A,lost,tier=separated,,0,,,,,
+lesion_changes,A,recovered,tier=separated,,0,,,,,
+lesion_changes,B,recovered,diam_bin=<5,,0,,,,,
+lesion_changes,B,lost,diam_bin=<5,,0,,,,,
+lesion_changes,B,recovered,diam_bin=5-10,,0,,,,,
+lesion_changes,B,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,B,recovered,diam_bin=10-20,,0,,,,,
+lesion_changes,B,lost,diam_bin=10-20,,1,,,,,
+lesion_changes,B,recovered,diam_bin=20-40,,0,,,,,
+lesion_changes,B,lost,diam_bin=20-40,,1,,,,,
+lesion_changes,B,recovered,diam_bin=>=40,,0,,,,,
+lesion_changes,B,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,B,lost,tier=inside,,0,,,,,
+lesion_changes,B,recovered,tier=inside,,0,,,,,
+lesion_changes,B,lost,tier=embedded,,0,,,,,
+lesion_changes,B,recovered,tier=embedded,,0,,,,,
+lesion_changes,B,lost,tier=abutting,,1,,,,,
+lesion_changes,B,recovered,tier=abutting,,0,,,,,
+lesion_changes,B,lost,tier=separated,,1,,,,,
+lesion_changes,B,recovered,tier=separated,,0,,,,,
+lesion_changes,D,recovered,diam_bin=<5,,2,,,,,
+lesion_changes,D,lost,diam_bin=<5,,0,,,,,
+lesion_changes,D,recovered,diam_bin=5-10,,1,,,,,
+lesion_changes,D,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,D,recovered,diam_bin=10-20,,8,,,,,
+lesion_changes,D,lost,diam_bin=10-20,,0,,,,,
+lesion_changes,D,recovered,diam_bin=20-40,,7,,,,,
+lesion_changes,D,lost,diam_bin=20-40,,0,,,,,
+lesion_changes,D,recovered,diam_bin=>=40,,1,,,,,
+lesion_changes,D,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,D,lost,tier=inside,,0,,,,,
+lesion_changes,D,recovered,tier=inside,,11,,,,,
+lesion_changes,D,lost,tier=embedded,,0,,,,,
+lesion_changes,D,recovered,tier=embedded,,4,,,,,
+lesion_changes,D,lost,tier=abutting,,0,,,,,
+lesion_changes,D,recovered,tier=abutting,,3,,,,,
+lesion_changes,D,lost,tier=separated,,0,,,,,
+lesion_changes,D,recovered,tier=separated,,1,,,,,
+lesion_changes,ABD,recovered,diam_bin=<5,,0,,,,,
+lesion_changes,ABD,lost,diam_bin=<5,,0,,,,,
+lesion_changes,ABD,recovered,diam_bin=5-10,,0,,,,,
+lesion_changes,ABD,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,ABD,recovered,diam_bin=10-20,,0,,,,,
+lesion_changes,ABD,lost,diam_bin=10-20,,1,,,,,
+lesion_changes,ABD,recovered,diam_bin=20-40,,0,,,,,
+lesion_changes,ABD,lost,diam_bin=20-40,,1,,,,,
+lesion_changes,ABD,recovered,diam_bin=>=40,,0,,,,,
+lesion_changes,ABD,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,ABD,lost,tier=inside,,0,,,,,
+lesion_changes,ABD,recovered,tier=inside,,0,,,,,
+lesion_changes,ABD,lost,tier=embedded,,0,,,,,
+lesion_changes,ABD,recovered,tier=embedded,,0,,,,,
+lesion_changes,ABD,lost,tier=abutting,,1,,,,,
+lesion_changes,ABD,recovered,tier=abutting,,0,,,,,
+lesion_changes,ABD,lost,tier=separated,,1,,,,,
+lesion_changes,ABD,recovered,tier=separated,,0,,,,,
+lesion_changes,AB,recovered,diam_bin=<5,,0,,,,,
+lesion_changes,AB,lost,diam_bin=<5,,0,,,,,
+lesion_changes,AB,recovered,diam_bin=5-10,,0,,,,,
+lesion_changes,AB,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,AB,recovered,diam_bin=10-20,,0,,,,,
+lesion_changes,AB,lost,diam_bin=10-20,,1,,,,,
+lesion_changes,AB,recovered,diam_bin=20-40,,0,,,,,
+lesion_changes,AB,lost,diam_bin=20-40,,1,,,,,
+lesion_changes,AB,recovered,diam_bin=>=40,,0,,,,,
+lesion_changes,AB,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,AB,lost,tier=inside,,0,,,,,
+lesion_changes,AB,recovered,tier=inside,,0,,,,,
+lesion_changes,AB,lost,tier=embedded,,0,,,,,
+lesion_changes,AB,recovered,tier=embedded,,0,,,,,
+lesion_changes,AB,lost,tier=abutting,,1,,,,,
+lesion_changes,AB,recovered,tier=abutting,,0,,,,,
+lesion_changes,AB,lost,tier=separated,,1,,,,,
+lesion_changes,AB,recovered,tier=separated,,0,,,,,
+lesion_changes,BD,recovered,diam_bin=<5,,0,,,,,
+lesion_changes,BD,lost,diam_bin=<5,,0,,,,,
+lesion_changes,BD,recovered,diam_bin=5-10,,0,,,,,
+lesion_changes,BD,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,BD,recovered,diam_bin=10-20,,0,,,,,
+lesion_changes,BD,lost,diam_bin=10-20,,1,,,,,
+lesion_changes,BD,recovered,diam_bin=20-40,,0,,,,,
+lesion_changes,BD,lost,diam_bin=20-40,,1,,,,,
+lesion_changes,BD,recovered,diam_bin=>=40,,0,,,,,
+lesion_changes,BD,lost,diam_bin=>=40,,0,,,,,
+lesion_changes,BD,lost,tier=inside,,0,,,,,
+lesion_changes,BD,recovered,tier=inside,,0,,,,,
+lesion_changes,BD,lost,tier=embedded,,0,,,,,
+lesion_changes,BD,recovered,tier=embedded,,0,,,,,
+lesion_changes,BD,lost,tier=abutting,,1,,,,,
+lesion_changes,BD,recovered,tier=abutting,,0,,,,,
+lesion_changes,BD,lost,tier=separated,,1,,,,,
+lesion_changes,BD,recovered,tier=separated,,0,,,,,
+lesion_changes,ABDc,recovered,diam_bin=<5,,1,,,,,
+lesion_changes,ABDc,lost,diam_bin=<5,,0,,,,,
+lesion_changes,ABDc,recovered,diam_bin=5-10,,1,,,,,
+lesion_changes,ABDc,lost,diam_bin=5-10,,0,,,,,
+lesion_changes,ABDc,recovered,diam_bin=10-20,,9,,,,,
+lesion_changes,ABDc,lost,diam_bin=10-20,,3,,,,,
+lesion_changes,ABDc,recovered,diam_bin=20-40,,4,,,,,
+lesion_changes,ABDc,lost,diam_bin=20-40,,12,,,,,
+lesion_changes,ABDc,recovered,diam_bin=>=40,,1,,,,,
+lesion_changes,ABDc,lost,diam_bin=>=40,,7,,,,,
+lesion_changes,ABDc,lost,tier=inside,,6,,,,,
+lesion_changes,ABDc,recovered,tier=inside,,10,,,,,
+lesion_changes,ABDc,lost,tier=embedded,,2,,,,,
+lesion_changes,ABDc,recovered,tier=embedded,,4,,,,,
+lesion_changes,ABDc,lost,tier=abutting,,11,,,,,
+lesion_changes,ABDc,recovered,tier=abutting,,2,,,,,
+lesion_changes,ABDc,lost,tier=separated,,3,,,,,
+lesion_changes,ABDc,recovered,tier=separated,,0,,,,,
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.330275,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=none tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.327217,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=d0mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.536534,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.730887,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.318043,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.332314,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.47175,,,,"A=d0mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.330275,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=d5mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.330275,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=d5mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.330275,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=d10mm/any tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses,A,lesions_lost,tier=inside,,0,698,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=inside,,0,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=embedded,,0,44,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=embedded,,0,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=abutting,,0,111,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=abutting,,0,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_losses,A,lesions_lost,tier=separated,,0,15,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","detected by S8 502, no touching component after the filter; n = detected by S8 in that tier"
+filterA_losses,A,lesions_lost_single_touching_cc,tier=separated,,0,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5",
+filterA_all_settings,A,objective,,,0.534239,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,spec_raw,,,0.721713,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_neg,,,0.330275,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,fp_per_pos,,,0.334353,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_all_settings,A,case_dice_pos,,,0.471747,,,,"A=d10mm/half tlow=0.5 k=all,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,0,711,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,0,48,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,0,114,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,0,16,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.54462,,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.721713,,,,A=d0mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,9,711,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,2,48,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,12,114,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,4,16,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.552584,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.75841,,,,A=d0mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,0,711,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,0,48,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,0,114,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,0,16,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.54462,,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.721713,,,,A=d5mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,1,711,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,1,48,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,4,114,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,1,16,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.548413,,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.733945,,,,A=d5mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,0,711,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,0,48,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,0,114,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,0,16,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.54462,,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.721713,,,,A=d10mm/any tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=inside,,0,711,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=embedded,,0,48,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=abutting,,0,114,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,lesions_lost,tier=separated,,0,16,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"vs the same setting without the filter; descriptive, all 1308"
+filterA_losses_faint_footprint,A,objective,,,0.545574,,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+filterA_losses_faint_footprint,A,spec_raw,,,0.721713,,,,A=d10mm/half tlow=0.001 core>0.5 tseg=0.1,"descriptive, all 1308"
+missed_20_40,A,rescued,,,0,116,,,,
+missed_20_40,B,rescued,,,0,116,,,,
+missed_20_40,D,rescued,,,7,116,,,,
+missed_20_40,ABD,rescued,,,0,116,,,,
+missed_20_40,AB,rescued,,,0,116,,,,
+missed_20_40,BD,rescued,,,0,116,,,,
+missed_20_40,ABDc,rescued,,,4,116,,,,
+B_fixed_settings,B,objective,,,0.500151,,,,"A=none tlow=0.1 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.614679,,,,"A=none tlow=0.1 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,0.400612,,,,"A=none tlow=0.1 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,8,,,,"A=none tlow=0.1 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,79,,,,"A=none tlow=0.1 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.5076,,,,"A=none tlow=0.1 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.614679,,,,"A=none tlow=0.1 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,0.492355,,,,"A=none tlow=0.1 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,12,,,,"A=none tlow=0.1 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,6,,,,"A=none tlow=0.1 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.479234,,,,"A=none tlow=0.01 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.525994,,,,"A=none tlow=0.01 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,0.501529,,,,"A=none tlow=0.01 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,12,,,,"A=none tlow=0.01 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,74,,,,"A=none tlow=0.01 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.485405,,,,"A=none tlow=0.01 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.525994,,,,"A=none tlow=0.01 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,0.700306,,,,"A=none tlow=0.01 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,24,,,,"A=none tlow=0.01 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,3,,,,"A=none tlow=0.01 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.44157,,,,"A=none tlow=0.001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.373089,,,,"A=none tlow=0.001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,0.669725,,,,"A=none tlow=0.001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,13,,,,"A=none tlow=0.001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,72,,,,"A=none tlow=0.001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.44586,,,,"A=none tlow=0.001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.373089,,,,"A=none tlow=0.001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,1.11009,,,,"A=none tlow=0.001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,32,,,,"A=none tlow=0.001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,3,,,,"A=none tlow=0.001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.380963,,,,"A=none tlow=0.0001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.125382,,,,"A=none tlow=0.0001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,1.00612,,,,"A=none tlow=0.0001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,13,,,,"A=none tlow=0.0001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,57,,,,"A=none tlow=0.0001 k=1,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,objective,,,0.375731,,,,"A=none tlow=0.0001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,spec_raw,,,0.125382,,,,"A=none tlow=0.0001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,fp_per_neg,,,2.48624,,,,"A=none tlow=0.0001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,missed_20_40_rescued,,,27,,,,"A=none tlow=0.0001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+B_fixed_settings,B,lesions_lost,,,1,,,,"A=none tlow=0.0001 k=3,pmin=none tseg=0.5","descriptive, all 1308, not used to choose"
+D_new_detections,D,n_newly_touched,,,19,,,,,Dice>=0.1 in 1
+D_new_detections,ABDc,n_newly_touched,,,16,,,,,Dice>=0.1 in 2
+A_diagnostics,A,components_below_half_in_channel0,t=0.5,,6,1341,,,,
+A_diagnostics,A,components_below_half_in_channel0,t=0.01,,261,1787,,,,
+A_diagnostics,A,components_below_half_in_channel0,t=0.0001,,3423,10071,,,,
+A_diagnostics,A,gt_lesion_median_frac_in_channel0,tier=inside,,0.990518,880,,,,
+A_diagnostics,A,gt_lesion_median_frac_in_channel0,tier=embedded,,0.700067,111,,,,
+A_diagnostics,A,gt_lesion_median_frac_in_channel0,tier=abutting,,0.610982,174,,,,
+A_diagnostics,A,gt_lesion_median_frac_in_channel0,tier=separated,,0,70,,,,

@@ -1,0 +1,1309 @@
+case_id,aorta_hu,pv_hu,gland_hu,aorta_n_vox,pv_n_vox,low_vox_flag,est_phase,posterior,argmax_phase,pv_enh_frac,early_arterial,metadata_phase,slice_thickness_mm,aorta_iqr,pv_iqr,qc_note
+PanTS_00000003,137,143,77,13864,235,False,venous,0.9742,venous,0.8403,False,Venous,7.5,18,14,
+PanTS_00000012,109,109,45,34253,10913,False,venous,0.97,venous,0.5652,False,Non-contrast,2,33,32,
+PanTS_00000020,43,45,12,102959,12153,False,non-contrast,0.9948,non-contrast,0.04733,False,Non-contrast,1,103,129,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000026,123,129,80,16317,4862,False,venous,0.9757,venous,0.727,False,Non-contrast,5,21,18,
+PanTS_00000029,177,189,90,43064,12039,False,venous,0.9745,venous,1.213,False,Venous,2.5,35,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000031,121,133,98,18602,3510,False,venous,0.9783,venous,0.7594,False,Non-contrast,5,22,20,
+PanTS_00000035,150,153,78,76851,2767,False,venous,0.966,venous,0.9212,False,Non-contrast,5,20,29,
+PanTS_00000036,33,28,12,15497,3265,False,non-contrast,0.9954,non-contrast,-0.09023,False,Non-contrast,1.5,49,40,
+PanTS_00000040,44,43,31,90485,17173,False,non-contrast,0.996,non-contrast,0.03115,False,Non-contrast,1,83,84,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000042,219,240,125,15609,3938,False,venous,0.9753,venous,1.625,False,Non-contrast,2.5,39,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000047,37,30,-8,97492,32362,False,non-contrast,0.9966,non-contrast,-0.07405,False,Non-contrast,0.8,78,75,
+PanTS_00000049,172,197,71,58363,13237,False,venous,0.978,venous,1.277,False,Venous,2.5,48,46,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000050,129,163,37,34157,12058,False,venous,0.9393,venous,1.002,False,Non-contrast,1.25,36,42,
+PanTS_00000056,50,42,34,141192,8467,False,non-contrast,0.9896,non-contrast,0.02305,False,Non-contrast,0.8,79,77,
+PanTS_00000074,47,32,-34,16746,1129,False,non-contrast,0.9844,non-contrast,-0.05786,False,Non-contrast,5,30,27,
+PanTS_00000084,176,185,110,41784,7676,False,venous,0.9704,venous,1.18,False,Venous,2.5,46,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000086,153,164,95,48510,13337,False,venous,0.977,venous,1.01,False,Venous,2.5,30,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000091,48,42,46,49628,2610,False,non-contrast,0.9935,non-contrast,0.02305,False,Non-contrast,2,21,16,
+PanTS_00000099,28,25,26,117307,4650,False,non-contrast,0.9885,non-contrast,-0.1145,False,Non-contrast,0.8,88,84,
+PanTS_00000100,149,153,81,23766,2455,False,venous,0.9685,venous,0.9212,False,Non-contrast,5,25,20,
+PanTS_00000110,34,33,35,111770,10237,False,non-contrast,0.9969,non-contrast,-0.04977,False,Non-contrast,1.25,27,27,
+PanTS_00000113,97,117,77,23215,4669,False,venous,0.9681,venous,0.6299,False,Non-contrast,4,22,19,
+PanTS_00000117,129,158,68,60662,11172,False,venous,0.9612,venous,0.9617,False,Venous,2.5,34,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000128,133,138,54,32779,3990,False,venous,0.9735,venous,0.7999,False,Non-contrast,3.75,36,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000162,173,192,94,22767,5254,False,venous,0.9792,venous,1.237,False,Venous,2.5,26,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000164,162,176,81,13236,2195,False,venous,0.9782,venous,1.107,False,Non-contrast,5,24,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000167,137,143,95,46863,13830,False,venous,0.9742,venous,0.8403,False,Venous,2.5,26,22,
+PanTS_00000174,43,43,38,150699,26997,False,non-contrast,0.9961,non-contrast,0.03115,False,Non-contrast,0.8,84,90,
+PanTS_00000180,133,133,73,42575,1234,False,venous,0.9642,venous,0.7594,False,Non-contrast,5,32,20,
+PanTS_00000187,444,154,159,157205,40372,False,arterial,1,arterial,0.9293,False,Arterial,1,52,94,
+PanTS_00000199,202,226,136,17428,8456,False,venous,0.9785,venous,1.512,False,Venous,2.5,20,17,
+PanTS_00000220,172,46,47,12759,1882,False,arterial,1,arterial,0.05542,True,Non-contrast,1.5,121,102,
+PanTS_00000231,133,141,97,22626,15388,False,venous,0.9765,venous,0.8241,False,Venous,2.5,28,25,
+PanTS_00000237,43,44,43,132476,35116,False,non-contrast,0.9956,non-contrast,0.03924,False,Non-contrast,0.8016,63,57,
+PanTS_00000246,328,79,83,33567,10211,False,arterial,1,arterial,0.3224,True,Arterial,1.25,70,48,
+PanTS_00000251,141,164,78,10787,3113,False,venous,0.9758,venous,1.01,False,Non-contrast,5,27,27,
+PanTS_00000252,50,42,40,152991,31907,False,non-contrast,0.9896,non-contrast,0.02305,False,Non-contrast,0.8,110,106,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000259,193,209,55,36040,17807,False,venous,0.9757,venous,1.374,False,Non-contrast,3,36,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000263,43,26,0,9390,6294,False,non-contrast,0.9751,non-contrast,-0.1064,False,Non-contrast,1.5,39,27,
+PanTS_00000270,330,38,37,80292,8204,False,arterial,1,arterial,-0.009312,True,Arterial,1.25,73,38,
+PanTS_00000290,134,167,59,10575,3900,False,venous,0.9492,venous,1.035,False,Venous,1.5,23,19,
+PanTS_00000308,179,207,129,5678,3532,False,venous,0.9766,venous,1.358,False,Non-contrast,5,23,21,
+PanTS_00000314,408,86,86,173410,33341,False,arterial,1,arterial,0.3791,True,Arterial,1,34,26,
+PanTS_00000350,47,55,51,78275,143,True,non-contrast,0.9282,non-contrast,0.1282,False,Non-contrast,0.8,39,39,<200 eroded vessel voxels
+PanTS_00000352,150,155,77,20925,3744,False,venous,0.9702,venous,0.9374,False,Non-contrast,2.5,41,39,
+PanTS_00000363,128,172,92,89272,30369,False,uncertain,0.7984,venous,1.075,False,Venous,1.25,34,46,
+PanTS_00000368,42,47,47,113494,5313,False,non-contrast,0.9918,non-contrast,0.06351,False,Arterial,0.8,44,46,
+PanTS_00000371,130,120,64,132351,22611,False,venous,0.911,venous,0.6542,False,Non-contrast,0.9136,82,105,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000404,146,180,81,17263,4033,False,venous,0.9534,venous,1.14,False,Non-contrast,1.5,13,16,
+PanTS_00000416,54,47,40,107721,32151,False,non-contrast,0.9646,non-contrast,0.06351,False,Non-contrast,0.8,74,59,
+PanTS_00000423,194,199,111,13382,6238,False,venous,0.9495,venous,1.293,False,Non-contrast,2.5,30,18,
+PanTS_00000437,91,91,56,40390,12341,False,venous,0.9721,venous,0.4196,False,Venous,2,29,22,
+PanTS_00000449,167,179,98,13376,4103,False,venous,0.9762,venous,1.132,False,Venous,5,29,24,
+PanTS_00000451,86,81,43,25834,7169,False,venous,0.9645,venous,0.3386,False,Non-contrast,1.5,29,23,
+PanTS_00000463,146,149,56,8109,1375,False,venous,0.9673,venous,0.8889,False,Non-contrast,5,32,30,
+PanTS_00000464,309,86,68,15229,5518,False,arterial,1,arterial,0.3791,True,Arterial,1.5,38,47,
+PanTS_00000465,193,183,64,195912,27631,False,uncertain,0.7115,venous,1.164,False,Non-contrast,1,33,41,
+PanTS_00000469,44,43,46,120297,2386,False,non-contrast,0.996,non-contrast,0.03115,False,Non-contrast,0.8,47,44,
+PanTS_00000482,31,38,31,114011,21592,False,non-contrast,0.9915,non-contrast,-0.009312,False,Non-contrast,0.8,66,74.5,
+PanTS_00000485,133,157,17,58792,8171,False,venous,0.973,venous,0.9536,False,Venous,2.5,34,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000488,176,133,78,15605,2046,False,arterial,0.999,arterial,0.7594,False,Non-contrast,5,27,26,
+PanTS_00000554,236,110,78,52927,37589,False,arterial,1,arterial,0.5733,False,Arterial,1.25,48,39,
+PanTS_00000557,25,35,30,69543,2073,False,non-contrast,0.96,non-contrast,-0.03359,False,Non-contrast,0.8,55,58,
+PanTS_00000564,189,207,125,22338,7595,False,venous,0.9778,venous,1.358,False,Venous,2.5,30,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000574,35,25,17,92640,831,False,non-contrast,0.9922,non-contrast,-0.1145,False,Non-contrast,2.5,28,22,
+PanTS_00000592,31,21,-14,104444,22176,False,non-contrast,0.9803,non-contrast,-0.1469,False,Non-contrast,0.8,64,59,
+PanTS_00000605,132,138,81,20100,9592,False,venous,0.9748,venous,0.7999,False,Venous,3,21,17,
+PanTS_00000623,8,17,12,50133,11406,False,venous,0.9305,venous,-0.1792,False,Non-contrast,0.8,73,75,
+PanTS_00000626,49,36,19,84554,25575,False,non-contrast,0.9866,non-contrast,-0.0255,False,Non-contrast,1,105,95,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000654,35,35,-1,114160,29904,False,non-contrast,0.9971,non-contrast,-0.03359,False,Non-contrast,0.8,81,81,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000656,124,146,55,50631,14937,False,venous,0.9734,venous,0.8646,False,Venous,2.5,44,51,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000674,142,159,68,99500,12287,False,venous,0.979,venous,0.9698,False,Non-contrast,2.5,25,27,
+PanTS_00000675,108,141,55,15478,32084,False,venous,0.9201,venous,0.8241,False,Non-contrast,1,34,38,
+PanTS_00000677,48,47,46,126413,4880,False,non-contrast,0.9904,non-contrast,0.06351,False,Non-contrast,0.8,52,42,
+PanTS_00000686,145,171,50,46318,8277,False,venous,0.9732,venous,1.067,False,Arterial,2.5,23,22,
+PanTS_00000693,157,177,110,38886,9251,False,venous,0.9791,venous,1.115,False,Venous,2.5,46,45,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000696,339,92,80,57610,32527,False,arterial,1,arterial,0.4276,True,Arterial,1.25,68,60,
+PanTS_00000708,155,171,91,32287,2301,False,venous,0.9792,venous,1.067,False,Arterial,5,22,22,
+PanTS_00000715,146,180,63,16407,2411,False,venous,0.9534,venous,1.14,False,Non-contrast,5,21,18,
+PanTS_00000723,176,189,121,30494,9274,False,venous,0.9758,venous,1.213,False,Venous,2.5,33,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000727,188,172.5,77,12073,1228,False,uncertain,0.5036,venous,1.079,False,Arterial,5,28,31,
+PanTS_00000730,166,192,103,19639,2404,False,venous,0.9768,venous,1.237,False,Venous,5,22,21,
+PanTS_00000750,171,202,77,39563,5458,False,venous,0.9718,venous,1.318,False,Venous,2.5,42,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000761,261,244,142,68716,9310,False,arterial,0.9586,arterial,1.658,False,Non-contrast,1.25,43,25,
+PanTS_00000766,41,35,12,21563,2673,False,non-contrast,0.9973,non-contrast,-0.03359,False,Venous,1.5,23,22,
+PanTS_00000771,184,216,102,21183,3874,False,venous,0.973,venous,1.431,False,Venous,2.5,26,31,
+PanTS_00000778,38,43,33,109360,15992,False,non-contrast,0.9949,non-contrast,0.03115,False,Non-contrast,0.8,68,73,
+PanTS_00000797,132,137,91,28960,6101,False,venous,0.9737,venous,0.7918,False,Venous,3,22,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000803,150,165,34,53428,17474,False,venous,0.9791,venous,1.018,False,Venous,1.6,45,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000806,171,218,111,17706,5605,False,venous,0.8739,venous,1.447,False,Arterial,2.5,47,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000811,128,140,81,118031,33877,False,venous,0.9785,venous,0.816,False,Arterial,1,35,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000814,88,86,70,54330,19089,False,venous,0.9697,venous,0.3791,False,Venous,1.2,24,24,
+PanTS_00000836,43,43,42,108132,6228,False,non-contrast,0.9961,non-contrast,0.03115,False,Non-contrast,0.8,42,39,
+PanTS_00000839,133,136,73,29578,2471,False,venous,0.9706,venous,0.7837,False,Non-contrast,5,55,52,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000840,119,143,73,53011,16015,False,venous,0.9689,venous,0.8403,False,Venous,1.5,38,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000849,150,176,106,21449,10195,False,venous,0.9743,venous,1.107,False,Venous,2.5,30,26,
+PanTS_00000855,167,170,95,21893,4683,False,venous,0.9588,venous,1.059,False,Arterial,5,19,19,
+PanTS_00000860,155,177,94,33561,14080,False,venous,0.9783,venous,1.115,False,Non-contrast,2.5,43,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000862,190,206,73,13545,7005,False,venous,0.9762,venous,1.35,False,Venous,2.5,27,22,
+PanTS_00000871,35,37.5,34,65754,3680,False,non-contrast,0.9966,non-contrast,-0.01336,False,Non-contrast,0.8,56,69,
+PanTS_00000878,180,211,110,16532,5722,False,venous,0.9736,venous,1.391,False,Venous,2.5,39,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000881,121,120,52,86249,29954,False,venous,0.9654,venous,0.6542,False,Arterial,1,49,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000892,50,55.99,62,4730,2388,False,non-contrast,0.8994,non-contrast,0.1362,False,Non-contrast,1.25,141,285,
+PanTS_00000911,85,88,67,42610,16150,False,venous,0.9747,venous,0.3953,False,Venous,1.25,16,14,
+PanTS_00000927,35,34,9,94247,23800,False,non-contrast,0.9972,non-contrast,-0.04168,False,Non-contrast,1,26,25,
+PanTS_00000930,167,196,95,7815,958,False,venous,0.9738,venous,1.269,False,Non-contrast,7.5,26,23,
+PanTS_00000932,149,215,86,12876,1289,False,arterial,0.9284,arterial,1.423,False,Non-contrast,5,33,26,
+PanTS_00000941,38,54,38,122249,2191,False,non-contrast,0.8007,non-contrast,0.1202,False,Non-contrast,0.8,40,42,
+PanTS_00000945,190,196,123,34930,5722,False,venous,0.9564,venous,1.269,False,Venous,2.5,39,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00000948,141,175,-4,10648,1339,False,venous,0.9499,venous,1.099,False,Arterial,5,21,21,
+PanTS_00000953,140,149,102,22875,7139,False,venous,0.9767,venous,0.8889,False,Arterial,2.5,20,16.5,
+PanTS_00000966,226,267,112,13666,2964,False,venous,0.9654,venous,1.844,False,Venous,4,27,25,
+PanTS_00001012,114,145,87,29111,5913,False,venous,0.9418,venous,0.8565,False,Venous,2.5,32,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001016,184,197,89,34528,13674,False,venous,0.9743,venous,1.277,False,Venous,2.5,30,25,
+PanTS_00001017,146,113,60,96958,35188,False,arterial,0.9281,arterial,0.5976,False,Arterial,1,37,41,
+PanTS_00001021,47,41,46,102231,24778,False,non-contrast,0.9947,non-contrast,0.01496,False,Non-contrast,0.8,77,64,
+PanTS_00001022,180,98,77,155641,17564,False,arterial,1,arterial,0.4762,True,Venous,1,59,51,
+PanTS_00001030,38,40,39,41371,11662,False,non-contrast,0.9969,non-contrast,0.006871,False,Venous,2.5,29,19,
+PanTS_00001048,209,141,56,50877,1563,False,arterial,1,arterial,0.8241,False,Arterial,5,34,36,
+PanTS_00001053,133,151,94,23078,2779,False,venous,0.9781,venous,0.9051,False,Venous,5,32,29,
+PanTS_00001055,179,172,95,23321,10069,False,venous,0.8519,venous,1.075,False,Non-contrast,2.5,46,33,
+PanTS_00001070,100,105,77,55092,14413,False,venous,0.9759,venous,0.5328,False,Venous,1.25,29,27,
+PanTS_00001077,185,166,73,48001,14096,False,uncertain,0.6501,arterial,1.026,False,Venous,2.5,43,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001079,148,155,47,42133,9371,False,venous,0.9737,venous,0.9374,False,Arterial,2.5,24,39,
+PanTS_00001081,94,95,58,92112,12371,False,venous,0.973,venous,0.4519,False,Non-contrast,1.25,31,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001082,180,190,97,386090,53486,False,venous,0.971,venous,1.221,False,Arterial,0.8,37,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001085,145,159,85,29257,6231,False,venous,0.9789,venous,0.9698,False,Venous,2.5,29,21,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001086,188,197,72,21636,6791,False,venous,0.9663,venous,1.277,False,Venous,2.5,38,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001090,37,35,28,72649,30175,False,non-contrast,0.9975,non-contrast,-0.03359,False,Arterial,0.8,67,73,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001091,129,150,41,68347,22735,False,venous,0.9755,venous,0.897,False,Arterial,1.5,34,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001099,50,31,-28,12353,1362,False,non-contrast,0.935,non-contrast,-0.06595,False,Venous,5,141,136,
+PanTS_00001104,117,120,69,152072,60692,False,venous,0.9732,venous,0.6542,False,Venous,1,42,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001111,43,35,25,67308,16093,False,non-contrast,0.9965,non-contrast,-0.03359,False,Non-contrast,0.8,55,50,
+PanTS_00001115,344,192,146,101973,29006,False,arterial,1,arterial,1.237,False,Arterial,1,55,82,
+PanTS_00001121,46,42,26,88338,18422,False,non-contrast,0.9954,non-contrast,0.02305,False,Arterial,0.8,102,113,
+PanTS_00001145,279,199,132,15853,2222,False,arterial,1,arterial,1.293,False,Venous,5,28,44,
+PanTS_00001154,164,177,76,43896,7959,False,venous,0.9774,venous,1.115,False,Arterial,2.5,41,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001168,160,170,46,65222,10517,False,venous,0.9753,venous,1.059,False,Venous,2.5,27,27,
+PanTS_00001182,184,207,123,31055,15733,False,venous,0.9791,venous,1.358,False,Venous,1.25,39,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001183,107,119,55,21597,4121,False,venous,0.9774,venous,0.6461,False,Venous,5,24,23,
+PanTS_00001186,252,206,128,13384,1279,False,arterial,1,arterial,1.35,False,Venous,5,23,25,
+PanTS_00001193,159,185,51,26598,2039,False,venous,0.9758,venous,1.18,False,Arterial,5,21,28,
+PanTS_00001194,30,39,34,103892,2367,False,non-contrast,0.9859,non-contrast,-0.001221,False,Non-contrast,0.8,40,42,
+PanTS_00001195,229,163,54,44078,10035,False,arterial,1,arterial,1.002,False,Venous,2.5,51,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001197,33,34,26,58881,11516,False,non-contrast,0.9964,non-contrast,-0.04168,False,Non-contrast,0.8,65,74,
+PanTS_00001208,331,163,98,164619,17224,False,arterial,1,arterial,1.002,False,Arterial,1,50,59,
+PanTS_00001215,87,107,51,101824,34422,False,venous,0.9638,venous,0.549,False,Venous,1.5,42,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001254,128,136,43,37507,10345,False,venous,0.9769,venous,0.7837,False,Arterial,1.5,31,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001258,41,34,41,16584,1889,False,non-contrast,0.997,non-contrast,-0.04168,False,Non-contrast,5,13,10,
+PanTS_00001261,159,179,74,29980,5344,False,venous,0.9792,venous,1.132,False,Non-contrast,4,43,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001264,143,167,84,30032,7207,False,venous,0.9752,venous,1.035,False,Venous,2.5,36,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001268,334,82,24,77750,43445,False,arterial,1,arterial,0.3467,True,Venous,0.8,39,49,
+PanTS_00001275,145,127,42,344393,21726,False,uncertain,0.6851,venous,0.7109,False,Non-contrast,1,32,40,
+PanTS_00001277,159,163,67,322944,57637,False,venous,0.9653,venous,1.002,False,Arterial,1,32,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001297,171,188,74,31188,8725,False,venous,0.9788,venous,1.204,False,Venous,2.5,39,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001311,124,129,37,11839,2499,False,venous,0.9747,venous,0.727,False,Venous,5,35,39,
+PanTS_00001314,37,30,34,139422,41181,False,non-contrast,0.9966,non-contrast,-0.07405,False,Non-contrast,0.8,88,91,
+PanTS_00001317,43.99,43.02,47.01,10636,5564,False,non-contrast,0.996,non-contrast,0.03127,False,Non-contrast,1,151,173,
+PanTS_00001321,176,52,48,44390,2472,False,arterial,1,arterial,0.104,True,Arterial,1.5,73,28,
+PanTS_00001322,38,38,41,78495,16522,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,1,52,51,
+PanTS_00001326,330,99,107,56626,12173,False,arterial,1,arterial,0.4843,True,Arterial,0.625,32,36,
+PanTS_00001327,41,39,41,118719,16914,False,non-contrast,0.9974,non-contrast,-0.001221,False,Non-contrast,0.8,51,52,
+PanTS_00001331,137,163,97,40564,13710,False,venous,0.9711,venous,1.002,False,Venous,2.5,35,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001333,218,,,138910,0,True,unmeasurable,,unmeasurable,,False,Arterial,0.9973,51,,aorta or PV mask empty after erosion; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001347,170,193,86,50001,13995,False,venous,0.9788,venous,1.245,False,Venous,2.5,42,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001351,41,40,44,151846,13425,False,non-contrast,0.9972,non-contrast,0.006871,False,Arterial,0.8073,41,33,
+PanTS_00001352,38,30,30,100770,891,False,non-contrast,0.9964,non-contrast,-0.07405,False,Non-contrast,0.8,56,59.5,
+PanTS_00001359,138,150,51,9417,1389,False,venous,0.9785,venous,0.897,False,Non-contrast,5,36,32,
+PanTS_00001361,38,35,3,155600,43036,False,non-contrast,0.9976,non-contrast,-0.03359,False,Non-contrast,0.8,66,71,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001372,239,103,47,36582,7334,False,arterial,1,arterial,0.5167,False,Non-contrast,1.5,156,199,
+PanTS_00001387,142,173,48,13723,2907,False,venous,0.9618,venous,1.083,False,Venous,5,21,28,
+PanTS_00001423,133,146,80,41286,14350,False,venous,0.9787,venous,0.8646,False,Non-contrast,1,22,25,
+PanTS_00001436,353,51,67,72217,15790,False,arterial,1,arterial,0.09588,True,Arterial,1.25,52,33,
+PanTS_00001437,188,223,90,13324,4430,False,venous,0.9688,venous,1.488,False,Non-contrast,1.5,34,31.5,
+PanTS_00001438,119,124,65,25665,10380,False,venous,0.9751,venous,0.6866,False,Non-contrast,2.5,26,26,
+PanTS_00001442,17,21,8,115699,24060,False,uncertain,0.6508,non-contrast,-0.1469,False,Non-contrast,0.8,68,68,
+PanTS_00001450,249,283,137,15516,7685,False,venous,0.9747,venous,1.973,False,Non-contrast,2.5,33,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001453,50,44,30,51490,20977,False,non-contrast,0.9895,non-contrast,0.03924,False,Non-contrast,0.8,75,77,
+PanTS_00001471,211,177,106,13959,3611,False,arterial,0.9967,arterial,1.115,False,Non-contrast,5,32,35,
+PanTS_00001472,46,42,25,127526,8329,False,non-contrast,0.9954,non-contrast,0.02305,False,Arterial,0.8,81,86,
+PanTS_00001477,43,46,39,94745,813,False,non-contrast,0.9937,non-contrast,0.05542,False,Non-contrast,0.8,47,47,
+PanTS_00001488,160,197,100,21872,8570,False,venous,0.9499,venous,1.277,False,Non-contrast,2.5,28,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001500,193,205,120,20984,11498,False,venous,0.9706,venous,1.342,False,Venous,2.5,38,26,
+PanTS_00001502,44,41,38,101326,19416,False,non-contrast,0.9965,non-contrast,0.01496,False,Non-contrast,0.8,47,49,
+PanTS_00001515,140,146,87,46629,6323,False,venous,0.9737,venous,0.8646,False,Non-contrast,2.5,30,24,
+PanTS_00001517,39,22,0,76234,4488,False,non-contrast,0.9645,non-contrast,-0.1388,False,Non-contrast,2.5,20,21,
+PanTS_00001519,239,197,101,111949,13894,False,arterial,1,arterial,1.277,False,Non-contrast,1.25,27,30,
+PanTS_00001524,480,52,69,77422,43895,False,arterial,1,arterial,0.104,True,Non-contrast,0.5,77,48,
+PanTS_00001536,48,47,40,70067,3609,False,non-contrast,0.9904,non-contrast,0.06351,False,Non-contrast,0.8,51,44,
+PanTS_00001541,159,173,98,23325,13282,False,venous,0.9784,venous,1.083,False,Venous,2.5,27,28,
+PanTS_00001542,210,229,26,22255,4875,False,venous,0.9753,venous,1.536,False,Venous,2.5,51,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001560,43,,,487,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,27,,aorta or PV mask empty after erosion
+PanTS_00001568,193,175,73,22339,2794,False,uncertain,0.6625,arterial,1.099,False,Non-contrast,5,35,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001582,142,138,-30,19342,6155,False,venous,0.9441,venous,0.7999,False,Venous,2.5,36,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001583,25,33,16,89885,24088,False,non-contrast,0.9713,non-contrast,-0.04977,False,Non-contrast,1.25,28,24,
+PanTS_00001592,97,126,67,24607,4322,False,venous,0.9354,venous,0.7028,False,Non-contrast,3.75,32,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001601,167,179,107,56075,14009,False,venous,0.9762,venous,1.132,False,Venous,2.5,34,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001612,220,160,68,100851,8204,False,arterial,1,arterial,0.9779,False,Non-contrast,2.5,28,21,
+PanTS_00001618,210,220,136,17105,8272,False,venous,0.9583,venous,1.463,False,Venous,2.5,29,27,
+PanTS_00001645,43,55,38,100838,8261,False,non-contrast,0.8947,non-contrast,0.1282,False,Non-contrast,0.8,50,52,
+PanTS_00001649,223,86.02,98.99,232165,30182,False,arterial,1,arterial,0.3792,True,Arterial,1,106,31.01,
+PanTS_00001650,277,99,94,63747,3878,False,arterial,1,arterial,0.4843,True,Non-contrast,5,34,30,
+PanTS_00001655,253,99,64,41944,15807,False,arterial,1,arterial,0.4843,True,Arterial,1.25,73,64,
+PanTS_00001660,39,34,36,47415,6386,False,non-contrast,0.9974,non-contrast,-0.04168,False,Non-contrast,1.25,38,33,
+PanTS_00001669,219,248,52,13859,4074,False,venous,0.9775,venous,1.69,False,Non-contrast,1.5,59,58,
+PanTS_00001670,41,38,20,203052,17120,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,0.8,87,75,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001672,33,47,30,119331,3369,False,non-contrast,0.9436,non-contrast,0.06351,False,Non-contrast,0.8,57,68,
+PanTS_00001678,116,133,77,10936,7019,False,venous,0.9765,venous,0.7594,False,Non-contrast,1.5,26,26,
+PanTS_00001683,147,171,116,45156,10369,False,venous,0.9759,venous,1.067,False,Venous,2.5,34,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001684,146,155,99,12388,2270,False,venous,0.9761,venous,0.9374,False,Non-contrast,5,26,20,
+PanTS_00001693,37,43,33,128762,9261,False,non-contrast,0.994,non-contrast,0.03115,False,Non-contrast,0.8,43,51,
+PanTS_00001727,183,133,65,32386,4917,False,arterial,0.9999,arterial,0.7594,False,Non-contrast,3,34,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001732,155,163,86,37010,14467,False,venous,0.9737,venous,1.002,False,Venous,2.5,35,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001736,341,73.99,79,167201,16792,False,arterial,1,arterial,0.2819,True,Arterial,1,28.99,39,
+PanTS_00001749,175,156,32,20425,3101,False,uncertain,0.572,arterial,0.9455,False,Non-contrast,3.75,25,27,
+PanTS_00001751,239,119,59,19470,4691,False,arterial,1,arterial,0.6461,False,Non-contrast,1.5,23,30,
+PanTS_00001755,39,38,34,189281,25493,False,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,0.8917,20,18,
+PanTS_00001771,42,35,7,11968,408,False,non-contrast,0.9969,non-contrast,-0.03359,False,Arterial,5,21,22.25,
+PanTS_00001787,102,107,55,26009,3540,False,venous,0.9759,venous,0.549,False,Non-contrast,5,25,27,
+PanTS_00001802,38,37,-4,123184,32763,False,non-contrast,0.9975,non-contrast,-0.0174,False,Non-contrast,0.8,72,73,
+PanTS_00001816,133,133,86,68397,6061,False,venous,0.9642,venous,0.7594,False,Non-contrast,2.5,21,15,
+PanTS_00001823,114,114,76,15142,4317,False,venous,0.9691,venous,0.6057,False,Non-contrast,1.5,19,15,
+PanTS_00001826,166,177,97,399147,62032,False,venous,0.9754,venous,1.115,False,Non-contrast,0.7,29,24,
+PanTS_00001829,31,20,-14,104581,22206,False,non-contrast,0.9738,non-contrast,-0.155,False,Non-contrast,0.8,64,59,
+PanTS_00001840,192,202,84,21768,6772,False,venous,0.9671,venous,1.318,False,Non-contrast,3,30,27,
+PanTS_00001850,176,158,35,51832,17990,False,uncertain,0.5287,arterial,0.9617,False,Non-contrast,1.25,36,41,
+PanTS_00001856,176,210,98,48854,13739,False,venous,0.9675,venous,1.382,False,Venous,2.5,34,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001870,42,14,1,45709,6935,False,uncertain,0.6944,venous,-0.2035,False,Non-contrast,2.5,32,28,
+PanTS_00001873,162,163,84,6522,1647,False,venous,0.9541,venous,1.002,False,Non-contrast,5,31,27,
+PanTS_00001874,41,35,25,207533,40462,False,non-contrast,0.9973,non-contrast,-0.03359,False,Non-contrast,0.7,21,20,
+PanTS_00001876,33,43,30,151549,1845,False,non-contrast,0.9849,non-contrast,0.03115,False,Non-contrast,0.625,69,87,
+PanTS_00001878,290,66,45,17529,3400,False,arterial,1,arterial,0.2173,True,Non-contrast,5,23,22,
+PanTS_00001890,132,141,78,77992,7542,False,venous,0.9773,venous,0.8241,False,Non-contrast,3.75,27.5,26,
+PanTS_00001913,110,111,38,24625,5439,False,venous,0.9714,venous,0.5814,False,Venous,3,36,35,
+PanTS_00001921,41,41,34,98529,33014,False,non-contrast,0.9969,non-contrast,0.01496,False,Non-contrast,0.8,47,46,
+PanTS_00001922,240,270,128,33806,6683,False,venous,0.976,venous,1.868,False,Venous,2.5,34,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001923,293,124,91,87336,12980,False,arterial,1,arterial,0.6866,False,Non-contrast,2,46,39,
+PanTS_00001941,160,180,94,41121,14970,False,venous,0.9792,venous,1.14,False,Venous,2.5,43,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001946,242,106,74,62452,41534,False,arterial,1,arterial,0.5409,False,Arterial,1.25,28,34,
+PanTS_00001964,143,150,77,37534,8292,False,venous,0.9745,venous,0.897,False,Venous,2.5,38,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001968,141,141,86,105559,47308,False,venous,0.9612,venous,0.8241,False,Non-contrast,0.625,59,68,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00001973,364,76,100,26995,16795,False,arterial,1,arterial,0.2982,True,Arterial,1.25,52,42,
+PanTS_00001996,195,143,67,66054,6574,False,arterial,1,arterial,0.8403,False,Non-contrast,2.5,26,21,
+PanTS_00002012,231,275,120,35253,9291,False,venous,0.9589,venous,1.908,False,Arterial,2.5,40,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002014,124,120,56,26750,2496,False,venous,0.9551,venous,0.6542,False,Venous,5,44,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002026,229,146,90,26998,4338,False,arterial,1,arterial,0.8646,False,Non-contrast,3,26,21,
+PanTS_00002028,150,172,103,17546,7336,False,venous,0.9778,venous,1.075,False,Venous,2.5,26,24,
+PanTS_00002038,188,186,110,115905,7832,False,venous,0.9045,venous,1.188,False,Non-contrast,2.5,21,26,
+PanTS_00002071,463,68,89,67919,20163,False,arterial,1,arterial,0.2334,True,Arterial,1.25,71,38,
+PanTS_00002081,39,38,18,4741,138,True,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,1.297,29,25,<200 eroded vessel voxels
+PanTS_00002091,47,47,34,76290,28896,False,non-contrast,0.9914,non-contrast,0.06351,False,Non-contrast,0.8,90,93,
+PanTS_00002094,394,80,127,51365,23372,False,arterial,1,arterial,0.3305,True,Arterial,1.25,54,41,
+PanTS_00002095,47,48,34,152954,37064,False,non-contrast,0.9897,non-contrast,0.07161,False,Non-contrast,0.8,60,70,
+PanTS_00002098,244,87,85,70884,10415,False,arterial,1,arterial,0.3872,True,Arterial,1.25,45,38,
+PanTS_00002102,197,64.01,68.01,206521,26360,False,arterial,1,arterial,0.2012,True,Arterial,1,43,36.99,
+PanTS_00002107,46,41,38,100404,19419,False,non-contrast,0.9956,non-contrast,0.01496,False,Non-contrast,0.8,47,49,
+PanTS_00002110,39,35,12,88786,40474,False,non-contrast,0.9976,non-contrast,-0.03359,False,Non-contrast,0.8,80,78,
+PanTS_00002123,34,35,22,133089,46224,False,non-contrast,0.9968,non-contrast,-0.03359,False,Non-contrast,0.8,99,132,
+PanTS_00002126,299,173,114,20866,5060,False,arterial,1,arterial,1.083,False,Non-contrast,1.5,30,53,
+PanTS_00002142,55,42,28,93890,28918,False,non-contrast,0.9423,non-contrast,0.02305,False,Non-contrast,0.8,122,98,
+PanTS_00002162,82,73,34,59260,2292,False,venous,0.9541,venous,0.2739,False,Venous,1.5,12,17,
+PanTS_00002172,42,46,-2,95746,28842,False,non-contrast,0.9935,non-contrast,0.05542,False,Non-contrast,0.8,98,160,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002177,44,41,14,102545,5997,False,non-contrast,0.9965,non-contrast,0.01496,False,Non-contrast,0.8,89,81,
+PanTS_00002179,116,125,51,15449,4218,False,venous,0.9776,venous,0.6947,False,Non-contrast,1.5,17,16,
+PanTS_00002186,48,49,38,151164,38037,False,non-contrast,0.9864,non-contrast,0.0797,False,Non-contrast,0.8,99,108,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002187,38,46,21,2977,202,False,non-contrast,0.9895,non-contrast,0.05542,False,Non-contrast,1.545,33,34,
+PanTS_00002196,171,128,85,21088,2753,False,arterial,0.9987,arterial,0.7189,False,Non-contrast,5,22,25,
+PanTS_00002205,276,186,137,162360,54322,False,arterial,1,arterial,1.188,False,Venous,1,67.99,55.02,
+PanTS_00002211,39,33,-17,53953,14518,False,non-contrast,0.9973,non-contrast,-0.04977,False,Non-contrast,0.625,78,82,
+PanTS_00002213,95,95,58,45506,5011,False,venous,0.9718,venous,0.4519,False,Non-contrast,2.517,25,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002232,137,163,93,36319,13458,False,venous,0.9711,venous,1.002,False,Arterial,2.5,34,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002235,201,223,86,21748,2706,False,venous,0.9782,venous,1.488,False,Non-contrast,5,27,20,
+PanTS_00002243,95,114,73,20652,5267,False,venous,0.9691,venous,0.6057,False,Non-contrast,5,23,28,
+PanTS_00002249,127,151,-2,48616,14386,False,venous,0.9714,venous,0.9051,False,Non-contrast,2,26,28,
+PanTS_00002262,45,45,45,69274,24691,False,non-contrast,0.9945,non-contrast,0.04733,False,Non-contrast,0.8,86,92,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002269,124,143,71,66403,20983,False,venous,0.9763,venous,0.8403,False,Venous,1.25,38,51,
+PanTS_00002275,122,146,81,193743,12767,False,venous,0.9699,venous,0.8646,False,Non-contrast,1.5,24,23,
+PanTS_00002276,42,35,-1,17064,2665,False,non-contrast,0.9969,non-contrast,-0.03359,False,Non-contrast,1.5,42,34,
+PanTS_00002279,149,168,89,53552,19517,False,venous,0.9789,venous,1.043,False,Venous,2.5,43,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002281,250,137,103,132155,44694,False,arterial,1,arterial,0.7918,False,Venous,1,52,43,
+PanTS_00002287,139,143,68,111107,7536,False,venous,0.971,venous,0.8403,False,Non-contrast,2.5,23,23,
+PanTS_00002304,249,65,52,121079,39796,False,arterial,1,arterial,0.2092,True,Arterial,1.25,63,71,
+PanTS_00002323,180,127,86,8498,2460,False,arterial,1,arterial,0.7109,False,Non-contrast,5,14,15.5,
+PanTS_00002329,107,108,43,58937,25385,False,venous,0.9718,venous,0.5571,False,Venous,1.25,35,34,
+PanTS_00002340,196,89,34,46836,6684,False,arterial,1,arterial,0.4034,True,Non-contrast,1,36,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002345,111,133,56,12109,2855,False,venous,0.9697,venous,0.7594,False,Venous,5,23,18,
+PanTS_00002353,155,90,73,9701,1756,False,arterial,1,arterial,0.4115,True,Non-contrast,1.5,18,21,
+PanTS_00002362,48,41,54,66752,9379,False,non-contrast,0.9935,non-contrast,0.01496,False,Non-contrast,0.8,44,44,
+PanTS_00002375,95,103,50,39029,6545,False,venous,0.9766,venous,0.5167,False,Venous,1.25,36,35,
+PanTS_00002388,297,67,57,102466,23785,False,arterial,1,arterial,0.2253,True,Arterial,1.25,70,53,
+PanTS_00002396,112,95,63,49485,4606,False,venous,0.845,venous,0.4519,False,Non-contrast,2.59,79,100,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002417,150,163,85,17205,2011,False,venous,0.9784,venous,1.002,False,Non-contrast,5,32,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002435,327,94,104,56397,14607,False,arterial,1,arterial,0.4438,True,Arterial,1.25,56,49,
+PanTS_00002445,31,36,32,90274,20816,False,non-contrast,0.9937,non-contrast,-0.0255,False,Non-contrast,0.8,24,24,
+PanTS_00002451,86,78,25,5766,1329,False,venous,0.9563,venous,0.3144,False,Non-contrast,5,29,22,
+PanTS_00002453,193,179,98,76838,4832,False,uncertain,0.539,venous,1.132,False,Non-contrast,5,34,23,
+PanTS_00002464,146,166,69,51054,16152,False,venous,0.9784,venous,1.026,False,Non-contrast,2.5,41,30,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002466,43,55,40,89005,8028,False,non-contrast,0.8947,non-contrast,0.1282,False,Non-contrast,0.8,48,53,
+PanTS_00002468,55,47,37,141163,32175,False,non-contrast,0.9511,non-contrast,0.06351,False,Non-contrast,0.8,76,59,
+PanTS_00002472,155,170,103,21904,17633,False,venous,0.9789,venous,1.059,False,Non-contrast,1,28,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002479,47,47,13,147765,18161,False,non-contrast,0.9914,non-contrast,0.06351,False,Non-contrast,0.8,77,97,
+PanTS_00002483,45,50,14,176417,21543,False,non-contrast,0.9845,non-contrast,0.08779,False,Non-contrast,0.8,69,73,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002495,207,204,112,32337,1126,False,venous,0.8421,venous,1.334,False,Non-contrast,5,20,15.75,
+PanTS_00002497,133,140,84,14927,1504,False,venous,0.9757,venous,0.816,False,Non-contrast,5,23,16,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002498,336,75,42.01,207580,17171,False,arterial,1,arterial,0.2901,True,Arterial,1,76.02,43,
+PanTS_00002514,202,215,98,24954,7915,False,venous,0.9695,venous,1.423,False,Venous,2.5,18,18,
+PanTS_00002541,85,77,31,11404,5287,False,venous,0.9566,venous,0.3063,False,Venous,3,31,28,
+PanTS_00002566,296,188,103,34523,2368,False,arterial,1,arterial,1.204,False,Non-contrast,3,24,36,
+PanTS_00002567,133,155,86,43435,11741,False,venous,0.9753,venous,0.9374,False,Venous,2.5,32,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002572,150,172,86,33775,1877,False,venous,0.9778,venous,1.075,False,Non-contrast,5,29,20,
+PanTS_00002582,127,129,34,19083,3170,False,venous,0.9701,venous,0.727,False,Non-contrast,5,30,23,
+PanTS_00002585,134,166,94,46528,9005,False,venous,0.9536,venous,1.026,False,Non-contrast,2.5,47,47,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002592,130,142,84,13058,1541,False,venous,0.9785,venous,0.8322,False,Non-contrast,5,29,26,
+PanTS_00002593,215,259,137,37365,5685,False,venous,0.9523,venous,1.779,False,Non-contrast,2.5,33,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002597,27,28,4,22021,3297,False,non-contrast,0.9886,non-contrast,-0.09023,False,Non-contrast,3.75,24,20,
+PanTS_00002609,145,163,60,41476,8554,False,venous,0.979,venous,1.002,False,Venous,2.5,35,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002616,163,189,108,36984,14865,False,venous,0.9764,venous,1.213,False,Venous,2.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002628,163,176,84,27035,7976,False,venous,0.9775,venous,1.107,False,Non-contrast,2.5,36,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002643,206,157,90,69949,9931,False,arterial,1,arterial,0.9536,False,Non-contrast,2.5,25,21,
+PanTS_00002652,128,132,60,56659,12584,False,venous,0.973,venous,0.7513,False,Non-contrast,2.5,27,20,
+PanTS_00002655,119,123,68,13362,3504,False,venous,0.9741,venous,0.6785,False,Venous,1.5,14,14,
+PanTS_00002677,37,44,47,83325,18392,False,non-contrast,0.9925,non-contrast,0.03924,False,Non-contrast,0.8,45,50,
+PanTS_00002686,210,164,82,45741,6675,False,arterial,0.9999,arterial,1.01,False,Non-contrast,2.5,30,23,
+PanTS_00002720,115,117,59,21432,5194,False,venous,0.9721,venous,0.6299,False,Venous,5,23,20,
+PanTS_00002729,104,126,48,84160,23024,False,venous,0.9671,venous,0.7028,False,Non-contrast,1.25,29,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002734,129,173,92,27482,11508,False,venous,0.8026,venous,1.083,False,Non-contrast,3,24,26,
+PanTS_00002741,168,185,119,30096,12417,False,venous,0.979,venous,1.18,False,Venous,2.5,27,26,
+PanTS_00002750,43,43,43,99943,1200,False,non-contrast,0.9961,non-contrast,0.03115,False,Non-contrast,0.8,60,82,
+PanTS_00002759,104,133,8,18255,2478,False,venous,0.9429,venous,0.7594,False,Venous,5,29,27,
+PanTS_00002765,195,154,98,73728,11418,False,arterial,0.9993,arterial,0.9293,False,Non-contrast,2.5,27,25,
+PanTS_00002779,47,47,34,76309,28890,False,non-contrast,0.9914,non-contrast,0.06351,False,Non-contrast,0.8,93,93,
+PanTS_00002783,48,36,37,100504,26975,False,non-contrast,0.9902,non-contrast,-0.0255,False,Non-contrast,0.8,49,45,
+PanTS_00002821,374,82,97,227020,30577,False,arterial,1,arterial,0.3467,True,Arterial,1,27,38,
+PanTS_00002829,132,133,73,66981,18980,False,venous,0.9669,venous,0.7594,False,Venous,1.25,22,20,
+PanTS_00002840,41,39,37,96920,4962,False,non-contrast,0.9974,non-contrast,-0.001221,False,Non-contrast,0.8,49,50,
+PanTS_00002849,126,135,30,153274,46763,False,venous,0.9775,venous,0.7756,False,Non-contrast,0.8,33,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002855,44,,50,153807,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,0.8,41,,aorta or PV mask empty after erosion
+PanTS_00002859,124,159,92,31618,11364,False,venous,0.9264,venous,0.9698,False,Non-contrast,2,25,23,
+PanTS_00002866,215,186,107,17855,2164,False,arterial,0.9877,arterial,1.188,False,Non-contrast,5,21,20,
+PanTS_00002875,273,40,38,92525,16994,False,arterial,1,arterial,0.006871,True,Arterial,1.25,58,39,
+PanTS_00002887,263,186,96,12271,2411,False,arterial,1,arterial,1.188,False,Non-contrast,3,18,22,
+PanTS_00002888,163,175,98,26610,13517,False,venous,0.9767,venous,1.099,False,Venous,2.5,22,22,
+PanTS_00002889,48,46,29,139071,7871,False,non-contrast,0.9916,non-contrast,0.05542,False,Arterial,0.8,108,129,
+PanTS_00002893,151,174,34,121178,4888,False,venous,0.9772,venous,1.091,False,Non-contrast,2.5,25,21,
+PanTS_00002898,48,47,49,118112,16892,False,non-contrast,0.9904,non-contrast,0.06351,False,Arterial,0.8,44,45,
+PanTS_00002905,154,171,105,15691,3890,False,venous,0.9793,venous,1.067,False,Non-contrast,5,33,20,
+PanTS_00002906,44,42,37,97640,10946,False,non-contrast,0.9963,non-contrast,0.02305,False,Non-contrast,0.8,45,40,
+PanTS_00002913,153,160,98,34439,6347,False,venous,0.9728,venous,0.9779,False,Venous,2.5,30,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002915,269,94.99,88,243608,40862,False,arterial,1,arterial,0.4518,True,Arterial,1,53.01,52,
+PanTS_00002916,37,33,16,70744,19888,False,non-contrast,0.9974,non-contrast,-0.04977,False,Arterial,0.8,63,60,
+PanTS_00002924,41,46,43,105604,8205,False,non-contrast,0.993,non-contrast,0.05542,False,Non-contrast,0.8,49,51,
+PanTS_00002927,131,153,95,45640,15795,False,venous,0.975,venous,0.9212,False,Non-contrast,2,31,27,
+PanTS_00002930,123,133,24,35186,5516,False,venous,0.978,venous,0.7594,False,Venous,2.5,37,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00002933,129,185,95,44725,7237,False,uncertain,0.7105,arterial,1.18,False,Venous,2.513,30,31,
+PanTS_00002935,43,41,41,8252,2348,False,non-contrast,0.9968,non-contrast,0.01496,False,Non-contrast,1.5,21,17,
+PanTS_00002936,398,51,67,20551,5157,False,arterial,1,arterial,0.09588,True,Non-contrast,1.5,39,25,
+PanTS_00002960,38,37,37,81114,22030,False,non-contrast,0.9975,non-contrast,-0.0174,False,Non-contrast,1.5,17,13,
+PanTS_00002963,33,46,38,61454,2766,False,non-contrast,0.9608,non-contrast,0.05542,False,Non-contrast,0.8,79,91,
+PanTS_00002964,39,34,20,162350,26163,False,non-contrast,0.9974,non-contrast,-0.04168,False,Non-contrast,0.8,56,63,
+PanTS_00002976,48,44,29,19260,2180,False,non-contrast,0.993,non-contrast,0.03924,False,Non-contrast,5,14,11,
+PanTS_00002993,237,63,56,77007,17000,False,arterial,1,arterial,0.193,True,Arterial,1.25,65,47,
+PanTS_00003012,163,211,84,16587,6174,False,venous,0.8334,venous,1.391,False,Non-contrast,5,26,78,
+PanTS_00003024,267,94.01,60.99,177685,18769,False,arterial,1,arterial,0.4439,True,Arterial,1,33.02,47,
+PanTS_00003029,335,94,43,8349,4005,False,arterial,1,arterial,0.4438,True,Arterial,1.5,41,32,
+PanTS_00003033,150,166,77,392815,50700,False,venous,0.9792,venous,1.026,False,Venous,0.7,32,34,
+PanTS_00003038,106,133,64,29736,8863,False,venous,0.9538,venous,0.7594,False,Venous,2.5,34,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003051,47,52,44,139928,1667,False,non-contrast,0.973,non-contrast,0.104,False,Non-contrast,0.8,88,110,
+PanTS_00003054,87,87,33,16344,2093,False,venous,0.9723,venous,0.3872,False,Venous,5.043,38,29,
+PanTS_00003068,104,122,76.01,55610,9425,False,venous,0.9732,venous,0.6704,False,Arterial,2.5,27.99,32.99,
+PanTS_00003072,43,42,42,109007,2710,False,non-contrast,0.9965,non-contrast,0.02305,False,Arterial,0.8,76,79.25,
+PanTS_00003079,127,132,71,28345,6697,False,venous,0.9743,venous,0.7513,False,Non-contrast,3,36,27,
+PanTS_00003082,167,192,110,37748,8192,False,venous,0.9776,venous,1.237,False,Venous,2.5,31,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003084,163,185,41,15606,6428,False,venous,0.9788,venous,1.18,False,Non-contrast,5,33,48,
+PanTS_00003113,142,176,82,10277,1951,False,venous,0.9506,venous,1.107,False,Venous,5,17,17,
+PanTS_00003123,103,,61,16955,0,True,unmeasurable,,unmeasurable,,False,Venous,1.5,139,,aorta or PV mask empty after erosion
+PanTS_00003127,181,210,86,12717,2391,False,venous,0.976,venous,1.382,False,Arterial,5,26,18,
+PanTS_00003128,127,172,91,25489,11928,False,uncertain,0.7661,venous,1.075,False,Arterial,3,38,42,
+PanTS_00003130,202,146,93,15962,1047,False,arterial,1,arterial,0.8646,False,Venous,5,27,44,
+PanTS_00003144,34,46.5,43,76570,2168,False,non-contrast,0.9662,non-contrast,0.05947,False,Venous,2,18,20,
+PanTS_00003147,203,266,133,21242,15557,False,uncertain,0.5071,arterial,1.836,False,Venous,2.5,22,19,
+PanTS_00003148,35,30,-9,98742,46773,False,non-contrast,0.9966,non-contrast,-0.07405,False,Non-contrast,0.8,82,84,
+PanTS_00003151,129,143,91,15880,2450,False,venous,0.9787,venous,0.8403,False,Non-contrast,5,18,14,
+PanTS_00003153,199,164,95,18881,5591,False,arterial,0.9957,arterial,1.01,False,Non-contrast,3,21,18,
+PanTS_00003157,46,50,46,85206,7650,False,non-contrast,0.9846,non-contrast,0.08779,False,Non-contrast,0.8,64,73,
+PanTS_00003160,37,31,33,34358,4869,False,non-contrast,0.997,non-contrast,-0.06595,False,Non-contrast,1.5,15,13,
+PanTS_00003161,174,198,102,496564,53561,False,venous,0.9786,venous,1.285,False,Venous,0.8,35,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003162,132,157,73,28506,2078,False,venous,0.9713,venous,0.9536,False,Non-contrast,5,30,32,
+PanTS_00003180,120,112,64.99,43338,8069,False,venous,0.9377,venous,0.5894,False,Arterial,2.5,45.99,34.03,
+PanTS_00003187,42,,47,103558,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,0.8015,55,,aorta or PV mask empty after erosion
+PanTS_00003188,248,76,85,42446,27371,False,arterial,1,arterial,0.2982,True,missing,1.25,25,40,
+PanTS_00003192,147,158,55,33415,6427,False,venous,0.9776,venous,0.9617,False,Venous,2.5,46,42,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003199,,,,,,False,unmeasurable,,unmeasurable,,False,Arterial,1.5,,,aorta or PV mask empty after erosion
+PanTS_00003202,238,206,128,13506,3779,False,arterial,0.9985,arterial,1.35,False,Non-contrast,3.75,27,32,
+PanTS_00003204,146,167,91,21684,2420,False,venous,0.9779,venous,1.035,False,Venous,5,32,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003205,43,43,34,110229,6329,False,non-contrast,0.9961,non-contrast,0.03115,False,Arterial,0.8,43,39,
+PanTS_00003218,218,233,143,35328,16212,False,venous,0.9675,venous,1.569,False,Venous,2.5,67,48,
+PanTS_00003229,89,97,56,61120,18748,False,venous,0.9761,venous,0.4681,False,Venous,1.25,35,33,
+PanTS_00003246,122,146,90,21740,9958,False,venous,0.9699,venous,0.8646,False,Venous,2.5,48,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003258,137,167,80,15975,654,False,venous,0.9622,venous,1.035,False,Venous,5,18,17,
+PanTS_00003260,37,43,44,107261,2924,False,non-contrast,0.994,non-contrast,0.03115,False,Venous,0.8,40,36,
+PanTS_00003265,43,39,25,120351,28395,False,non-contrast,0.997,non-contrast,-0.001221,False,Non-contrast,0.8,104,111,
+PanTS_00003270,138,136,77,107811,55719,False,venous,0.9558,venous,0.7837,False,Venous,0.7,27,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003276,133,179,94,27203,9116,False,uncertain,0.7651,venous,1.132,False,Venous,2.5,44,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003280,179,210,114,4539,774,False,venous,0.9734,venous,1.382,False,Venous,7.5,18,13,
+PanTS_00003287,240,256,121,19153,4823,False,venous,0.9592,venous,1.755,False,Venous,2.5,39,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003291,150,159,103,22824,10794,False,venous,0.9757,venous,0.9698,False,Non-contrast,1,19,31,
+PanTS_00003292,137,167,76,36539,11583,False,venous,0.9622,venous,1.035,False,Arterial,2.5,35,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003300,192,202,68,37730,3244,False,venous,0.9671,venous,1.318,False,Venous,2.5,34,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003303,84,86,46,13146,2243,False,venous,0.974,venous,0.3791,False,Venous,5,20,16,
+PanTS_00003318,133,150,73,24305,19437,False,venous,0.9784,venous,0.897,False,Venous,2.5,52,49,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003339,44,41,30,51032,7246,False,non-contrast,0.9965,non-contrast,0.01496,False,Arterial,2.5,19,14,
+PanTS_00003343,33,26,12,55416,6455,False,non-contrast,0.9938,non-contrast,-0.1064,False,Arterial,2.5,28,22.5,
+PanTS_00003355,149,168,75,73648,23896,False,venous,0.9789,venous,1.043,False,Venous,2,36,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003356,107,119,38,38970,9227,False,venous,0.9774,venous,0.6461,False,Venous,2.5,38,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003360,167,193,58.5,43733,3720,False,venous,0.9769,venous,1.245,False,Arterial,2.5,25,21,
+PanTS_00003370,4,33,1,93737,19903,False,uncertain,0.5268,venous,-0.04977,False,Non-contrast,0.8,69,60,
+PanTS_00003391,172,192,106,39454,7974,False,venous,0.9793,venous,1.237,False,Arterial,2.5,29,20,
+PanTS_00003398,33,33,22,150396,42148,False,non-contrast,0.9965,non-contrast,-0.04977,False,Non-contrast,0.8,85,84,
+PanTS_00003405,146,193,60,18178,3552,False,uncertain,0.795,venous,1.245,False,Arterial,1.5,37,34,
+PanTS_00003411,51,47,38,163565,30747,False,non-contrast,0.984,non-contrast,0.06351,False,Non-contrast,0.8,94,94,
+PanTS_00003416,123,145,85,10976,3648,False,venous,0.9732,venous,0.8565,False,Arterial,5,30,27,
+PanTS_00003428,50,46,39,95407,21892,False,non-contrast,0.9882,non-contrast,0.05542,False,Non-contrast,0.8,59,52,
+PanTS_00003431,166,175,109,78686,7210,False,venous,0.9729,venous,1.099,False,Arterial,2.5,31,28,
+PanTS_00003434,117,132,68,25810,12388,False,venous,0.9776,venous,0.7513,False,Arterial,2.5,29,29,
+PanTS_00003437,175,207,110,19160,3206,False,venous,0.9711,venous,1.358,False,Arterial,2.5,43,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003441,382,90,57,44675,16539,False,arterial,1,arterial,0.4115,True,Arterial,2,26,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003447,209,154,82,40943,1125,False,arterial,1,arterial,0.9293,False,Arterial,5,31,26,
+PanTS_00003457,176,193,111,19265,3203,False,venous,0.9785,venous,1.245,False,Arterial,5,25,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003473,98,91,74,13909,2733,False,venous,0.9554,venous,0.4196,False,Venous,5,25,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003477,48,46,25,126596,20025,False,non-contrast,0.9916,non-contrast,0.05542,False,Non-contrast,0.8,64,58,
+PanTS_00003485,38,31,9,187582,13873,False,non-contrast,0.9968,non-contrast,-0.06595,False,Non-contrast,0.8,80,79,
+PanTS_00003493,47,42,21,32898,2935,False,non-contrast,0.9947,non-contrast,0.02305,False,Non-contrast,5,36,34,
+PanTS_00003495,142,138,25,99139,8187,False,venous,0.9441,venous,0.7999,False,Arterial,2.5,28,23,
+PanTS_00003496,153,189,107,25557,5670,False,venous,0.9495,venous,1.213,False,Venous,2.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003513,220,125,99.99,212021,40416,False,arterial,1,arterial,0.6946,False,Venous,1,25.02,53.99,
+PanTS_00003516,38,35,17,116953,25971,False,non-contrast,0.9976,non-contrast,-0.03359,False,Non-contrast,0.8,91,103,
+PanTS_00003521,34,27,19,50515,4761,False,non-contrast,0.9949,non-contrast,-0.09832,False,Arterial,2.5,32,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003527,132,146,85,45590,14346,False,venous,0.9788,venous,0.8646,False,Arterial,1,26,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003558,315,74,50,36453,13377,False,arterial,1,arterial,0.282,True,Arterial,2.5,40,57,
+PanTS_00003563,128,121,70,204861,69469,False,venous,0.9376,venous,0.6623,False,Arterial,0.7,29,30,
+PanTS_00003569,170,172,97,48116,2636,False,venous,0.9532,venous,1.075,False,Venous,1.5,19,16,
+PanTS_00003570,170,180,89,79952,6219,False,venous,0.9734,venous,1.14,False,Arterial,2.5,27,20,
+PanTS_00003578,163,202,110,55990,21647,False,venous,0.9418,venous,1.318,False,Venous,2.5,39,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003581,41,31,17,169443,46885,False,non-contrast,0.9956,non-contrast,-0.06595,False,Non-contrast,0.8,73,73,
+PanTS_00003586,146,167,102,40770,8074,False,venous,0.9779,venous,1.035,False,Venous,2.5,30,24,
+PanTS_00003587,43,43,30,97956,17100,False,non-contrast,0.9961,non-contrast,0.03115,False,Arterial,1,85,85,
+PanTS_00003588,362,74,72,15621,7467,False,arterial,1,arterial,0.282,True,Arterial,1.25,46,35,
+PanTS_00003595,155,36,27,84798,22154,False,arterial,1,arterial,-0.0255,True,Arterial,1.25,35,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003602,180,201,72,27393,9371,False,venous,0.9792,venous,1.31,False,Venous,2.5,31,25,
+PanTS_00003615,269,73,83,82966,23905,False,arterial,1,arterial,0.2739,True,Arterial,1.25,45,58,
+PanTS_00003624,145,147,56,44038,11588,False,venous,0.9652,venous,0.8727,False,Arterial,2.5,33,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003631,162,180,112,34612,11763,False,venous,0.9793,venous,1.14,False,Venous,2.5,26,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003639,39,64,46,101064,609,False,venous,0.8512,venous,0.2011,False,Arterial,0.8,44,43,
+PanTS_00003642,147,163,80,48600,15109,False,venous,0.9792,venous,1.002,False,Arterial,2.5,39,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003654,139,232,104,272609,74391,False,arterial,1,arterial,1.56,False,Arterial,0.8,41,45,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003662,163,199,85,38587,7014,False,venous,0.956,venous,1.293,False,Venous,2.5,30,27.75,
+PanTS_00003672,36,36,36,81156,9337,False,non-contrast,0.9973,non-contrast,-0.0255,False,Arterial,2.5,22,25,
+PanTS_00003676,362,240,125,52617,15294,False,arterial,1,arterial,1.625,False,Arterial,1,45,60,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003679,167,197,95,38306,9396,False,venous,0.9724,venous,1.277,False,Arterial,2.5,29,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003684,210,215,140,86446,12336,False,venous,0.934,venous,1.423,False,Venous,1.5,43,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003700,210,228,145,23078,5970,False,venous,0.9744,venous,1.528,False,Venous,2.5,24,26,
+PanTS_00003706,48,47,37,147527,27056,False,non-contrast,0.9904,non-contrast,0.06351,False,Non-contrast,0.8,64,59,
+PanTS_00003711,78,82,60,39136,15429,False,venous,0.9747,venous,0.3467,False,Arterial,2.5,29,24,
+PanTS_00003730,127,137,34,39781,9501,False,venous,0.978,venous,0.7918,False,Arterial,2.5,52,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003736,48,41,17,121021,31155,False,non-contrast,0.9935,non-contrast,0.01496,False,Non-contrast,0.8,104,90,
+PanTS_00003746,177,129,55,24897,6361,False,arterial,0.9998,arterial,0.727,False,Arterial,1.5,38,31,
+PanTS_00003750,146,151,90,123252,31429,False,venous,0.9711,venous,0.9051,False,Arterial,1.2,35,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003768,224,84,63,40549,3948,False,arterial,1,arterial,0.3629,True,Venous,3,24,18,
+PanTS_00003776,183,206,123,19063,5209,False,venous,0.9791,venous,1.35,False,Venous,2.5,23,19,
+PanTS_00003777,206,150,103,98043,37924,False,arterial,1,arterial,0.897,False,Venous,1,27,29,
+PanTS_00003782,327,59.01,60.01,140553,19343,False,arterial,1,arterial,0.1607,True,Arterial,1,35,22,
+PanTS_00003784,164,154,49,33673,8840,False,venous,0.838,venous,0.9293,False,Venous,2.5,28,23,
+PanTS_00003812,146,172,68,29143,5790,False,venous,0.9734,venous,1.075,False,Venous,3.75,26,25,
+PanTS_00003815,206,142,73,16506,1779,False,arterial,1,arterial,0.8322,False,Arterial,5,25,34,
+PanTS_00003824,189,185,95,14609,2364,False,venous,0.8761,venous,1.18,False,Arterial,5,25,25,
+PanTS_00003841,246,72.01,73.99,166773,27227,False,arterial,1,arterial,0.2659,True,Venous,1,54.99,37.02,
+PanTS_00003849,133,164,65,327903,44655,False,venous,0.9568,venous,1.01,False,Venous,0.7,32,43,
+PanTS_00003889,91,89,64,10698,10193,False,venous,0.9694,venous,0.4034,False,Venous,2.5,29,27,
+PanTS_00003894,103,110,25,25412,12328,False,venous,0.9768,venous,0.5733,False,Venous,2.5,29,28,
+PanTS_00003900,91,99,86,8482,2990,False,venous,0.9763,venous,0.4843,False,Arterial,1.5,89,100,
+PanTS_00003916,143,156,102,101797,54134,False,venous,0.9787,venous,0.9455,False,Arterial,1,26,23,
+PanTS_00003919,201,164,94,16627,2546,False,arterial,0.9979,arterial,1.01,False,Venous,5,23,34,
+PanTS_00003921,155,172,81,89022,23093,False,venous,0.9793,venous,1.075,False,Arterial,1.5,29,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003923,107,112,29,23198,12205,False,venous,0.9758,venous,0.5895,False,Venous,2.5,32,24,
+PanTS_00003924,35,42,30,110772,23686,False,non-contrast,0.993,non-contrast,0.02305,False,Non-contrast,0.8,57,65,
+PanTS_00003928,140,157,91,50063,23295,False,venous,0.9789,venous,0.9536,False,Venous,1.5,30,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003937,47,46,43,68260,10030,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,69,63,
+PanTS_00003942,47,46,27,137963,44770,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,71,79,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003950,219,136,17,23236,1551,False,arterial,1,arterial,0.7837,False,Venous,5,33,26,
+PanTS_00003953,246,45,57,77687,16543,False,arterial,1,arterial,0.04733,True,Arterial,1.25,65,45,
+PanTS_00003968,54,42,33,99382,28896,False,non-contrast,0.9613,non-contrast,0.02305,False,Non-contrast,0.8,125,98,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003969,295,129,100,15764,12143,False,arterial,1,arterial,0.727,False,Venous,2.5,49,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00003974,120,151,107,32742,7996,False,venous,0.9473,venous,0.9051,False,Venous,2.5,31,29,
+PanTS_00003978,110,108,67,95076,24194,False,venous,0.966,venous,0.5571,False,Non-contrast,1.25,26,23,
+PanTS_00003993,76,68,46,22645,2496,False,venous,0.9591,venous,0.2334,False,Venous,5,22,18,
+PanTS_00004029,376,72,47,46364,6497,False,arterial,1,arterial,0.2658,True,Non-contrast,2.5,42,56,
+PanTS_00004033,153,162,64,38569,13165,False,venous,0.9752,venous,0.9941,False,Venous,2.5,30,26,
+PanTS_00004046,151,170,106,27344,7832,False,venous,0.979,venous,1.059,False,Arterial,2.5,27,23,
+PanTS_00004055,187,151,44,93695,7902,False,arterial,0.9944,arterial,0.9051,False,Arterial,2.5,30,28,
+PanTS_00004058,102,117,71,11536,341,False,venous,0.9754,venous,0.6299,False,Venous,5,22,17,
+PanTS_00004064,216,237,50,27354,8047,False,venous,0.9758,venous,1.601,False,Venous,2.5,34,32,
+PanTS_00004069,46,42,22,35282,2930,False,non-contrast,0.9954,non-contrast,0.02305,False,Non-contrast,5,36,34,
+PanTS_00004078,38,41,18,150738,18560,False,non-contrast,0.9964,non-contrast,0.01496,False,Non-contrast,0.8,98,96,
+PanTS_00004085,150,172,94,32459,10570,False,venous,0.9778,venous,1.075,False,Venous,1.5,25,17,
+PanTS_00004089,116,126,78,38735,11236,False,venous,0.9779,venous,0.7028,False,Arterial,2.5,23,19,
+PanTS_00004099,44,41,42,94992,15339,False,non-contrast,0.9965,non-contrast,0.01496,False,Arterial,0.8,51,50,
+PanTS_00004112,150,107,85,12257,2972,False,arterial,0.9963,arterial,0.549,False,Venous,5,25,26,
+PanTS_00004117,130,147,68,31466,9276,False,venous,0.9782,venous,0.8727,False,Venous,2.5,25,25,
+PanTS_00004121,171,193,112,11237,4605,False,venous,0.9791,venous,1.245,False,Arterial,5,16,18,
+PanTS_00004122,159,117,45,50390,3941,False,arterial,0.9967,arterial,0.6299,False,Arterial,2.5,18,24,
+PanTS_00004123,391,232,77,11688,681,False,arterial,1,arterial,1.56,False,Arterial,1.5,34,38,
+PanTS_00004124,164,178,75,59030,5707,False,venous,0.978,venous,1.124,False,Arterial,2.5,25,24,
+PanTS_00004155,259,171,123,75927,24543,False,arterial,1,arterial,1.067,False,Arterial,1,30,23,
+PanTS_00004157,160,189,74,24814,4040,False,venous,0.9724,venous,1.213,False,Venous,2.5,43,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004190,157,176,25,36337,10031,False,venous,0.9793,venous,1.107,False,Venous,2.5,36,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004208,42,34,18,73513,15633,False,non-contrast,0.9966,non-contrast,-0.04168,False,Non-contrast,0.8,56,55,
+PanTS_00004225,237,54,43,26328,5754,False,arterial,1,arterial,0.1202,True,Arterial,5,28,27,
+PanTS_00004230,186,146,97,63051,40134,False,arterial,0.9983,arterial,0.8646,False,Non-contrast,1,24,25,
+PanTS_00004231,206,232,121,42392,9396,False,venous,0.9783,venous,1.56,False,Venous,2.5,30,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004243,284,55,56,54615,22219,False,arterial,1,arterial,0.1282,True,Arterial,1.25,57,38,
+PanTS_00004248,110,114,47,31121,3450,False,venous,0.9749,venous,0.6057,False,Venous,1.5,31,25,
+PanTS_00004251,193,261,125,24472,5375,False,arterial,0.8074,arterial,1.795,False,Non-contrast,3.75,41,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004262,50,35,20,82192,25563,False,non-contrast,0.9769,non-contrast,-0.03359,False,Non-contrast,1,104,94,
+PanTS_00004267,38,34,-3,114146,36735,False,non-contrast,0.9975,non-contrast,-0.04168,False,Non-contrast,0.8,71,73,
+PanTS_00004268,210,226,107,20091,9866,False,venous,0.9719,venous,1.512,False,Venous,2.5,25,21,
+PanTS_00004270,170,215,111,9492,4012,False,venous,0.8994,venous,1.423,False,Non-contrast,1.5,20,17,
+PanTS_00004287,43,47,38,96844,3587,False,non-contrast,0.9922,non-contrast,0.06351,False,Non-contrast,0.8,46,43,
+PanTS_00004290,142,147,105,85219,36384,False,venous,0.972,venous,0.8727,False,Non-contrast,1,21,29,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004301,230,63,36,72735,31072,False,arterial,1,arterial,0.193,True,Arterial,1.25,62,43,
+PanTS_00004312,47,46,47,70887,22047,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,31,31,
+PanTS_00004313,38,39,17,172060,45025,False,non-contrast,0.9972,non-contrast,-0.001221,False,Non-contrast,0.8,67,93,
+PanTS_00004323,149,190,91,45115,5751,False,venous,0.9085,venous,1.221,False,Non-contrast,2.5,26,27,
+PanTS_00004329,37,39,41,113028,1690,False,non-contrast,0.9969,non-contrast,-0.001221,False,Non-contrast,0.8,47,48,
+PanTS_00004330,35,46,35,68146,110,True,non-contrast,0.9788,non-contrast,0.05542,False,Non-contrast,0.8,43,44.5,<200 eroded vessel voxels
+PanTS_00004339,128,129,55,61435,2833,False,venous,0.968,venous,0.727,False,Venous,1.5,25,22,
+PanTS_00004360,141,143,86,19809,4056,False,venous,0.9665,venous,0.8403,False,Arterial,5,39,30,
+PanTS_00004366,215,227,129,6539,3393,False,venous,0.9617,venous,1.52,False,Arterial,1.5,18,18,
+PanTS_00004400,34,30,16,130682,37753,False,non-contrast,0.9965,non-contrast,-0.07405,False,Non-contrast,0.8,86,77,
+PanTS_00004408,193,220,108,18532,5874,False,venous,0.9781,venous,1.463,False,Venous,2.5,30,21,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004420,248,270,140,21384,5458,False,venous,0.9685,venous,1.868,False,Venous,2.5,31,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004424,163,213,99,12877,1740,False,uncertain,0.7844,venous,1.407,False,Arterial,5,26,24,
+PanTS_00004426,68,62,31,47388,6652,False,venous,0.9569,venous,0.1849,False,Arterial,3,30,28,
+PanTS_00004427,138,130,68,200859,25543,False,venous,0.9196,venous,0.7351,False,Arterial,1,35,30,
+PanTS_00004438,227,153,93,13939,3289,False,arterial,1,arterial,0.9212,False,Arterial,3,26,40,
+PanTS_00004446,200,216,127,59447,48212,False,venous,0.9744,venous,1.431,False,Venous,1,30,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004448,306,185,55,19458,10628,False,arterial,1,arterial,1.18,False,Arterial,2.5,49,51,
+PanTS_00004449,133,165,66,327903,44660,False,venous,0.9529,venous,1.018,False,Venous,0.7,33,43,
+PanTS_00004454,176,183,82,324589,37130,False,venous,0.9662,venous,1.164,False,Non-contrast,0.7,46,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004475,249,205,120,28432,4432,False,arterial,1,arterial,1.342,False,Venous,3,39,23,
+PanTS_00004483,124,133,51,19976,3716,False,venous,0.9776,venous,0.7594,False,Venous,5,27,28.5,
+PanTS_00004486,43,48,42,69536,13588,False,non-contrast,0.9901,non-contrast,0.07161,False,Non-contrast,0.8,56,63,
+PanTS_00004497,35,31,37,57870,7312,False,non-contrast,0.9969,non-contrast,-0.06595,False,Non-contrast,3,27,22,
+PanTS_00004503,37,34,38,137878,12535,False,non-contrast,0.9975,non-contrast,-0.04168,False,Non-contrast,0.8,54,53,
+PanTS_00004506,145,149,71,22328,2248,False,venous,0.9696,venous,0.8889,False,Venous,5,23,18,
+PanTS_00004513,71,73,33,91756,24692,False,venous,0.9735,venous,0.2739,False,Venous,1,26,28,
+PanTS_00004517,258,79,63,117846,32858,False,arterial,1,arterial,0.3224,True,Arterial,1.25,73,59,
+PanTS_00004521,41,37,34,45668,8310,False,non-contrast,0.9974,non-contrast,-0.0174,False,Venous,5,17,11,
+PanTS_00004523,293,57,44,88818,8987,False,arterial,1,arterial,0.1444,True,Arterial,1.25,58,39,
+PanTS_00004527,103,140,75,103655,20664,False,venous,0.8588,venous,0.816,False,Venous,1.25,36,43,
+PanTS_00004538,33,25,3,16420,1810,False,non-contrast,0.9926,non-contrast,-0.1145,False,Venous,1.5,89,80,
+PanTS_00004539,129,154,43,33862,9053,False,venous,0.9704,venous,0.9293,False,Venous,2.5,48,50,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004540,124,133,54,20864,3708,False,venous,0.9776,venous,0.7594,False,Venous,5,29,30,
+PanTS_00004542,210,284,134,18595,4486,False,arterial,0.9098,arterial,1.981,False,Venous,2.5,27,25,
+PanTS_00004548,177,188,102,64077,22364,False,venous,0.9733,venous,1.204,False,Venous,1.5,34,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004568,177,158,48,79787,13805,False,uncertain,0.5878,arterial,0.9617,False,Venous,1.25,23,29,
+PanTS_00004571,39,30,-24,68380,27941,False,non-contrast,0.996,non-contrast,-0.07405,False,Non-contrast,0.8,81,86,
+PanTS_00004597,133,163,69,40184,13408,False,venous,0.9602,venous,1.002,False,Venous,2.5,43,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004602,38,34,47,24256,1474,False,non-contrast,0.9975,non-contrast,-0.04168,False,Arterial,5,11,10,
+PanTS_00004621,253,94,78,119417,13549,False,arterial,1,arterial,0.4438,True,Arterial,1,38,35,
+PanTS_00004664,108,100,67,59869,4920,False,venous,0.9462,venous,0.4924,False,Venous,5,26,30,
+PanTS_00004665,133,166,98,45017,5591,False,venous,0.9484,venous,1.026,False,Venous,1.5,43,73,
+PanTS_00004669,125,91,66,64639,44941,False,arterial,0.8849,arterial,0.4196,True,Venous,1,29,28,
+PanTS_00004671,150,143,78,120300,10060,False,venous,0.913,venous,0.8403,False,Venous,2.5,25,22,
+PanTS_00004673,125,154,67,20107,2988,False,venous,0.959,venous,0.9293,False,Venous,5,31,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004677,272,137,50,53273,18264,False,arterial,1,arterial,0.7918,False,Arterial,1.25,46,86,
+PanTS_00004681,46,36,30,93608,7898,False,non-contrast,0.9943,non-contrast,-0.0255,False,Arterial,0.8,79,72,
+PanTS_00004699,42,41,42,54362,8387,False,non-contrast,0.9969,non-contrast,0.01496,False,Non-contrast,2.5,29,29,
+PanTS_00004702,209,151,107,16697,2068,False,arterial,1,arterial,0.9051,False,Venous,5,22,22,
+PanTS_00004703,154,175,90,54350,20337,False,venous,0.9786,venous,1.099,False,Venous,1.25,23,27,
+PanTS_00004707,120,180,123,40912,10945,False,arterial,0.8992,arterial,1.14,False,Venous,2.5,38,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004722,387,214,123,30157,26806,False,arterial,1,arterial,1.415,False,Venous,1,88,66,
+PanTS_00004723,189,166,73,22088,4678,False,arterial,0.8429,arterial,1.026,False,Venous,3,34,31,
+PanTS_00004724,33,34,26,58863,11500,False,non-contrast,0.9964,non-contrast,-0.04168,False,Non-contrast,0.8,65,76,
+PanTS_00004730,222,182,88,53021,8838,False,arterial,0.9998,arterial,1.156,False,Venous,2.5,25,20,
+PanTS_00004735,129,133,80,24633,5413,False,venous,0.9728,venous,0.7594,False,Venous,3,25,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004748,119,124,72,13307,3290,False,venous,0.9751,venous,0.6866,False,Venous,5,23,21,
+PanTS_00004750,157,168,104,26194,7529,False,venous,0.9766,venous,1.043,False,Venous,2.5,25,19,
+PanTS_00004753,163,189,121,15349,2652,False,venous,0.9764,venous,1.213,False,Venous,5,21,16.25,
+PanTS_00004769,168,186,104,24024,6190,False,venous,0.9792,venous,1.188,False,Venous,2.5,34,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004776,168,157,91,11770,4976,False,venous,0.8007,venous,0.9536,False,Venous,1.5,24,12,
+PanTS_00004788,46,42,25,127523,8337,False,non-contrast,0.9954,non-contrast,0.02305,False,Arterial,0.8,81,86,
+PanTS_00004793,30,35,24,76144,10448,False,non-contrast,0.9928,non-contrast,-0.03359,False,Non-contrast,0.8,53,62,
+PanTS_00004796,296,75,81.99,136688,45691,False,arterial,1,arterial,0.2901,True,Arterial,1,36.01,30,
+PanTS_00004800,47,41,49,89248,24777,False,non-contrast,0.9947,non-contrast,0.01496,False,Non-contrast,0.8,76,64,
+PanTS_00004825,143,167,115,48581,11023,False,venous,0.9752,venous,1.035,False,Venous,2.5,33,33,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004828,246,135,87,69116,22055,False,arterial,1,arterial,0.7756,False,Venous,1.2,24,39,
+PanTS_00004842,156,178,44,32050,7590,False,venous,0.9783,venous,1.124,False,Venous,2.5,25,22,
+PanTS_00004856,8,18,7,142740,21284,False,venous,0.9262,venous,-0.1711,False,Non-contrast,0.8,71,72,
+PanTS_00004857,121,133,17,79781,42677,False,venous,0.9783,venous,0.7594,False,Venous,1.5,44,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004859,,,,,,False,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,,,aorta or PV mask empty after erosion
+PanTS_00004880,220,222,93,80702,14202,False,venous,0.8882,venous,1.48,False,Venous,1,90,46,
+PanTS_00004901,51,50,43,61669,18094,False,non-contrast,0.9758,non-contrast,0.08779,False,Venous,2,18,20,
+PanTS_00004913,94,146,61,86579,9829,False,uncertain,0.7829,arterial,0.8646,False,Venous,3,25,30,
+PanTS_00004937,172,194,130,10492,10227,False,venous,0.9791,venous,1.253,False,Venous,2.5,24,19,
+PanTS_00004954,148,144,84,126345,27819,False,venous,0.9391,venous,0.8484,False,Venous,1,26,22,
+PanTS_00004963,146,150,85,48737,10812,False,venous,0.9693,venous,0.897,False,Venous,3,30,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00004964,189,201,107,31315,9982,False,venous,0.9718,venous,1.31,False,Venous,2.5,32,25,
+PanTS_00005011,158,193,68,55128,15048,False,venous,0.9569,venous,1.245,False,Venous,2.5,47,45,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005016,38,38,,1440,70,True,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,1.5,19,14,<200 eroded vessel voxels
+PanTS_00005017,30,33,22,120725,14302,False,non-contrast,0.994,non-contrast,-0.04977,False,Non-contrast,0.8,63,64,
+PanTS_00005027,163,181,94,17089,6224,False,venous,0.9793,venous,1.148,False,Venous,2.5,41,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005034,186,102,84,195205,35259,False,arterial,1,arterial,0.5086,False,Venous,1,26.98,37.99,
+PanTS_00005041,50,42,34,151573,31923,False,non-contrast,0.9896,non-contrast,0.02305,False,Non-contrast,0.8,110,104,
+PanTS_00005050,43,41,18,131842,22817,False,non-contrast,0.9968,non-contrast,0.01496,False,Non-contrast,0.8,52,47,
+PanTS_00005054,162,140,39,64323,10492,False,uncertain,0.6244,arterial,0.816,False,Venous,1,32,38,
+PanTS_00005056,203,132,59,22639,6977,False,arterial,1,arterial,0.7513,False,Venous,3,24,23,
+PanTS_00005062,155,150,57,50576,9463,False,venous,0.9246,venous,0.897,False,Venous,2.5,43,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005085,275,68,79,51595,21595,False,arterial,1,arterial,0.2334,True,Arterial,1.25,27,26,
+PanTS_00005095,146,176,63,26600,15075,False,venous,0.9662,venous,1.107,False,Venous,2.5,38,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005103,38,38,43,40213,9398,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,1.25,38,32,
+PanTS_00005114,160,172,98,43692,14765,False,venous,0.9771,venous,1.075,False,Venous,2.5,26,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005137,188,236,47,40423,20010,False,venous,0.8944,venous,1.593,False,Venous,2.5,30,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005148,179,184,86,16286,3152,False,venous,0.9592,venous,1.172,False,Venous,1.5,57,62,
+PanTS_00005162,215,152,76,303619,21120,False,arterial,1,arterial,0.9131,False,Venous,0.477,167,89,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005172,31,23,1,150904,49902,False,non-contrast,0.9881,non-contrast,-0.1307,False,Non-contrast,0.8,19,25,
+PanTS_00005180,44,42,43,17524,779,False,non-contrast,0.9963,non-contrast,0.02305,False,Non-contrast,5,14,12,
+PanTS_00005186,306,139,87,44178,2327,False,arterial,1,arterial,0.808,False,Arterial,5,29,27,
+PanTS_00005188,151,180,90,42142,13520,False,venous,0.97,venous,1.14,False,Venous,2.5,39,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005195,33,34,24,14000,1851,False,non-contrast,0.9964,non-contrast,-0.04168,False,Venous,1.5,44,49,
+PanTS_00005207,224,74,61,57848,15573,False,arterial,1,arterial,0.282,True,Arterial,1.25,58,60,
+PanTS_00005210,181,216,103,34608,10283,False,venous,0.9668,venous,1.431,False,Venous,2.5,33,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005221,196,228,124,39772,13524,False,venous,0.9747,venous,1.528,False,Venous,2.5,48,47,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005225,180,57,50,213450,27392,False,arterial,1,arterial,0.1444,True,Venous,1.245,131,133,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005226,120,151,60,70849,25483,False,venous,0.9473,venous,0.9051,False,Venous,1.5,39,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005230,125,125,64,140799,30061,False,venous,0.9666,venous,0.6947,False,Venous,0.7,68,72,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005242,167,201,108,43790,9706,False,venous,0.9643,venous,1.31,False,Venous,2.5,39,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005250,46,41,38,38050,2363,False,non-contrast,0.9956,non-contrast,0.01496,False,Non-contrast,5,14,13,
+PanTS_00005257,193,205,98,38389,15890,False,venous,0.9706,venous,1.342,False,Venous,2.5,33,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005266,44,47,49,95355,21333,False,non-contrast,0.9924,non-contrast,0.06351,False,Non-contrast,0.8,56,47,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005268,54,65,57,40041,14058,False,venous,0.8504,venous,0.2092,False,Venous,2.5,34,29,
+PanTS_00005275,109,123,84,99145,34523,False,venous,0.977,venous,0.6785,False,Arterial,0.8,29,29,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005284,127,195,115,53491,50904,False,arterial,0.9829,arterial,1.261,False,Venous,0.625,23,54,
+PanTS_00005290,129,160,103,58166,7268,False,venous,0.9542,venous,0.9779,False,Venous,2.5,30,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005309,120,129,77,31061,15750,False,venous,0.9776,venous,0.727,False,Venous,2.5,34,33,
+PanTS_00005316,36,35,36,26147,478,False,non-contrast,0.9974,non-contrast,-0.03359,False,Non-contrast,4,27,24,
+PanTS_00005362,129,150,85,31685,7995,False,venous,0.9755,venous,0.897,False,Venous,2.5,31,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005370,119,130,55,21311,4210,False,venous,0.9782,venous,0.7351,False,Venous,5,24,23,
+PanTS_00005371,17,33,21,14723,538,False,uncertain,0.6151,venous,-0.04977,False,Non-contrast,1.5,33,25,
+PanTS_00005379,38,31,24,16403,9065,False,non-contrast,0.9968,non-contrast,-0.06595,False,Non-contrast,2.5,27,23,
+PanTS_00005390,47,46,47,125745,16408,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,46,46,
+PanTS_00005391,337,98,106,37333,11603,False,arterial,1,arterial,0.4762,True,Arterial,1.25,25,46,
+PanTS_00005392,34,30,30,30354,2818,False,non-contrast,0.9965,non-contrast,-0.07405,False,Venous,5,12,10,
+PanTS_00005412,142,151,93,42142,27756,False,venous,0.9766,venous,0.9051,False,Venous,2,27,27,
+PanTS_00005420,242,94,93,74331,34370,False,arterial,1,arterial,0.4438,True,Arterial,1.25,55,44,
+PanTS_00005422,41,38,16,190169,17189,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,0.8,86,74,
+PanTS_00005428,119,121,80,27188,4267,False,venous,0.9716,venous,0.6623,False,Venous,5,18,21,
+PanTS_00005437,52,47,40,13670,388,False,non-contrast,0.9798,non-contrast,0.06351,False,Non-contrast,5,11,12,
+PanTS_00005466,189,193,99,26941,12052,False,venous,0.9486,venous,1.245,False,Venous,2.5,22,22,
+PanTS_00005473,43,42,41,90549,9627,False,non-contrast,0.9965,non-contrast,0.02305,False,Non-contrast,0.8,86,68,
+PanTS_00005489,180,132,78,15234,6240,False,arterial,0.9999,arterial,0.7513,False,Venous,1.5,30,30,
+PanTS_00005504,194,85,86,61550,42926,False,arterial,1,arterial,0.371,True,Arterial,0.8,28,39,
+PanTS_00005513,47,47,48,119836,195,True,non-contrast,0.9914,non-contrast,0.06351,False,Non-contrast,0.8,39,34,<200 eroded vessel voxels
+PanTS_00005514,101,107,65,17368,2700,False,venous,0.9764,venous,0.549,False,Arterial,5,12,11,
+PanTS_00005525,141,146,89,12286,1888,False,venous,0.9722,venous,0.8646,False,Venous,5,20,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005538,171,179,103,19605,8822,False,venous,0.97,venous,1.132,False,Venous,2.5,27,22,
+PanTS_00005545,37,36,27,254636,10971,False,non-contrast,0.9975,non-contrast,-0.0255,False,Non-contrast,0.8,57,49,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005549,309,136,68,37032,1368,False,arterial,1,arterial,0.7837,False,Arterial,1.5,47,34.5,
+PanTS_00005558,199,155,68,18761,13868,False,arterial,0.9998,arterial,0.9374,False,Venous,1.5,18,13,
+PanTS_00005571,176,194,107,36651,13584,False,venous,0.9789,venous,1.253,False,Venous,2.5,32,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005580,141,174,84,68159,15760,False,venous,0.9542,venous,1.091,False,Venous,1.25,40,54,
+PanTS_00005583,275,60,59,70756,20724,False,arterial,1,arterial,0.1687,True,Arterial,1.25,50,42,
+PanTS_00005589,254,110,91,143003,38511,False,arterial,1,arterial,0.5733,False,Arterial,1,44,53,
+PanTS_00005623,39,29,25,65896,12659,False,non-contrast,0.9952,non-contrast,-0.08214,False,Non-contrast,0.8,139,129,
+PanTS_00005641,43,38,25,169646,42118,False,non-contrast,0.997,non-contrast,-0.009312,False,Non-contrast,0.8,66,70,
+PanTS_00005643,38,31,11,184933,13882,False,non-contrast,0.9968,non-contrast,-0.06595,False,Non-contrast,0.8,80,79,
+PanTS_00005661,121,128,-17,23033,11447,False,venous,0.9766,venous,0.7189,False,Venous,2.5,37,28,
+PanTS_00005665,39,34,24,179929,28188,False,non-contrast,0.9974,non-contrast,-0.04168,False,Non-contrast,0.8,48,45,
+PanTS_00005676,89,81,38,125591,52903,False,venous,0.9552,venous,0.3386,False,Delay,0.6,51,45,
+PanTS_00005677,40,38,34,66729,17137,False,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,0.8,44,38,
+PanTS_00005695,127,157,31,39242,14777,False,venous,0.9567,venous,0.9536,False,Arterial,3,30,29,
+PanTS_00005724,99,100,-8,25095,12798,False,venous,0.9726,venous,0.4924,False,Venous,3,25,23,
+PanTS_00005731,34,21,17,12267,1164,False,non-contrast,0.9777,non-contrast,-0.1469,False,Non-contrast,3.27,22,18,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005732,205,159,82,31495,6682,False,arterial,0.9999,arterial,0.9698,False,Venous,3,19,17,
+PanTS_00005739,149,156,35,20983,2863,False,venous,0.9735,venous,0.9455,False,Venous,2.5,22,20,
+PanTS_00005742,119,122,80,27990,4275,False,venous,0.9729,venous,0.6704,False,Non-contrast,5,19,20,
+PanTS_00005757,123,124,66,80954,21361,False,venous,0.9691,venous,0.6866,False,Venous,1.25,21,23,
+PanTS_00005759,163,162,93,31060,7676,False,venous,0.9439,venous,0.9941,False,Arterial,2.5,52,45,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005766,172,177,91,49480,12147,False,venous,0.9627,venous,1.115,False,Arterial,2.5,27,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005774,127,132,86,12535,4524,False,venous,0.9743,venous,0.7513,False,Venous,4,30,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005780,153,159,63,27358,2525,False,venous,0.9712,venous,0.9698,False,Arterial,5,43,56,
+PanTS_00005782,261,129,107,152820,11805,False,arterial,1,arterial,0.7272,False,Venous,1,71.99,47.97,
+PanTS_00005785,35,30,12,92493,17289,False,non-contrast,0.9966,non-contrast,-0.07405,False,Non-contrast,0.8014,89,85,
+PanTS_00005793,302,138,106,93101,29334,False,arterial,1,arterial,0.7999,False,Arterial,1,33,53,
+PanTS_00005796,46,41,38,140843,29116,False,non-contrast,0.9956,non-contrast,0.01496,False,Non-contrast,0.8,22,23,
+PanTS_00005803,150,171,55,7249,815,False,venous,0.9783,venous,1.067,False,Venous,5,25,15,
+PanTS_00005806,277,83,64,60228,12123,False,arterial,1,arterial,0.3548,True,Arterial,1.25,53,58,
+PanTS_00005821,163,175,108,99534,7197,False,venous,0.9767,venous,1.099,False,Arterial,2.5,33,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005832,39,34,39,156182,842,False,non-contrast,0.9974,non-contrast,-0.04168,False,Arterial,0.8,48,47.75,
+PanTS_00005855,177,185,60,42213,16668,False,venous,0.9681,venous,1.18,False,Venous,2.5,40,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005864,47,42,25,87400,30278,False,non-contrast,0.9947,non-contrast,0.02305,False,Non-contrast,0.8,68,65,
+PanTS_00005869,74,75,38,37244,736,False,venous,0.9732,venous,0.2901,False,Venous,1.5,52,56,
+PanTS_00005876,138,151,88,26086,9979,False,venous,0.9788,venous,0.9051,False,Venous,2.5,22,17,
+PanTS_00005881,186,192,54,23070,2021,False,venous,0.9588,venous,1.237,False,Venous,5,32,24,
+PanTS_00005894,167,172,109,58433,10320,False,venous,0.9648,venous,1.075,False,Venous,2.5,19,16,
+PanTS_00005905,162,175,101,18655,13444,False,venous,0.9776,venous,1.099,False,Venous,3,36,32,
+PanTS_00005915,41,42,11,33982,2505,False,non-contrast,0.9966,non-contrast,0.02305,False,Venous,5,22,19,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005921,150,171,98,48579,11678,False,venous,0.9783,venous,1.067,False,Venous,2.5,43,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005924,121,146,81,191385,12534,False,venous,0.9676,venous,0.8646,False,Venous,1.5,25,24,
+PanTS_00005931,223,176,120,6891,979,False,arterial,1,arterial,1.107,False,Venous,5,21,41.5,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005934,523,107,94,8150,5785,False,arterial,1,arterial,0.549,False,Venous,1.5,481,37,
+PanTS_00005938,141,166,85,12126,3804,False,venous,0.9736,venous,1.026,False,Venous,5,23,25,
+PanTS_00005960,163,162,103,16396,4369,False,venous,0.9439,venous,0.9941,False,Venous,5,25,22,
+PanTS_00005985,42,47,47,108475,21010,False,non-contrast,0.9918,non-contrast,0.06351,False,Non-contrast,0.8,56,49,
+PanTS_00005992,180,210,100,41538,9428,False,venous,0.9748,venous,1.382,False,Venous,2.5,38,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005994,98,92,55,51022,5467,False,venous,0.9588,venous,0.4276,False,Venous,2.42,68,85,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00005995,42,50,43,109598,1282,False,non-contrast,0.9808,non-contrast,0.08779,False,Venous,0.8,54,74,
+PanTS_00006000,296,69,82,60492,16622,False,arterial,1,arterial,0.2415,True,Arterial,1.25,52,41,
+PanTS_00006011,129,127,56,24514,2671,False,venous,0.9599,venous,0.7109,False,Arterial,1.5,23,22,
+PanTS_00006034,44,127,43,86359,1667,False,arterial,1,arterial,0.7109,False,Arterial,0.8,86,162.5,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006039,149,153,78,24646,2470,False,venous,0.9685,venous,0.9212,False,Arterial,5,26,20,
+PanTS_00006054,44,43,52,98231,15424,False,non-contrast,0.996,non-contrast,0.03115,False,Venous,0.8,74,61,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006056,146,150,92,238565,31161,False,venous,0.9693,venous,0.897,False,Venous,1,25,27,
+PanTS_00006064,211,257,136,47828,11829,False,venous,0.9398,venous,1.763,False,Venous,2.5,42,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006071,169,189,120,75651,51941,False,venous,0.9793,venous,1.213,False,Venous,1,31,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006078,136,120,52,49510,3253,False,uncertain,0.7926,venous,0.6542,False,Venous,5,37,26,
+PanTS_00006079,110,141,52,37952,11690,False,venous,0.9376,venous,0.8241,False,Venous,2.5,38,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006135,117,129,74,21229,8006,False,venous,0.9781,venous,0.727,False,Venous,1.5,46,49,
+PanTS_00006142,255,153,29,73408,4034,False,arterial,1,arterial,0.9212,False,Arterial,2.5,42,35,
+PanTS_00006157,37,39,26,67494,9362,False,non-contrast,0.9969,non-contrast,-0.001221,False,Venous,1.25,32,31,
+PanTS_00006166,317,224,89,12685,3,True,arterial,1,arterial,1.496,False,Venous,1.5,125,109.5,<200 eroded vessel voxels
+PanTS_00006178,30,26,12,23441,3108,False,non-contrast,0.9924,non-contrast,-0.1064,False,Non-contrast,1.5,26,24,
+PanTS_00006183,194,244,127,43634,14813,False,venous,0.8784,venous,1.658,False,Venous,2.5,44,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006193,37,37,-4,125498,32770,False,non-contrast,0.9974,non-contrast,-0.0174,False,Non-contrast,0.8,72,73,
+PanTS_00006195,106,104,67,19517,8027,False,venous,0.9669,venous,0.5247,False,Venous,1.5,12,9,
+PanTS_00006201,103,133,77,34222,6927,False,venous,0.936,venous,0.7594,False,Venous,2.5,35,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006209,361,74,44,10006,2094,False,arterial,1,arterial,0.282,True,Venous,1.5,71,81,
+PanTS_00006218,219,262,150,43237,9806,False,venous,0.9578,venous,1.803,False,Venous,2.5,35,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006222,33,47,30,119302,3376,False,non-contrast,0.9436,non-contrast,0.06351,False,Non-contrast,0.8,57,65.5,
+PanTS_00006224,316,144,116,158329,24980,False,arterial,1,arterial,0.8484,False,Arterial,1,28.02,45.99,
+PanTS_00006238,253,127,97,156438,32419,False,arterial,1,arterial,0.7109,False,Venous,1.25,43,45,
+PanTS_00006256,111,137,68,23499,4606,False,venous,0.9605,venous,0.7918,False,Venous,5,21,17,
+PanTS_00006257,42,,47,103621,0,True,unmeasurable,,unmeasurable,,False,Arterial,0.8,55,,aorta or PV mask empty after erosion
+PanTS_00006263,123,141,67,25447,10243,False,venous,0.9769,venous,0.8241,False,Venous,2.5,45,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006268,154,151,75,118982,23443,False,venous,0.94,venous,0.9051,False,Venous,1.5,35,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006272,142,167,98,40379,11189,False,venous,0.9738,venous,1.035,False,Venous,2.5,35,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006274,141,164,108,79897,21565,False,venous,0.9758,venous,1.01,False,Venous,1.25,19,32,
+PanTS_00006275,209,66,45,276656,11324,False,arterial,1,arterial,0.2172,True,Arterial,1,158,82,
+PanTS_00006282,43,44,29,139625,26956,False,non-contrast,0.9956,non-contrast,0.03924,False,Non-contrast,0.8536,78,83,
+PanTS_00006287,114,132,57,21497,4175,False,venous,0.9754,venous,0.7513,False,Non-contrast,5,31,26,
+PanTS_00006296,151,160,94,70968,39646,False,venous,0.9755,venous,0.9779,False,Venous,1.5,27,25,
+PanTS_00006300,239,246,107,10785,577,False,venous,0.9073,venous,1.674,False,Venous,5,22,26,
+PanTS_00006303,49,53,49,100794,10999,False,non-contrast,0.9615,non-contrast,0.1121,False,Venous,0.8,40,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006304,137,170,94,49284,10870,False,venous,0.9514,venous,1.059,False,Venous,2.5,33,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006310,43,38,16,102896,35724,False,non-contrast,0.997,non-contrast,-0.009312,False,Non-contrast,0.8,77,71,
+PanTS_00006311,51,45,39,12886,609,False,non-contrast,0.9861,non-contrast,0.04733,False,Non-contrast,5,13,11,
+PanTS_00006315,106,123,34,27999,13120,False,venous,0.9747,venous,0.6785,False,Venous,2.5,37,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006319,72,80,61,66966,8299,False,venous,0.9737,venous,0.3305,False,Arterial,0.625,26,39,
+PanTS_00006321,189,186,115,3755,840,False,venous,0.8903,venous,1.188,False,Arterial,1.5,96,86,
+PanTS_00006331,199,190,84,33914,10604,False,uncertain,0.7129,venous,1.221,False,Venous,2,21,22,
+PanTS_00006333,164,165.5,66,24165,5070,False,venous,0.9549,venous,1.022,False,Venous,3,26,25,
+PanTS_00006340,41,38,34,42893,5198,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,0.8,60,61,
+PanTS_00006350,140,166,90,19192,8631,False,venous,0.9719,venous,1.026,False,Arterial,1.5,55,55,
+PanTS_00006351,44,45,37,139906,5505,False,non-contrast,0.9947,non-contrast,0.04733,False,Arterial,0.8,39,42,
+PanTS_00006353,34,25,17,146892,19465,False,non-contrast,0.9925,non-contrast,-0.1145,False,Non-contrast,0.8,74,75,
+PanTS_00006376,112,118,81,50610,29002,False,venous,0.9763,venous,0.638,False,Venous,1.2,21,19,
+PanTS_00006379,313,163.5,,38677,4,True,arterial,1,arterial,1.006,False,Arterial,1.5,38,56.25,<200 eroded vessel voxels
+PanTS_00006384,112,128,73,44727,12976,False,venous,0.9765,venous,0.7189,False,Venous,2.5,44,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006394,37,43,44,87519,18378,False,non-contrast,0.994,non-contrast,0.03115,False,Non-contrast,0.8,44,50,
+PanTS_00006400,42,39,42,69672,31036,False,non-contrast,0.9972,non-contrast,-0.001221,False,Non-contrast,0.8,24,26,
+PanTS_00006413,275,43,49,133564,27096,False,arterial,1,arterial,0.03115,True,Arterial,1.25,52,36,
+PanTS_00006422,42,38,-4,114087,33811,False,non-contrast,0.9973,non-contrast,-0.009312,False,Non-contrast,0.8,77,85,
+PanTS_00006430,267,82,77,52665,27201,False,arterial,1,arterial,0.3467,True,Arterial,1.25,56,47,
+PanTS_00006432,231,244,146,21368,14511,False,venous,0.9552,venous,1.658,False,Non-contrast,2.5,36,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006434,180,187,111,49279,39255,False,venous,0.9647,venous,1.196,False,Venous,1,20,24,
+PanTS_00006442,47,42,-16,162775,36163,False,non-contrast,0.9947,non-contrast,0.02305,False,Non-contrast,0.8,141,140,
+PanTS_00006447,39,34,33,7401,417,False,non-contrast,0.9974,non-contrast,-0.04168,False,Non-contrast,3.27,13,11,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006457,203,218,111,25870,4683,False,venous,0.9724,venous,1.447,False,Venous,2.5,27,29,
+PanTS_00006459,168,189,104,473593,74229,False,venous,0.9792,venous,1.213,False,Venous,0.8,36,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006466,106,125,74,28706,40879,False,venous,0.9725,venous,0.6947,False,Venous,2.5,32,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006467,186,202,115,54357,15982,False,venous,0.9768,venous,1.318,False,Venous,2.5,31,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006475,128,129,81,22062,841,False,venous,0.968,venous,0.727,False,Venous,1.5,92,96,
+PanTS_00006483,402,39,34,76719,9632,False,arterial,1,arterial,-0.001221,True,Arterial,1.25,58,34,
+PanTS_00006513,154,150,74,118761,23425,False,venous,0.9334,venous,0.897,False,Venous,1.5,36,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006514,44,48,37,67977,12801,False,non-contrast,0.9905,non-contrast,0.07161,False,Arterial,0.8,88,93,
+PanTS_00006519,129,141,87,14108,3173,False,venous,0.9785,venous,0.8241,False,Venous,5,19,18,
+PanTS_00006523,53,45,25,125152,12464,False,non-contrast,0.9756,non-contrast,0.04733,False,Arterial,0.8,68,54,
+PanTS_00006525,33,31,25,30523,4088,False,non-contrast,0.9964,non-contrast,-0.06595,False,Venous,5,14,15,
+PanTS_00006536,164,179,91,49195,11181,False,venous,0.9785,venous,1.132,False,Arterial,2.5,22,22,
+PanTS_00006559,114,111,21,42651,14987,False,venous,0.9624,venous,0.5814,False,Venous,2.5,28,25,
+PanTS_00006574,129,128,82,16433,5651,False,venous,0.9629,venous,0.7189,False,Arterial,1.5,13,12,
+PanTS_00006576,50,42,34,154825,31929,False,non-contrast,0.9896,non-contrast,0.02305,False,Non-contrast,0.8,110,104,
+PanTS_00006580,43,128,39,86152,1645,False,arterial,1,arterial,0.7189,False,Arterial,0.8,85,162,
+PanTS_00006601,155,158,41,282145,39293,False,venous,0.9642,venous,0.9617,False,Venous,1,33,35,
+PanTS_00006605,146,175,92,182331,22213,False,venous,0.9684,venous,1.099,False,Arterial,1.5,29,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006612,183,213,33,73216,20147,False,venous,0.9752,venous,1.407,False,Venous,1,47,47,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006616,128,140,73,21886,2876,False,venous,0.9785,venous,0.816,False,Venous,5,20,17,
+PanTS_00006641,219,232,98,44152,2656,False,venous,0.9624,venous,1.56,False,Venous,2.5,25,27,
+PanTS_00006642,41,44,20,157420,40434,False,non-contrast,0.9954,non-contrast,0.03924,False,Non-contrast,0.8,106,118,
+PanTS_00006650,38,36,35,61072,2090,False,non-contrast,0.9976,non-contrast,-0.0255,False,Arterial,2.5,18,12,
+PanTS_00006654,145,249,85,69533,17503,False,arterial,1,arterial,1.698,False,Venous,1.25,30,51,
+PanTS_00006656,107,121,73,21481,3656,False,venous,0.9768,venous,0.6623,False,Venous,5,31,26,
+PanTS_00006661,43,43,44,13589,507,False,non-contrast,0.9961,non-contrast,0.03115,False,Non-contrast,5,15,13,
+PanTS_00006665,46,33,9,62716,7882,False,non-contrast,0.9908,non-contrast,-0.04977,False,Non-contrast,2.5,24,18,
+PanTS_00006707,134,163,72,13995,1450,False,venous,0.9636,venous,1.002,False,Venous,5,22,15,
+PanTS_00006710,125,140,77,62429,21231,False,venous,0.9783,venous,0.816,False,Venous,1.25,44,48,
+PanTS_00006717,159,41,20,238364,16207,False,arterial,1,arterial,0.01496,True,Arterial,1.244,116,142,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006734,121,133,56,49102,26616,False,venous,0.9783,venous,0.7594,False,Arterial,2.5,23,22,
+PanTS_00006739,173,187,99,89415,10874,False,venous,0.9771,venous,1.196,False,Venous,2.5,21,16,
+PanTS_00006741,137,146,93,9356,2363,False,venous,0.977,venous,0.8646,False,Venous,5,21,17,
+PanTS_00006746,95,100,65,90244,49272,False,venous,0.9758,venous,0.4924,False,Venous,0.625,25,22,
+PanTS_00006754,190,151,86,16118,1868,False,arterial,0.9981,arterial,0.9051,False,Venous,5,23,27,
+PanTS_00006755,48,46,38,134673,8152,False,non-contrast,0.9916,non-contrast,0.05542,False,Arterial,0.8,109,131,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006771,192,224,114,18772,6823,False,venous,0.9742,venous,1.496,False,Venous,5,32,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006772,138,232,103,270731,74587,False,arterial,1,arterial,1.56,False,Venous,0.8,42,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006783,254,145,108,15222,1601,False,arterial,1,arterial,0.8565,False,Venous,3,16,28,
+PanTS_00006786,154,180,81,30094,11797,False,venous,0.975,venous,1.14,False,Venous,2.5,39,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006791,251,98.01,99.99,101112,18987,False,arterial,1,arterial,0.4763,True,Arterial,1,136,26,
+PanTS_00006795,354,83,68,29625,12831,False,arterial,1,arterial,0.3548,True,Arterial,1.25,51,49,
+PanTS_00006797,42,,,54031,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,22,,aorta or PV mask empty after erosion
+PanTS_00006798,268,220,114,14529,2980,False,arterial,1,arterial,1.463,False,Venous,3,51,32,
+PanTS_00006799,249,102,47,13755,116,True,arterial,1,arterial,0.5086,False,Venous,1.5,61,60.25,<200 eroded vessel voxels
+PanTS_00006802,81,97,56,25687,9338,False,venous,0.9688,venous,0.4681,False,Venous,2.5,26,23,
+PanTS_00006806,37,40,41,137329,4394,False,non-contrast,0.9965,non-contrast,0.006871,False,Arterial,0.8,45,42,
+PanTS_00006816,110,124,63,30930,15545,False,venous,0.9771,venous,0.6866,False,Venous,2.5,43,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006837,294,70,90,58791,32247,False,arterial,1,arterial,0.2496,True,Arterial,1.25,57,43,
+PanTS_00006843,38,37,40,90103,13013,False,non-contrast,0.9975,non-contrast,-0.0174,False,Venous,0.8,42,41,
+PanTS_00006859,244,100,88,36312,14182,False,arterial,1,arterial,0.4924,True,Arterial,1.25,60,51,
+PanTS_00006874,110,118,62,35584,13796,False,venous,0.9773,venous,0.638,False,Venous,1.25,38,40,
+PanTS_00006879,278,313,138,29850,6250,False,venous,0.9709,venous,2.216,False,Non-contrast,2.5,29,28,
+PanTS_00006887,167,190,79,55418,21317,False,venous,0.9786,venous,1.221,False,Arterial,1,38,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006903,240,90.99,94.01,123666,25919,False,arterial,1,arterial,0.4195,True,Arterial,1,242,53.01,
+PanTS_00006917,35,37,34,65743,3656,False,non-contrast,0.9968,non-contrast,-0.0174,False,Non-contrast,0.8,56,69,
+PanTS_00006921,129,176,74,31829,10414,False,uncertain,0.7107,venous,1.107,False,Venous,2.5,31,30,
+PanTS_00006927,99,130,56,107898,12407,False,venous,0.9235,venous,0.7351,False,Venous,3,24,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006944,124,158,84,20102,1843,False,venous,0.9338,venous,0.9617,False,Venous,5,19,24,
+PanTS_00006945,145,196,73,33401,10824,False,uncertain,0.6536,venous,1.269,False,Venous,2.5,51,48,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006946,533,115.5,111,37025,922,False,arterial,1,arterial,0.6178,False,Arterial,5,39,20.75,
+PanTS_00006959,177,189,73,44745,11544,False,venous,0.9745,venous,1.213,False,Arterial,2.5,28,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006960,97,142,51,56732,15168,False,uncertain,0.5735,venous,0.8322,False,Venous,2.5,31,27,
+PanTS_00006971,131,140,-18,79124,10065,False,venous,0.9773,venous,0.816,False,Venous,2.5,25,21,
+PanTS_00006975,159,214,107,43422,13249,False,uncertain,0.5708,venous,1.415,False,Venous,2.5,31,28,
+PanTS_00006982,244,70,58,64564,31395,False,arterial,1,arterial,0.2496,True,Arterial,1.25,49,42,
+PanTS_00006987,109,124,33,98162,27710,False,venous,0.9766,venous,0.6866,False,Venous,1,30,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006998,158,168,84,28211,3769,False,venous,0.9756,venous,1.043,False,Venous,2.5,32,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00006999,133,128,42,118372,9933,False,venous,0.9453,venous,0.7189,False,Venous,2.5,27,24,
+PanTS_00007001,35,31,26,102672,9952,False,non-contrast,0.9969,non-contrast,-0.06595,False,Venous,1.25,21,21,
+PanTS_00007002,47,47,34,101467,44809,False,non-contrast,0.9914,non-contrast,0.06351,False,Non-contrast,0.8,70,78,
+PanTS_00007014,159,184,104,11657,2713,False,venous,0.9767,venous,1.172,False,Venous,5,26,26,
+PanTS_00007040,267,124,111,18228,6356,False,arterial,1,arterial,0.6866,False,Arterial,3,37,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007042,194,126,52.99,94574,25140,False,arterial,1,arterial,0.7027,False,Arterial,1.25,37.99,47,
+PanTS_00007044,47,46,47,128258,16383,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,44,47,
+PanTS_00007048,129,174,80,244115,38743,False,uncertain,0.7756,venous,1.091,False,Venous,0.625,53,50,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007053,141,163,111,27292,10217,False,venous,0.9767,venous,1.002,False,Venous,2.5,30,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007054,165,132,75,71564,12527,False,arterial,0.9649,arterial,0.7513,False,Venous,2.5,20,18,
+PanTS_00007060,158,186,77,26524,10197,False,venous,0.9733,venous,1.188,False,Venous,2.5,34,30,
+PanTS_00007065,158,168,65,34078,14047,False,venous,0.9756,venous,1.043,False,Venous,2.5,39,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007067,181,191,96,387202,53479,False,venous,0.9707,venous,1.229,False,Non-contrast,0.8,36,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007071,231,70,56,48794,17584,False,arterial,1,arterial,0.2496,True,Arterial,1.25,79,65,
+PanTS_00007093,306,116,101,174789,27773,False,arterial,1,arterial,0.622,False,Arterial,1,47.97,40.01,
+PanTS_00007094,166,202,116,61940,37253,False,venous,0.9577,venous,1.318,False,Venous,1,28,51,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007095,330,74,44,49673,38907,False,arterial,1,arterial,0.282,True,Arterial,0.7,44,43,
+PanTS_00007099,34,31,12,91688,14302,False,non-contrast,0.9967,non-contrast,-0.06595,False,Non-contrast,0.8,49,55,
+PanTS_00007100,185,188,76,10564,1082,False,venous,0.9469,venous,1.204,False,Venous,5,32,16,
+PanTS_00007102,137,153,97,17741,2686,False,venous,0.9789,venous,0.9212,False,Venous,5,24,34,
+PanTS_00007105,255,68,54,72206,30415,False,arterial,1,arterial,0.2334,True,Arterial,1.25,63,48,
+PanTS_00007110,163,164,102,19585,2863,False,venous,0.9535,venous,1.01,False,Venous,1.5,33,30,
+PanTS_00007114,184,194,111,48919,8444,False,venous,0.9698,venous,1.253,False,Venous,2.5,31,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007115,214,220,90,31813,14661,False,venous,0.936,venous,1.463,False,Arterial,2.5,28,29,
+PanTS_00007118,44,43,41,48592,8662,False,non-contrast,0.996,non-contrast,0.03115,False,Non-contrast,2,14,13,
+PanTS_00007122,108,119,68,69679,28358,False,venous,0.9776,venous,0.6461,False,Venous,1.25,37,48,
+PanTS_00007130,245,147,63,37725,4304,False,arterial,1,arterial,0.8727,False,Venous,1.5,52,30,
+PanTS_00007132,180,186,114,16214,3986,False,venous,0.9619,venous,1.188,False,Venous,3,29,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007135,173,153,41,15686,4483,False,uncertain,0.6075,arterial,0.9212,False,Venous,1.5,32,37,
+PanTS_00007136,216,86.99,19,47005,11874,False,arterial,1,arterial,0.3871,True,Arterial,0.7,34,37.02,
+PanTS_00007147,133,126,69,139951,28475,False,venous,0.9331,venous,0.7028,False,Venous,1.2,36,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007151,117,146,83,29183,3091,False,venous,0.9538,venous,0.8646,False,Venous,3,28,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007152,120,120,50,85665,29910,False,venous,0.9679,venous,0.6542,False,Venous,1,48,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007157,164,173,100,19232,14184,False,venous,0.9733,venous,1.083,False,Venous,3,22,18,
+PanTS_00007166,151,210,111,38853,14308,False,uncertain,0.6902,arterial,1.382,False,Venous,2.5,44,42,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007167,85,91,63,83722,37818,False,venous,0.9756,venous,0.4196,False,Venous,1.25,43,44,
+PanTS_00007169,184,198,108,9951,1071,False,venous,0.9754,venous,1.285,False,Venous,5,26,22,
+PanTS_00007178,25.01,34.99,30.01,36381,15298,False,non-contrast,0.9602,non-contrast,-0.03368,False,Non-contrast,2.5,35,27.99,
+PanTS_00007182,206,165,90,81687,8028,False,arterial,0.9996,arterial,1.018,False,Venous,2.5,23,27,
+PanTS_00007184,319,51.01,52.99,129428,8843,False,arterial,1,arterial,0.09597,True,Arterial,1,137,26.98,
+PanTS_00007190,257,51,64,97386,17376,False,arterial,1,arterial,0.09588,True,Arterial,1.25,60,44,
+PanTS_00007194,115,46,4,26305,4548,False,arterial,1,arterial,0.05542,True,Arterial,3,24,18,
+PanTS_00007201,116,117,60,71619,25449,False,venous,0.9705,venous,0.6299,False,Delay,2,29,31,
+PanTS_00007211,151,163,98,33662,12079,False,venous,0.9779,venous,1.002,False,Venous,2.5,30,27,
+PanTS_00007217,232,56,55,595,2604,False,arterial,1,arterial,0.1363,True,Arterial,5,40,22,
+PanTS_00007227,34,30,12,89438,17275,False,non-contrast,0.9965,non-contrast,-0.07405,False,Non-contrast,0.8014,88,85,
+PanTS_00007228,176,184,98,15427,1756,False,venous,0.9685,venous,1.172,False,Venous,5,19,17,
+PanTS_00007242,92,144,73,112687,24915,False,uncertain,0.7957,arterial,0.8484,False,Venous,1.25,42,41,
+PanTS_00007248,183,210,123,17158,13940,False,venous,0.9777,venous,1.382,False,Venous,2.5,30,27,
+PanTS_00007260,159,183,67,22243,1759,False,venous,0.9775,venous,1.164,False,Venous,5,21,30,
+PanTS_00007262,186,167,90,26924,9314,False,uncertain,0.6578,arterial,1.035,False,Venous,1.5,36,33,
+PanTS_00007273,,,,,,False,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,,,aorta or PV mask empty after erosion
+PanTS_00007278,142,172,104,40427,14954,False,venous,0.9645,venous,1.075,False,Venous,2.5,40,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007284,116,111,60,16966,14344,False,venous,0.9551,venous,0.5814,False,Venous,1.5,34,35,
+PanTS_00007291,133,134,73,139557,59910,False,venous,0.9666,venous,0.7675,False,Venous,0.7,68,72,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007298,395,49,51.01,164515,14387,False,arterial,1,arterial,0.07967,True,Arterial,1,170,27.01,
+PanTS_00007299,209,226,117,35423,9823,False,venous,0.9735,venous,1.512,False,Arterial,2.5,30,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007308,148,187,100,49627,17028,False,venous,0.9257,venous,1.196,False,Venous,1.25,36,43,
+PanTS_00007309,146,159,86,33439,13167,False,venous,0.9786,venous,0.9698,False,Venous,2.5,35,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007315,171,193,103,37683,6192,False,venous,0.9791,venous,1.245,False,Venous,2.5,24,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007319,197,216,125,28131,8212,False,venous,0.9774,venous,1.431,False,Venous,2.5,27,21,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007322,154,163,93,64780,15972,False,venous,0.9751,venous,1.002,False,Venous,1,44,40,
+PanTS_00007329,30,33,21,120718,14320,False,non-contrast,0.994,non-contrast,-0.04977,False,Non-contrast,0.8,63,64,
+PanTS_00007334,95,132,48,16500,2106,False,venous,0.8322,venous,0.7513,False,Venous,5,26,29,
+PanTS_00007347,153,176,111,56147,18706,False,venous,0.9775,venous,1.107,False,Venous,1.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007361,42,50,38,110361,692,False,non-contrast,0.9808,non-contrast,0.08779,False,Non-contrast,0.8,44,34,
+PanTS_00007364,134,144,58,99482,15729,False,venous,0.9778,venous,0.8484,False,Venous,2.5,22,23,
+PanTS_00007395,205,203,102,39026,25090,False,venous,0.8664,venous,1.326,False,Venous,1.25,47,46,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007401,258,94.01,94.99,84402,15927,False,arterial,1,arterial,0.4439,True,Arterial,2.5,31.01,41.99,
+PanTS_00007405,106,93,47,15366,4304,False,venous,0.9124,venous,0.4357,False,Venous,1.5,94,101,
+PanTS_00007414,122,112,65,124067,25653,False,venous,0.9211,venous,0.5895,False,Venous,0.4185,103,50,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007422,186,206,104,29235,8774,False,venous,0.9788,venous,1.35,False,Venous,2.5,36,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007426,157,159,73,17448,3300,False,venous,0.9604,venous,0.9698,False,Venous,5,34,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007435,142,150,68,56581,13743,False,venous,0.9757,venous,0.897,False,Venous,2.5,47,44,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007437,115,47,3,25676,4779,False,arterial,1,arterial,0.06351,True,Non-contrast,3,22,18,
+PanTS_00007451,38,38,43,57838,10396,False,non-contrast,0.9974,non-contrast,-0.009312,False,Arterial,1.25,26,21.25,
+PanTS_00007463,154,168,82,33485,9045,False,venous,0.9786,venous,1.043,False,Venous,2.5,37,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007468,158,168,38,13332,2931,False,venous,0.9756,venous,1.043,False,Venous,1.5,31,26,
+PanTS_00007472,54,44,24,176732,12478,False,non-contrast,0.9655,non-contrast,0.03924,False,Non-contrast,0.8,69,54,
+PanTS_00007485,125,126,73,71528,26663,False,venous,0.9687,venous,0.7028,False,Non-contrast,1.2,24,22,
+PanTS_00007494,123,139,53,68309,18393,False,venous,0.9779,venous,0.808,False,Venous,1,39,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007501,122,120,33,207654,29328,False,venous,0.9625,venous,0.6542,False,Venous,1,33,41,
+PanTS_00007508,44,,44,20416,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,90,,aorta or PV mask empty after erosion
+PanTS_00007514,42,40,45,145053,8377,False,non-contrast,0.9971,non-contrast,0.006871,False,Non-contrast,0.8,44,42,
+PanTS_00007516,262,68,54,97709,34765,False,arterial,1,arterial,0.2334,True,Arterial,1.25,65,47,
+PanTS_00007525,209,236,128,34348,7989,False,venous,0.9781,venous,1.593,False,Venous,2.5,41,41,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007532,42,47,47,113526,5319,False,non-contrast,0.9918,non-contrast,0.06351,False,Arterial,0.8,44,47,
+PanTS_00007533,163,146,77,9132,2355,False,uncertain,0.6157,venous,0.8646,False,Venous,5,30,28,
+PanTS_00007536,257,93,89,95753,11297,False,arterial,1,arterial,0.4357,True,Arterial,1.25,47,49,
+PanTS_00007539,131,126,61,67599,10619,False,venous,0.9467,venous,0.7028,False,Venous,2.5,26,23,
+PanTS_00007555,84,83,47,36683,10270,False,venous,0.9713,venous,0.3548,False,Venous,2.5,22,22,
+PanTS_00007558,143,143,47,22808,6804,False,venous,0.9604,venous,0.8403,False,Non-contrast,1.5,20,20,
+PanTS_00007564,116,132,33,44083,16005,False,venous,0.977,venous,0.7513,False,Venous,2.5,41,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007569,157,189,98,13422,5152,False,venous,0.9656,venous,1.213,False,Arterial,1.5,57,53,
+PanTS_00007575,155,172,103,24175,5497,False,venous,0.9793,venous,1.075,False,Venous,2.5,18,17,
+PanTS_00007577,265,49,48,107598,17709,False,arterial,1,arterial,0.0797,True,Arterial,1.25,55,43,
+PanTS_00007578,121,121,68,26115,3776,False,venous,0.9676,venous,0.6623,False,Venous,5,31,22,
+PanTS_00007583,131,149,82,45892,22238,False,venous,0.9779,venous,0.8889,False,Venous,1.25,16,18,
+PanTS_00007588,185,214,77,62711,12633,False,venous,0.9764,venous,1.415,False,Venous,2.5,40,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007594,227,253,146,32600,13708,False,venous,0.9767,venous,1.73,False,Venous,2.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007602,35,30,-9,98711,46782,False,non-contrast,0.9966,non-contrast,-0.07405,False,Non-contrast,0.8,82,84,
+PanTS_00007608,94,110,24,16145,2381,False,venous,0.9728,venous,0.5733,False,Venous,5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007615,318,136,129,292765,49146,False,arterial,1,arterial,0.7837,False,Arterial,1,47,64,
+PanTS_00007617,45,35,41,172663,16561,False,non-contrast,0.9949,non-contrast,-0.03359,False,Non-contrast,0.8,97,89,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007622,108,117,33,63658,11284,False,venous,0.9775,venous,0.6299,False,Venous,2.5,52,34,
+PanTS_00007627,35,26,25,77532,12165,False,non-contrast,0.9937,non-contrast,-0.1064,False,Non-contrast,0.8,56,54,
+PanTS_00007630,161,175,105,41400,16248,False,venous,0.9782,venous,1.099,False,Arterial,2.5,81,42,
+PanTS_00007636,167,153,20,78309,10856,False,uncertain,0.7129,venous,0.9212,False,Arterial,2.5,30,26,
+PanTS_00007641,138,155,94,54152,27676,False,venous,0.9788,venous,0.9374,False,Venous,2.5,33,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007643,177,207,129,17821,10136,False,venous,0.9743,venous,1.358,False,Venous,2.5,25,21,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007651,390,271,129,16179,2146,False,arterial,1,arterial,1.876,False,Venous,5,43,60.75,
+PanTS_00007660,229,55,55,60949,26809,False,arterial,1,arterial,0.1282,True,Arterial,1.25,59,49,
+PanTS_00007661,146,149,55,64983,5448,False,venous,0.9673,venous,0.8889,False,Arterial,2.5,26,24,
+PanTS_00007666,335,86,73,608,2281,False,arterial,1,arterial,0.3791,True,Arterial,1.5,74.5,79,
+PanTS_00007668,26,27,4,74767,18635,False,non-contrast,0.9849,non-contrast,-0.09832,False,Non-contrast,1.25,36,36,
+PanTS_00007679,34,37,39,33581,5824,False,non-contrast,0.9962,non-contrast,-0.0174,False,Non-contrast,1.25,24,25,
+PanTS_00007690,194,209,110,35427,10622,False,venous,0.9745,venous,1.374,False,Arterial,2.5,32,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007691,126,163,39,22309,1951,False,venous,0.9115,venous,1.002,False,Venous,3.75,23,27,
+PanTS_00007702,104,114,43,18581,2042,False,venous,0.9773,venous,0.6057,False,Non-contrast,5,23,19,
+PanTS_00007713,168,183,81,87717,13903,False,venous,0.9782,venous,1.164,False,Venous,2.5,27,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007716,414,107,101,207159,32324,False,arterial,1,arterial,0.5491,False,Arterial,1,61.98,52,
+PanTS_00007724,124,134,78,110201,7938,False,venous,0.978,venous,0.7675,False,Venous,3,19,27,
+PanTS_00007728,61,67,46,82143,19314,False,venous,0.9527,venous,0.2253,False,Arterial,2,41,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007735,352,114,107,20019,2490,False,arterial,1,arterial,0.6057,False,Arterial,1.5,161,82,
+PanTS_00007742,327,58,85,23432,11039,False,arterial,1,arterial,0.1525,True,Arterial,1.25,57,38,
+PanTS_00007757,249,179,76,11873,4131,False,arterial,1,arterial,1.132,False,Venous,1.5,35,31,
+PanTS_00007760,120,,,7879,0,True,unmeasurable,,unmeasurable,,False,Venous,1.5,96,,aorta or PV mask empty after erosion
+PanTS_00007765,146,176,67,56586,16835,False,venous,0.9662,venous,1.107,False,Venous,2.5,46,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007768,118,98,45,72014,14633,False,uncertain,0.7485,venous,0.4762,False,Venous,2.5,29,25,
+PanTS_00007779,216,120,97,196815,42359,False,arterial,1,arterial,0.6543,False,Venous,1,25.97,62.99,
+PanTS_00007786,166,193,68,47680,5321,False,venous,0.9759,venous,1.245,False,Venous,2.5,33,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007792,124,142,78,19118,1494,False,venous,0.977,venous,0.8322,False,Venous,1.5,21,21,
+PanTS_00007802,164,179,98,28630,12002,False,venous,0.9785,venous,1.132,False,Venous,2.5,22,22,
+PanTS_00007831,38,37,38,29136,5947,False,non-contrast,0.9975,non-contrast,-0.0174,False,Non-contrast,0.8,34,31,
+PanTS_00007846,232,259,133,28094,13408,False,venous,0.9764,venous,1.779,False,Venous,2.5,39,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007851,143,159,95,41756,19966,False,venous,0.9791,venous,0.9698,False,Venous,2.5,35,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007858,140,159,72,51264,16051,False,venous,0.9783,venous,0.9698,False,Venous,2.5,33,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007862,46,38,30,100140,45915,False,non-contrast,0.9952,non-contrast,-0.009312,False,Non-contrast,0.8,93,77,
+PanTS_00007863,0,21,21,151205,10864,False,uncertain,0.7792,venous,-0.1469,False,Non-contrast,0.8,68,77,
+PanTS_00007868,39,38,30,77653,13753,False,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,0.8,44,43,
+PanTS_00007869,117,133,57,35359,7786,False,venous,0.9772,venous,0.7594,False,Venous,3,33,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007890,172,179,82,43122,13848,False,venous,0.9677,venous,1.132,False,Venous,2.5,39,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007904,124,156,80,43071,13817,False,venous,0.9458,venous,0.9455,False,Venous,1,32,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007905,124,133,81,18148,4099,False,venous,0.9776,venous,0.7594,False,Venous,5,33,27,
+PanTS_00007921,37,38,43,20783,428,False,non-contrast,0.9972,non-contrast,-0.009312,False,Non-contrast,5,14,10,
+PanTS_00007931,133,149,94,72374,29739,False,venous,0.9787,venous,0.8889,False,Arterial,1,29,29,
+PanTS_00007938,215,224,133,21323,7401,False,venous,0.9511,venous,1.496,False,Venous,2.5,24,20,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007946,208,183,33,211010,17433,False,arterial,0.9503,arterial,1.164,False,Venous,0.7,38,62,
+PanTS_00007960,352,53,88,57697,17760,False,arterial,1,arterial,0.1121,True,Arterial,1.25,56,33,
+PanTS_00007974,920,104,116,49245,323,False,arterial,1,arterial,0.5247,False,Arterial,1.5,138,154,
+PanTS_00007981,112,107,9,15434,1431,False,venous,0.9569,venous,0.549,False,Venous,5,32,37,
+PanTS_00007989,160,177,83,41714,6521,False,venous,0.9792,venous,1.115,False,Venous,2.5,26,20,
+PanTS_00007995,107,141,51,102461,37046,False,venous,0.909,venous,0.8241,False,Venous,1,39,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00007997,140,144,60,17152,2115,False,venous,0.9708,venous,0.8484,False,Venous,5,28,32,
+PanTS_00008001,153,159,64,26792,2526,False,venous,0.9712,venous,0.9698,False,Venous,5,43,56,
+PanTS_00008010,254,270,125,18016,1934,False,venous,0.949,venous,1.868,False,Venous,5,32,39,
+PanTS_00008020,151,188,81,170737,12084,False,venous,0.9427,venous,1.204,False,Venous,1,28,28,
+PanTS_00008024,121,133,73,44337,3047,False,venous,0.9783,venous,0.7594,False,Venous,5,30,34,
+PanTS_00008045,49,42,34,82105,33823,False,non-contrast,0.992,non-contrast,0.02305,False,Non-contrast,1,69,70,
+PanTS_00008048,41,34,39,165264,765,False,non-contrast,0.997,non-contrast,-0.04168,False,Arterial,0.8,48,47,
+PanTS_00008055,111,124,52,520245,63324,False,venous,0.9776,venous,0.6866,False,Venous,0.8,42,46,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008059,268,54,32,53276,37621,False,arterial,1,arterial,0.1202,True,Arterial,0.7,48,41,
+PanTS_00008060,196,196,51,6698,901,False,venous,0.912,venous,1.269,False,Venous,7.5,23,30,
+PanTS_00008063,148,162,101,56979,6144,False,venous,0.9789,venous,0.9941,False,Venous,2.5,21,21,
+PanTS_00008072,95,94,55,26208,5623,False,venous,0.9704,venous,0.4438,False,Venous,1.5,27,29,
+PanTS_00008073,159,176,108,29174,11531,False,venous,0.9793,venous,1.107,False,Venous,2.5,30,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008086,218,231,124,30098,6426,False,venous,0.9629,venous,1.552,False,Venous,2.5,45,40,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008090,230,178,113,42538,38232,False,arterial,1,arterial,1.124,False,Venous,1,23.75,28,
+PanTS_00008091,444,60.99,60.99,127203,21796,False,arterial,1,arterial,0.1767,True,Arterial,1,398,30,
+PanTS_00008101,103,149,75,56956,21248,False,uncertain,0.574,venous,0.8889,False,Venous,1.25,37,46,
+PanTS_00008123,85,103,52,53333,13208,False,venous,0.967,venous,0.5167,False,Venous,2.5,31,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008131,132,180,76,21364,3099,False,uncertain,0.6914,venous,1.14,False,Venous,5,22,30,
+PanTS_00008132,134,147,46,18133,3524,False,venous,0.9787,venous,0.8727,False,Venous,5,24,26,
+PanTS_00008162,202,129,76,33263,16749,False,arterial,1,arterial,0.727,False,Arterial,2.5,50,44,
+PanTS_00008180,145,145,52,26200,4621,False,venous,0.9595,venous,0.8565,False,Venous,3,71,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008184,44,34,31,115535,1602,False,non-contrast,0.9953,non-contrast,-0.04168,False,Arterial,0.625,98,94,
+PanTS_00008188,283,76,84,9709,3547,False,arterial,1,arterial,0.2982,True,Arterial,5,27,28,
+PanTS_00008205,154,176,69,280423,50570,False,venous,0.9782,venous,1.107,False,Venous,0.7,39,40,
+PanTS_00008217,248,211,121,19378,968,False,arterial,0.9998,arterial,1.391,False,Venous,5,73,27,
+PanTS_00008231,177,166,100,46465,2062,False,uncertain,0.7619,venous,1.026,False,Venous,5,31,22,
+PanTS_00008234,38,42,34,72706,23481,False,non-contrast,0.9958,non-contrast,0.02305,False,Non-contrast,0.8,56,64,
+PanTS_00008238,315,53,94,76896,34299,False,arterial,1,arterial,0.1121,True,Arterial,1.25,66,41,
+PanTS_00008239,137,137,90,74787,33873,False,venous,0.9628,venous,0.7918,False,Venous,1,28,32,
+PanTS_00008242,42,44,40,120324,7310,False,non-contrast,0.9955,non-contrast,0.03924,False,Non-contrast,0.8,40,43.75,aorta mask overlaps postcava >1000 vox
+PanTS_00008252,180,138,57,15224,1955,False,arterial,0.9988,arterial,0.7999,False,Venous,5,23,25,
+PanTS_00008266,173,133,73,16859,2836,False,arterial,0.9968,arterial,0.7594,False,Venous,5,35,26,
+PanTS_00008273,206,227,134,6779,1880,False,venous,0.9773,venous,1.52,False,Venous,5,21,29,
+PanTS_00008292,284,39,26,78893,15336,False,arterial,1,arterial,-0.001221,True,Arterial,1.25,63,40,
+PanTS_00008298,150,170,81,37870,15093,False,venous,0.9787,venous,1.059,False,Venous,2.5,38,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008301,270,89,93,61431,30106,False,arterial,1,arterial,0.4034,True,Arterial,1.25,64,54,
+PanTS_00008302,138,141,79,55522,32145,False,venous,0.9695,venous,0.8241,False,Venous,1.25,16,17,
+PanTS_00008303,146,176,103,19469,5712,False,venous,0.9662,venous,1.107,False,Non-contrast,2.5,34,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008314,38,38,28,102206,23838,False,non-contrast,0.9974,non-contrast,-0.009312,False,Non-contrast,1,63,64,
+PanTS_00008317,41,47,48,117493,11713,False,non-contrast,0.991,non-contrast,0.06351,False,Non-contrast,0.8,41,43,
+PanTS_00008326,30,,,24347,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,52,,aorta or PV mask empty after erosion
+PanTS_00008330,163,184,94,37215,10860,False,venous,0.9791,venous,1.172,False,Venous,2.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008339,47,54,30,85345,16104,False,non-contrast,0.9492,non-contrast,0.1202,False,Non-contrast,0.8,94,116,
+PanTS_00008354,248,62,64,94515,41997,False,arterial,1,arterial,0.1849,True,Arterial,1.25,60,52,
+PanTS_00008356,129,130,71,12877,1272,False,venous,0.9677,venous,0.7351,False,Venous,5,32,36,
+PanTS_00008366,71,81,46,38742,16552,False,venous,0.9724,venous,0.3386,False,Venous,3,25,22,
+PanTS_00008384,30,24,37,9348,739,False,non-contrast,0.9896,non-contrast,-0.1226,False,Arterial,1.5,64,58,aorta mask overlaps postcava >1000 vox
+PanTS_00008385,87,94,68,28857,7137,False,venous,0.9759,venous,0.4438,False,Venous,5,19,19,
+PanTS_00008392,141,134,76,22635,5676,False,venous,0.9247,venous,0.7675,False,Venous,1.5,32,25,
+PanTS_00008407,52,47,33,84033,46082,False,non-contrast,0.9798,non-contrast,0.06351,False,Non-contrast,0.8,91,82,
+PanTS_00008408,159,176,87,16195,1774,False,venous,0.9793,venous,1.107,False,Venous,5,24,24,
+PanTS_00008428,153,176,84,36059,16265,False,venous,0.9775,venous,1.107,False,Venous,2.5,40,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008434,42,38,20,33223,2667,False,non-contrast,0.9973,non-contrast,-0.009312,False,Arterial,5,17,12,
+PanTS_00008445,144,143,75,110260,8222,False,venous,0.9564,venous,0.8403,False,Venous,2.5,23,20,
+PanTS_00008451,43,44,43,152520,11789,False,non-contrast,0.9956,non-contrast,0.03924,False,Non-contrast,0.8,56,47,
+PanTS_00008472,219,159,92,18998,2613,False,arterial,1,arterial,0.9698,False,Venous,3,20,32,
+PanTS_00008473,240,274,111,27438,11472,False,venous,0.9752,venous,1.9,False,Venous,2.5,43,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008475,163,146,80,15924,2355,False,uncertain,0.6157,venous,0.8646,False,Venous,5,30,28,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008476,158,185,107,39293,22865,False,venous,0.9746,venous,1.18,False,Arterial,2.5,42,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008480,239,47,30,22153,5346,False,arterial,1,arterial,0.06351,True,Venous,5,31,22,
+PanTS_00008512,40,39,14,29095,2597,False,non-contrast,0.9974,non-contrast,-0.001221,False,Non-contrast,5,20,17,
+PanTS_00008522,93,111,68,56654,4855,False,venous,0.97,venous,0.5814,False,Arterial,0.9,47,48,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008538,123,137,55,22439,1928,False,venous,0.9784,venous,0.7918,False,Venous,5,22,19,
+PanTS_00008540,223,226,115,60294,9361,False,venous,0.8944,venous,1.512,False,Venous,2.5,47,29,
+PanTS_00008546,159,163,67,51287,12331,False,venous,0.9653,venous,1.002,False,Venous,2.5,38,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008569,166,194,87,37481,7540,False,venous,0.9749,venous,1.253,False,Venous,2.5,29,22,
+PanTS_00008574,44,43,34,149892,5544,False,non-contrast,0.996,non-contrast,0.03115,False,Non-contrast,0.8,39,42,
+PanTS_00008577,47,42,29,128513,33855,False,non-contrast,0.9947,non-contrast,0.02305,False,Non-contrast,1,70,70,
+PanTS_00008581,124,124,60,141790,30042,False,venous,0.9669,venous,0.6866,False,Venous,0.7,70,71,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008601,173,177,98,7808,1616,False,venous,0.959,venous,1.115,False,Venous,5,21,16,
+PanTS_00008606,43,39,33,25659,2928,False,non-contrast,0.997,non-contrast,-0.001221,False,Venous,3,16,15,
+PanTS_00008619,44,,,693,0,True,unmeasurable,,unmeasurable,,False,Non-contrast,1.5,49,,aorta or PV mask empty after erosion
+PanTS_00008628,47,39,24,176250,51525,False,non-contrast,0.9945,non-contrast,-0.001221,False,Non-contrast,0.8,76,72,
+PanTS_00008633,128,153,83,55049,22559,False,venous,0.9701,venous,0.9212,False,Venous,1.25,41,47,
+PanTS_00008636,169,161,79,81350,7567,False,venous,0.8617,venous,0.986,False,Venous,2.5,27,24,
+PanTS_00008640,261,299,201,7740,3804,False,venous,0.9722,venous,2.103,False,Venous,1.5,28,60,
+PanTS_00008646,138,150,86,16071,4019,False,venous,0.9785,venous,0.897,False,Delay,1.5,101,94,
+PanTS_00008647,232,145,110,107655,28993,False,arterial,1,arterial,0.8565,False,Arterial,1,37,65,
+PanTS_00008650,218,249,99,65642,17847,False,venous,0.9768,venous,1.698,False,Venous,2.5,25,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008653,39,38,30,77638,13775,False,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,0.8,44,43,
+PanTS_00008658,21,44,26,115726,6084,False,uncertain,0.7596,venous,0.03924,False,Non-contrast,0.8,47,41,
+PanTS_00008662,111,130,73,56757,26523,False,venous,0.9738,venous,0.7351,False,Venous,2.5,42,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008673,103,111,64,20723,3704,False,venous,0.9771,venous,0.5814,False,Venous,4,21,21,
+PanTS_00008691,129,137,99,31437,4690,False,venous,0.9768,venous,0.7918,False,Venous,5,31,26,
+PanTS_00008699,384,54,77.99,132132,18367,False,arterial,1,arterial,0.1202,True,Arterial,1,45.01,21,
+PanTS_00008701,141,146,78,35060,5302,False,venous,0.9722,venous,0.8646,False,Venous,3.5,29,28,
+PanTS_00008711,137,159,31,33283,15385,False,venous,0.976,venous,0.9698,False,Venous,2.5,44,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008721,193,223,111,29028,8634,False,venous,0.9763,venous,1.488,False,Venous,2.5,38,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008722,106,107,68,23809,4810,False,venous,0.9719,venous,0.549,False,Venous,5,22,23,
+PanTS_00008724,133,138,89,27895,4994,False,venous,0.9735,venous,0.7999,False,Venous,5,23,16,
+PanTS_00008726,43,39.5,17,18534,7056,False,non-contrast,0.997,non-contrast,0.002825,False,Venous,2.5,41,34,
+PanTS_00008727,181,197,56,44221,11799,False,venous,0.9775,venous,1.277,False,Venous,2.5,36,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008737,151,151,98,35499,14894,False,venous,0.9565,venous,0.9051,False,Venous,2.5,16,21,
+PanTS_00008743,237,262,141,25246,6182,False,venous,0.9747,venous,1.803,False,Venous,2.5,27,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008763,179,216,98,30624,9095,False,venous,0.9607,venous,1.431,False,Venous,2.5,36,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008769,48,41,22,125744,31083,False,non-contrast,0.9935,non-contrast,0.01496,False,Arterial,0.8,104,91,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008773,177,188,95,47125,12231,False,venous,0.9733,venous,1.204,False,Venous,1.25,22,24,
+PanTS_00008778,143,150,72,16772,3036,False,venous,0.9745,venous,0.897,False,Venous,5,20,19,
+PanTS_00008785,131,137,83,79285,3475,False,venous,0.9749,venous,0.7918,False,Venous,2.5,22,38,
+PanTS_00008789,143,160,69,32923,8472,False,venous,0.979,venous,0.9779,False,Venous,2.5,31,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008802,42,37,4,124635,36973,False,non-contrast,0.9973,non-contrast,-0.0174,False,Venous,0.8,69,75,
+PanTS_00008811,146,158,91,22844,6834,False,venous,0.9782,venous,0.9617,False,Venous,2.5,29,24,
+PanTS_00008812,330,205,117,18833,3510,False,arterial,1,arterial,1.342,False,Arterial,1.5,30,52,
+PanTS_00008818,143,160,93,18996,2900,False,venous,0.979,venous,0.9779,False,Venous,5,22,17,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008837,35,23,31,70398,5523,False,non-contrast,0.9867,non-contrast,-0.1307,False,Non-contrast,0.8,55,50,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008838,124,129,54,25470,4837,False,venous,0.9747,venous,0.727,False,Non-contrast,1.5,32,28,
+PanTS_00008839,47,46,43,71939,10043,False,non-contrast,0.9926,non-contrast,0.05542,False,Non-contrast,0.8,69,62,
+PanTS_00008854,133,152,85,179494,49574,False,venous,0.9776,venous,0.9131,False,Venous,0.7,37,36,
+PanTS_00008859,55,57,57,90577,20031,False,uncertain,0.7814,non-contrast,0.1444,False,Arterial,0.8,56,44,
+PanTS_00008860,151,171,86,71047,37562,False,venous,0.9788,venous,1.067,False,Venous,1.25,35,40,
+PanTS_00008861,313,82.99,62,51501,25462,False,arterial,1,arterial,0.3548,True,Arterial,1.25,38.03,40.01,
+PanTS_00008868,44,38,44,99769,17689,False,non-contrast,0.9966,non-contrast,-0.009312,False,Venous,0.8,67,84,
+PanTS_00008885,139,150,76,81694,19228,False,venous,0.978,venous,0.897,False,Venous,2.5,27,23,
+PanTS_00008892,305,55,54,69942,11482,False,arterial,1,arterial,0.1282,True,Arterial,1.25,74,53,
+PanTS_00008913,181,184,103,55094,9528,False,venous,0.95,venous,1.172,False,Venous,2.5,37,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008922,165,203,116,62679,37373,False,venous,0.9487,venous,1.326,False,Venous,1,29,50,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008926,594,,,64905,0,True,unmeasurable,,unmeasurable,,False,Arterial,1.5,185,,aorta or PV mask empty after erosion
+PanTS_00008931,146,167,116,25124,5994,False,venous,0.9779,venous,1.035,False,Venous,2.5,32,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008942,133,146,51,28694,9108,False,venous,0.9787,venous,0.8646,False,Arterial,2.5,39,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008954,26,32,18,42753,12702,False,non-contrast,0.9823,non-contrast,-0.05786,False,Venous,2.5,33,25,
+PanTS_00008973,134,137,77,17288,4805,False,venous,0.9704,venous,0.7918,False,Venous,1.5,30,27,
+PanTS_00008974,133,137,16,39221,12529,False,venous,0.9722,venous,0.7918,False,Venous,2.5,49,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00008989,262,59,36,82484,24090,False,arterial,1,arterial,0.1606,True,Arterial,1,34,35,
+PanTS_00008994,176,180,107,41330,7313,False,venous,0.9574,venous,1.14,False,Venous,2.5,33,27,
+PanTS_00008995,201,203,127,27379,7610,False,venous,0.9228,venous,1.326,False,Venous,3.595,21,17,
+PanTS_00008999,35,38,23,36927,5080,False,non-contrast,0.9964,non-contrast,-0.009312,False,Non-contrast,2.5,30,29,
+PanTS_00009001,199,207,108,29656,6999,False,venous,0.9581,venous,1.358,False,Venous,2.5,24,23,
+PanTS_00009002,168,167,63,39798,8294,False,venous,0.9394,venous,1.035,False,Venous,2.5,33,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009005,181,207,95,30848,7118,False,venous,0.9781,venous,1.358,False,Arterial,2.5,32,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009008,162,112,51,18571,6402,False,arterial,0.9998,arterial,0.5895,False,Venous,1.5,21,18,
+PanTS_00009009,240,290,137,123641,5756,False,venous,0.9364,venous,2.03,False,Venous,1.5,47,39,
+PanTS_00009020,106,107,78,48579,17421,False,venous,0.9719,venous,0.549,False,Arterial,1.5,22,21,
+PanTS_00009023,169,166,100,33108,20078,False,venous,0.9238,venous,1.026,False,Venous,1,26,20,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009025,23,36,25,61145,2983,False,non-contrast,0.8809,non-contrast,-0.0255,False,Non-contrast,0.8,53,60,
+PanTS_00009037,179,184,95,49578,8368,False,venous,0.9592,venous,1.172,False,Non-contrast,2.5,25,18,
+PanTS_00009041,203,233,111,43000,7415,False,venous,0.977,venous,1.569,False,Venous,2.5,29,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009056,142,141,60,38628,13822,False,venous,0.9575,venous,0.8241,False,Venous,2.5,34,30,
+PanTS_00009059,44,30,26,56366,5266,False,non-contrast,0.9897,non-contrast,-0.07405,False,Venous,2.5,29,22,
+PanTS_00009061,176,189,69,55252,12236,False,venous,0.9758,venous,1.213,False,Venous,2.5,33,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009065,176,229,77,25361,4167,False,uncertain,0.7526,venous,1.536,False,Venous,3,25,21,
+PanTS_00009067,172,202,112,14822,6681,False,venous,0.9735,venous,1.318,False,Arterial,2.5,31,25,
+PanTS_00009075,167,120,46,120006,5414,False,arterial,0.9996,arterial,0.6542,False,Venous,2.5,27,28,
+PanTS_00009079,147,170,95,37102,15488,False,venous,0.9767,venous,1.059,False,Venous,1.5,34,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009084,162,78,77,95779,18353,False,arterial,1,arterial,0.3144,True,Venous,1,27,21,
+PanTS_00009087,188,199,81,31950,7593,False,venous,0.9704,venous,1.293,False,Arterial,3,32,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009095,243,183,111,56939,6905,False,arterial,1,arterial,1.164,False,Arterial,2.5,26,26,
+PanTS_00009097,105,114,67,40230,18056,False,venous,0.9773,venous,0.6057,False,Non-contrast,2.5,26,22,
+PanTS_00009121,193,202,102,19748,1841,False,venous,0.9642,venous,1.318,False,Venous,5,26.25,47,
+PanTS_00009127,204,212,121,25787,7888,False,venous,0.955,venous,1.399,False,Venous,2.5,32.5,29,
+PanTS_00009130,138,163,90,68970,10556,False,venous,0.9729,venous,1.002,False,Venous,2.5,26,26,
+PanTS_00009135,180,214,107,34308,4550,False,venous,0.9687,venous,1.415,False,Venous,2.5,35,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009138,150,151,68,109394,6020,False,venous,0.9604,venous,0.9051,False,Venous,2.5,25,23,
+PanTS_00009139,125,138,87,12833,3806,False,venous,0.9785,venous,0.7999,False,Venous,5,33,29,
+PanTS_00009143,56,64,39,18674,1559,False,venous,0.8098,venous,0.2011,False,Arterial,5,24,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009147,138,173,80,110925,10837,False,venous,0.9422,venous,1.083,False,Venous,2.5,30,32,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009151,138,147,81,34524,8947,False,venous,0.9769,venous,0.8727,False,Venous,2.5,38,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009152,175,197,104,18077,10795,False,venous,0.9792,venous,1.277,False,Venous,2.5,30,26,
+PanTS_00009157,215,227,81,19742,11560,False,venous,0.9617,venous,1.52,False,Venous,2.5,23,26,
+PanTS_00009158,186,233,127,239445,15610,False,venous,0.9031,venous,1.569,False,Venous,1.5,44,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009159,166,118,58,118754,14003,False,arterial,0.9997,arterial,0.638,False,Venous,2.5,26,25,
+PanTS_00009161,283,73,68,20539,3028,False,arterial,1,arterial,0.2739,True,Arterial,1.5,48,47,
+PanTS_00009163,241,91,55,46478,5146,False,arterial,1,arterial,0.4196,True,Arterial,1.5,41,42,
+PanTS_00009168,148,165,99,53288,8392,False,venous,0.9792,venous,1.018,False,Venous,2.5,23,22,
+PanTS_00009174,219,252,106,11200,6945,False,venous,0.9757,venous,1.722,False,Venous,2.5,19,21,
+PanTS_00009180,136,166,92,25502,30707,False,venous,0.9618,venous,1.026,False,Venous,2,27,27,
+PanTS_00009181,143,153,102,46197,11935,False,venous,0.9772,venous,0.9212,False,Venous,2.5,21,16,
+PanTS_00009182,201,202,119,33714,4562,False,venous,0.9137,venous,1.318,False,Arterial,2.5,36,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009188,172,180,112,38781,9548,False,venous,0.9697,venous,1.14,False,Venous,2.5,27,27,
+PanTS_00009191,124,153,64,12478,1657,False,venous,0.9584,venous,0.9212,False,Venous,5,26,20,
+PanTS_00009199,245,240,98,11117,2126,False,uncertain,0.5578,venous,1.625,False,Venous,5,24,34,
+PanTS_00009222,117,163,73,19987,3222,False,uncertain,0.6747,venous,1.002,False,Venous,5,35,21.75,
+PanTS_00009227,196,233,110,59710,13317,False,venous,0.9668,venous,1.569,False,Arterial,2.5,35,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009237,181,194,123,25514,10478,False,venous,0.9749,venous,1.253,False,Venous,2.5,19,16,
+PanTS_00009254,77,82,54,31944,4495,False,venous,0.9748,venous,0.3467,False,Venous,3,19,18,
+PanTS_00009258,163,185,106,33083,11076,False,venous,0.9788,venous,1.18,False,Non-contrast,2.5,64,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009259,168,167,94,83885,5874,False,venous,0.9394,venous,1.035,False,Arterial,2.5,23,19,
+PanTS_00009262,124,157,12,76394,23817,False,venous,0.9402,venous,0.9536,False,Venous,1.5,33,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009265,157,172,81,31049,5582,False,venous,0.9789,venous,1.075,False,Venous,2.5,36,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009281,100,105,80,63011,24499,False,venous,0.9759,venous,0.5328,False,Venous,1,25,23,
+PanTS_00009286,167,219,93,34120,7482,False,uncertain,0.7418,venous,1.455,False,Venous,2.5,37,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009287,136,138,78,46215,6255,False,venous,0.968,venous,0.7999,False,Venous,2.5,18,15,
+PanTS_00009290,167,194,71,94697,6676,False,venous,0.976,venous,1.253,False,Venous,2.5,23,25,
+PanTS_00009292,277,170,114,96070,24138,False,arterial,1,arterial,1.059,False,Non-contrast,1,28,40,
+PanTS_00009301,210,219,127,21118,6013,False,venous,0.9548,venous,1.455,False,Venous,2.5,26,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009304,163,184,90,36487,6362,False,venous,0.9791,venous,1.172,False,Venous,2.5,34,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009306,153,160,77,14499,3199,False,venous,0.9728,venous,0.9779,False,Venous,5,29,38,
+PanTS_00009308,117,143,81,12234,1536,False,venous,0.9636,venous,0.8403,False,Venous,5,29,29.25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009313,140,158,64,44039,10802,False,venous,0.9787,venous,0.9617,False,Venous,2.5,38,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009317,174,194,113,64312,20160,False,venous,0.9793,venous,1.253,False,Venous,1,28,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009319,188,201,104,26640,11774,False,venous,0.9734,venous,1.31,False,Venous,2.5,33,27.75,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009321,149,175,111,122593,31759,False,venous,0.9741,venous,1.099,False,Venous,1,29,28,
+PanTS_00009322,249,85,61,112848,71600,False,arterial,1,arterial,0.371,True,Venous,0.5,59,65,
+PanTS_00009325,142,168,94,35922,10564,False,venous,0.9725,venous,1.043,False,Venous,2.5,30,33,
+PanTS_00009329,146,185,91,63664,10574,False,venous,0.9231,venous,1.18,False,Delay,2.5,65,40,
+PanTS_00009331,120,68,65,12298,2747,False,arterial,0.9992,arterial,0.2334,True,Arterial,5,47,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009338,221,172,76,52713,5462,False,arterial,1,arterial,1.075,False,Venous,2.5,28,28,
+PanTS_00009341,248,263,154,13768,4314,False,venous,0.9499,venous,1.811,False,Venous,2.5,30,22,
+PanTS_00009342,244,259,141,20550,4993,False,venous,0.9531,venous,1.779,False,Arterial,2.5,32,30,
+PanTS_00009347,212,115,94,33704,13416,False,arterial,1,arterial,0.6138,False,Arterial,2.5,34.25,39,
+PanTS_00009366,130,147,78,62373,17494,False,venous,0.9782,venous,0.8727,False,Venous,2,34,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009367,107,116,71,13821,7195,False,venous,0.9774,venous,0.6218,False,Venous,1.5,33,31,
+PanTS_00009371,117,120,77,18338,2263,False,venous,0.9732,venous,0.6542,False,Venous,5,26,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009373,137,100,85,28961,218,False,arterial,0.9636,arterial,0.4924,True,Venous,5,17,28,
+PanTS_00009375,149,157,78,28699,15193,False,venous,0.9747,venous,0.9536,False,Venous,2.5,43,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009378,38,41,38,115177,8662,False,non-contrast,0.9964,non-contrast,0.01496,False,Non-contrast,0.8,61,64,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009380,130,154,77,29395,12271,False,venous,0.9723,venous,0.9293,False,Venous,2.5,33,34.5,
+PanTS_00009382,33,38,33,63839,11891,False,non-contrast,0.9948,non-contrast,-0.009312,False,Non-contrast,1,24,19,
+PanTS_00009383,255,62,62,48003,15798,False,arterial,1,arterial,0.1849,True,Arterial,1.5,28,24,
+PanTS_00009385,95,130,60,20518,3620,False,venous,0.8688,venous,0.7351,False,Delay,5,23,24,
+PanTS_00009386,119,116,51,108256,8957,False,venous,0.9607,venous,0.6218,False,Venous,3,29,39,
+PanTS_00009403,41,47,28,157280,26947,False,non-contrast,0.991,non-contrast,0.06351,False,Non-contrast,0.8,61,75,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009407,314,177,51,15147,9062,False,arterial,1,arterial,1.115,False,Arterial,2.5,36,47,
+PanTS_00009408,42,42,37,33132,3544,False,non-contrast,0.9966,non-contrast,0.02305,False,Venous,5,16,17,
+PanTS_00009410,159,147,72,170628,23107,False,venous,0.8096,venous,0.8727,False,Venous,1,28,27,
+PanTS_00009421,198,227,133,34843,12755,False,venous,0.9773,venous,1.52,False,Venous,2.5,33,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009423,149,185,86,40017,9786,False,venous,0.9464,venous,1.18,False,Venous,2.5,46,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009435,163,180,94,29537,6130,False,venous,0.9792,venous,1.14,False,Arterial,2.5,39,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009442,198,168,96,68600,14574,False,arterial,0.9801,arterial,1.043,False,Venous,2.5,30,31,
+PanTS_00009445,143,150,100,53143,12529,False,venous,0.9745,venous,0.897,False,Venous,2.5,26,25,
+PanTS_00009448,133,145,80,19124,7759,False,venous,0.9785,venous,0.8565,False,Arterial,1.5,36,31,
+PanTS_00009449,115,125,73,35383,11267,False,venous,0.9779,venous,0.6947,False,Venous,2.5,31,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009457,184,209,121,20703,14468,False,venous,0.9786,venous,1.374,False,Non-contrast,2.5,38,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009459,173,196,98,22129,7434,False,venous,0.9789,venous,1.269,False,Venous,2.5,27,30,
+PanTS_00009460,117,114,55,13015,5575,False,venous,0.9614,venous,0.6057,False,Venous,2.5,53,46,
+PanTS_00009464,40,38,34,51469,11992,False,non-contrast,0.9975,non-contrast,-0.009312,False,Non-contrast,1.5,20,18,
+PanTS_00009470,134,156,81,45257,15756,False,venous,0.9755,venous,0.9455,False,Venous,1.5,23,23,
+PanTS_00009472,48,48,44,74338,3421,False,non-contrast,0.9887,non-contrast,0.07161,False,Non-contrast,0.8,55,47,
+PanTS_00009473,147,163,80,54201,14928,False,venous,0.9792,venous,1.002,False,Venous,2.5,39,33,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009478,106,111,84,23054,5510,False,venous,0.9758,venous,0.5814,False,Non-contrast,2.5,21,19,
+PanTS_00009483,153,202,103,23718,12608,False,uncertain,0.7693,venous,1.318,False,Venous,2.5,29,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009495,186,197,120,42909,14996,False,venous,0.971,venous,1.277,False,Arterial,2.5,22,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009496,242,120,115,10294,6841,False,arterial,1,arterial,0.6542,False,Arterial,1.5,46,41,
+PanTS_00009504,159,167,81,31442,18252,False,venous,0.973,venous,1.035,False,Arterial,2.5,40,37,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009506,168,114,94,19180,15768,False,arterial,1,arterial,0.6057,False,Venous,2.5,43,51,
+PanTS_00009510,60,53,27,82388,21769,False,uncertain,0.6452,non-contrast,0.1121,False,Non-contrast,2,29,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009517,184,189,117,37129,13350,False,venous,0.9564,venous,1.213,False,Arterial,2.5,35,33,aorta mask overlaps postcava >1000 vox; mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009518,223,236,129,21877,4334,False,venous,0.9602,venous,1.593,False,Venous,2.5,33,18,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009520,44,31,30,141441,1502,False,non-contrast,0.9919,non-contrast,-0.06595,False,Venous,0.625,141,103.8,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009523,201,154,37,20260,3385,False,arterial,0.9999,arterial,0.9293,False,Venous,1.5,34,25,
+PanTS_00009528,173,197,71,494016,54215,False,venous,0.9786,venous,1.277,False,Venous,0.8,35,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009534,170,184,67,31626,13911,False,venous,0.9774,venous,1.172,False,Venous,2.5,46,42,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009544,162,164,92,65136,8428,False,venous,0.9579,venous,1.01,False,Venous,3,36,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009545,103,149,59,39831,20121,False,uncertain,0.574,venous,0.8889,False,Non-contrast,2.5,35,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009551,189,202,102,31575,10590,False,venous,0.9732,venous,1.318,False,Venous,2.5,30,25,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009562,140,152,100,26293,6645,False,venous,0.9784,venous,0.9131,False,Venous,2.5,23,17,
+PanTS_00009563,51,,50,16185,0,True,unmeasurable,,unmeasurable,,False,Venous,5,9,,aorta or PV mask empty after erosion
+PanTS_00009567,136,159,72,17088,6015,False,venous,0.9749,venous,0.9698,False,Venous,1.5,52,50,
+PanTS_00009569,172,190,90,37646,8371,False,venous,0.9791,venous,1.221,False,Venous,2.5,32,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009578,172,128,82,9773,2545,False,arterial,0.9991,arterial,0.7189,False,Venous,5,21,21,
+PanTS_00009584,125,127,55,36831,5853,False,venous,0.9705,venous,0.7109,False,Venous,2.5,28,24,
+PanTS_00009604,138,157,94,187464,5810,False,venous,0.9781,venous,0.9536,False,Venous,2,13,31,
+PanTS_00009608,215,235,137,27601,9869,False,venous,0.9752,venous,1.585,False,Venous,2.5,25,22,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009612,136,185,35,41826,8569,False,uncertain,0.6773,venous,1.18,False,Arterial,2.5,33,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009613,115,138,72,22296,10745,False,venous,0.9693,venous,0.7999,False,Venous,2.5,30,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009620,38,,42,11473,0,True,unmeasurable,,unmeasurable,,False,Venous,1.5,26,,aorta or PV mask empty after erosion
+PanTS_00009635,346,137,98,59412,18737,False,arterial,1,arterial,0.7918,False,Arterial,1,37,21,
+PanTS_00009637,33,40,15,154378,26087,False,non-contrast,0.9927,non-contrast,0.006871,False,Venous,0.8,70,79,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009640,175,190,84,34458,10742,False,venous,0.9775,venous,1.221,False,Non-contrast,2.5,36,29,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009641,136,157,91,35460,12464,False,venous,0.9767,venous,0.9536,False,Venous,2.5,39,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009649,127,147,-5,13212,1060,False,venous,0.9761,venous,0.8727,False,Venous,5,29,35,
+PanTS_00009652,207,220,150,14381,6884,False,venous,0.9677,venous,1.463,False,Venous,2.5,25,19,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009659,170,194,123,16904,8250,False,venous,0.9784,venous,1.253,False,Venous,2.5,23,23,
+PanTS_00009666,154,171,47,29084,5715,False,venous,0.9793,venous,1.067,False,Non-contrast,4,29,41,
+PanTS_00009687,232,202,56,39638,9482,False,arterial,0.996,arterial,1.318,False,Venous,2.5,74,53,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009688,222,215,115,14824,2314,False,uncertain,0.6435,venous,1.423,False,Arterial,5,30,28,
+PanTS_00009697,41,36,35,88546,2950,False,non-contrast,0.9974,non-contrast,-0.0255,False,Delay,1,46,48,
+PanTS_00009706,200,188,99,70958,24593,False,uncertain,0.5814,venous,1.204,False,Venous,1.25,40,33,
+PanTS_00009722,136,151,95,56234,39377,False,venous,0.9789,venous,0.9051,False,Arterial,1.5,35,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009726,196,205,132,24737,15072,False,venous,0.9628,venous,1.342,False,Venous,2.5,23,22,
+PanTS_00009731,141,147,61,54171,17168,False,venous,0.9736,venous,0.8727,False,Venous,2.5,30,24,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009737,97,109,48,35099,10542,False,venous,0.9762,venous,0.5652,False,Arterial,3,23,23,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009739,154,157,99,190632,34217,False,venous,0.9646,venous,0.9536,False,Venous,1,24,26,
+PanTS_00009750,132,163,57,60653,30583,False,venous,0.9562,venous,1.002,False,Venous,1.5,39,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009752,188,206,99,40014,13520,False,venous,0.9779,venous,1.35,False,Venous,2.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009760,181,193,117,17925,8922,False,venous,0.9737,venous,1.245,False,Venous,2.5,23,19,
+PanTS_00009765,112,121,77,36721,10062,False,venous,0.9776,venous,0.6623,False,Venous,2.5,35,32,
+PanTS_00009766,184,203,68,52322,5419,False,venous,0.9786,venous,1.326,False,Venous,2.5,32,26,
+PanTS_00009768,196,206,86,16283,2782,False,venous,0.9654,venous,1.35,False,Venous,2.5,33,20,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009769,381,245,142,13941,5329,False,arterial,1,arterial,1.666,False,Arterial,2.5,48,39,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009776,471,93,104,72871,65185,False,arterial,1,arterial,0.4357,True,Venous,0.5,48,43,
+PanTS_00009781,137,149,73,31523,11088,False,venous,0.9785,venous,0.8889,False,Non-contrast,2.5,27,23,
+PanTS_00009784,130,130,93,48268,24841,False,venous,0.9652,venous,0.7351,False,Venous,1,27,26,
+PanTS_00009787,158,185,64,32401,7882,False,venous,0.9746,venous,1.18,False,Venous,2.5,45,34,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009788,43,46,46,25002,996,False,non-contrast,0.9937,non-contrast,0.05542,False,Arterial,5,13,7,
+PanTS_00009790,188,215,120,20637,5054,False,venous,0.9779,venous,1.423,False,Arterial,2.5,29,25,
+PanTS_00009796,227,165,104,10317,1721,False,arterial,1,arterial,1.018,False,Venous,3,20,34,
+PanTS_00009797,210,223,117,38536,9702,False,venous,0.9666,venous,1.488,False,Venous,2.5,30,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009821,138,145,69,49142,10992,False,venous,0.9752,venous,0.8565,False,Venous,1.5,31,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009826,173,202,125,25069,13453,False,venous,0.9749,venous,1.318,False,Venous,2.5,28,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009829,133,99,64,20607,3571,False,arterial,0.9112,arterial,0.4843,True,Venous,5,35,31,
+PanTS_00009832,159,180,77,21065,7740,False,venous,0.9789,venous,1.14,False,Venous,2.5,32,30,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009838,160,158,76,71317,8736,False,venous,0.9407,venous,0.9617,False,Venous,2.5,21,22,
+PanTS_00009850,49,38,47,80121,845,False,non-contrast,0.9898,non-contrast,-0.009312,False,Arterial,0.8,37,36,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009854,140,141,64,19299,1491,False,venous,0.9644,venous,0.8241,False,Venous,5,23,25,
+PanTS_00009857,99,111,48,100940,38107,False,venous,0.9765,venous,0.5814,False,Venous,1,43,43,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009862,98,104,50,32004,9691,False,venous,0.9763,venous,0.5247,False,Arterial,2.5,36,35,
+PanTS_00009867,157,172,17,107580,10011,False,venous,0.9789,venous,1.075,False,Venous,2.5,26,23,
+PanTS_00009868,141,160,94,24796,12817,False,venous,0.9784,venous,0.9779,False,Venous,2.5,27,26,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009876,171,174,91,45838,24837,False,venous,0.9566,venous,1.091,False,Venous,1,36,32,
+PanTS_00009881,225,204,119,361753,108728,False,arterial,0.932,arterial,1.334,False,Venous,0.3633,112,49,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009882,183,142,72,42696,14316,False,arterial,0.9986,arterial,0.8322,False,Venous,2.5,39,24,
+PanTS_00009887,146,185,112,28699,15281,False,venous,0.9231,venous,1.18,False,Venous,2.5,28,27,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009888,256,129,103,13347,2411,False,arterial,1,arterial,0.727,False,Venous,5,29,31,
+PanTS_00009889,223,162,104,20748,3493,False,arterial,1,arterial,0.9941,False,Venous,5,23,22,
+PanTS_00009891,131,137,69,57599,13621,False,venous,0.9749,venous,0.7918,False,Venous,2.5,28,25,
+PanTS_00009892,180,213,137,42373,8619,False,venous,0.9706,venous,1.407,False,Venous,2.5,37,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009894,147,172,94,48008,19905,False,venous,0.9748,venous,1.075,False,Venous,2.5,39,35,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009896,193,192,108,35448,7877,False,venous,0.9066,venous,1.237,False,Venous,2.5,32,31,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009897,245,252,133,15705,939,False,venous,0.895,venous,1.722,False,Venous,2.5,35,38,mask affine != CT (voxels aligned; CT grid used)
+PanTS_00009901,162,170,84,31180,5262,False,venous,0.9723,venous,1.059,False,Venous,3,37,37,mask affine != CT (voxels aligned; CT grid used)

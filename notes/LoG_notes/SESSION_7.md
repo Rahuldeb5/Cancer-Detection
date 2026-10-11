@@ -524,3 +524,27 @@ uncommitted on both machines.
    pancreas probability channel does not compress to nothing the way the tumor channel did.
 5. The plan came out **bit-identical** on spacing, patch, batch and architecture. Only the
    CT normalization statistics moved, and they had to.
+
+---
+
+## 14. Run completed (checked 2026-10-05)
+
+All 5 folds finished on attempt 1 (no retries, no crashes); driver logged
+`=== all folds done 2026-10-05T15:03:16 ===`. Validation exports: 264/263/261/260/260 `.npz`
+(= the full 1308). Server disk 396 G free afterwards.
+
+nnU-Net's own `summary.json` mean Dice per fold (region `(1,2)` = pancreas, `2` = lesion).
+These are nnU-Net's per-case means and are NOT comparable to the S1/S2 per-lesion tables;
+S8 does the real evaluation.
+
+| fold | pancreas (1,2) | lesion 2 |
+|---|---|---|
+| 0 | 0.8702 | 0.4608 |
+| 1 | 0.8700 | 0.4408 |
+| 2 | 0.8544 | 0.4040 |
+| 3 | 0.8500 | 0.4321 |
+| 4 | 0.8499 | 0.4213 |
+
+Deferred non-vacuous `.npz` check (§7), on real fold 0 predictions with non-empty
+segmentations (672 / 2132 / 35822 lesion voxels): `(channel 1 > 0.5) == (seg == 2)` and
+`(ch0>0.5 | ch1>0.5) == (seg > 0)` both 0 mismatches on all 3 cases. PASS.
