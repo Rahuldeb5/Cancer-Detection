@@ -3,24 +3,26 @@ MSKCC collaboration (Prof. Yingli Tian; Dr. Oguz Akin). Author: Rahul (intermedi
 each step - explain design choices in 1-2 sentences, run phantom/oracle checks BEFORE real data,
 ask before changing existing scripts).
 Original framing was multi-organ detection with LLM-read radiology reports. The report arm is PARKED: PanTS reports
-are template text with no diagnosis; Merlin needs a Stanford AIMI request.
+are template text with no diagnosis.
 
-## Goal (updated after S14)
-Segmentation quality (Dice/IoU) of pancreatic lesions, not only detection. Priority sizes: 10-20 mm and 20-40 mm
-(<10 mm is too sparse and mostly satellites).
+## Goal (updated after S15, 2026-10-17)
+Segmentation (Dice/IoU) AND localization-aware detection of pancreatic lesions, for ALL sizes. Every result is
+stratified by Feret bin (<10, 10-20, 20-40, >=40 mm; finer 40-60 / >=60 where n allows). <10 mm stays reported but
+is sparse and mostly satellites.
 1. BASELINE = Dataset502 (multi-class nnU-Net: pancreas + lesion) with S13's post-processing D. It beats the binary
    Dataset501 on every lesion metric in all 5 folds (S8). Pancreas is a TRAINING label only, never an input (the
    carved-out hole marks the tumor; an input mask would leak).
-2. Current work: S15 gland shape pilot (secondary signs: contour bulge, upstream atrophy) on the predicted gland,
-   targeting 502's missed 20-40 mm lesions that 502 swallows into its own gland (n=48, S14).
-3. Only if S15 passes: small case-level classifier on 502 confidence + shape features (duct dropped: S14).
-4. Optional GPU job: 502 retrain with lesion-forced foreground sampling (separates "gland context" from "sampling
-   rate"; S7 sec. 6 confound). Not started.
-Likely paper framing: anatomical supervision (+ secondary signs if S15 holds) for pancreatic tumor segmentation,
-with S2/S4/S9 as the analysis of why small tumors stay invisible.
+2. Current work: COARSE-TO-FINE (Prof. Tian's idea). Stage 1 = 502 at a low threshold proposes candidates; stage 2
+   (the "fine stage") decides real vs false and redraws real ones. Rahul's normative idea is re-tested as one
+   fine-stage contender (normal model of CANDIDATES from healthy scans, not of all gland patches). Plan: S16-S21 below.
+3. In parallel: WHY the pancreas label helps (S17 2x2 ablation, S16 gland-filter test). See "Mechanism".
+4. Later: Merlin (external detection test by report size bin; report mining for duct/atrophy); compare to R-Super.
+Likely paper framing: anatomical supervision for pancreatic tumor segmentation (S8), its mechanism (S16/S17), and a
+coarse-to-fine stage if S19/S20 pass; S2/S4/S9/S14/S15 as the analysis of what stays invisible.
 
-Session status: S0-S4, S7, S8, S8b, S9, S10, S11, S12, S13, S14 done. S5 (union FROC) NOT run (S4 negative).
-S6 (leakage audit) superseded by S13 - only needed if the parked duct re-ranking number is ever cited. S15 next.
+Session status: S0-S4, S7-S15 (incl. S8b) done. S5 NOT run (S4 negative). S6 superseded by S13. S16 next.
+Secondary-signs arm CLOSED: duct (S11, S14), gland shape and atrophy (S15) are at chance on 502's misses.
+The S15 step-5 case-level classifier is CANCELLED (its condition, "S15 shows signal", failed).
 
 ## Some notes to keep in mind
 
@@ -52,13 +54,25 @@ Note that there is a paucity of lesions < 10 mm in diameter so it's more importa
   326/980 = `wc -l` on ID files without a trailing newline, 309 = an old planned negative count. Median slice
   spacing (along the slice axis) is 2.5 mm over the 1308 (1.25 = all PanTS, 1.5 = cohort negatives);
   52.2% >= 2.5 mm, 15.2% >= 5 mm.
-- Lesions <10 mm are mostly satellite fragments: 75/86 are not the largest lesion in their case; only 11 cases
-  have an index lesion <10 mm. 39 components are < 8 mm^3 (tiny_flag; flagged, never dropped) (S1).
+- Satellites (= not the largest lesion in their case): 1235 - 981 = 254 (derived; S16 recomputes). Lesions <10 mm
+  are mostly satellites: 75/86; only 11 cases have an index lesion <10 mm (S1). 10-20 mm: 99/275 are satellites
+  (275 - 176 index; derived). 39 components are < 8 mm^3 (tiny_flag; flagged, never dropped) (S1).
+  NOT yet checked: how far satellites are from the nearest lesion / index lesion (some may be fragments of one
+  tumor split by annotation) -> S16.
+
+## Lesion voxels outside the gland masks (S7; cause NOT yet known -> S16)
+44.8% of all lesion voxels lie outside union(pancreas, head, body, tail). By size: <5 mm 76.4%, 5-10 50.5%,
+10-20 25.7%, 20-40 25.9%, >=40 51.1%. 520/880 "inside"-tier lesions have some voxels outside. Do not confuse with:
+70 lesions ENTIRELY outside the envelope (separated tier) and 73 lesions entirely outside S4's search region.
+Candidate explanations: annotation convention (gland masks may mark remaining normal tissue only, drawn separately
+from the tumor), real growth beyond the gland (large tumors), small lesions at the gland edge. Misalignment ruled out.
+Consequence: never restrict a search to GT gland masks; use 502's predicted gland region (includes tumor by construction).
 
 ## Dataset502 = current baseline (S7 build, S8 eval, S8b phase add-on, S13 post-processing)
-- Labels / regions / training: gotcha 9. Same folds and plan as 501; only CT normalization stats differ. Lesion-centred
-  patch sampling ~25% vs ~50% in 501 (confound; it works AGAINST 502). "Pancreas Dice" is not a clean gland metric
-  (44.8% of lesion voxels lie outside the 4-mask envelope). Suspect gland masks: PanTS_00002205, 00002102.
+- Labels / regions / training: gotcha 9. Same folds and plan as 501; only CT normalization stats differ (clip
+  -111..206 HU vs 501's -86..184). Forced-foreground patches: ~25% lesion-centred vs ~50% in 501; the other ~25%
+  centre on the gland region, incl. healthy glands (see Mechanism H4). "Pancreas Dice" is not a clean gland metric.
+  Suspect gland masks: PanTS_00002205, 00002102.
 - Predictions on server: .../nnUNet_results/Dataset502_PanTSPancLesion/.../fold_{0..4}/validation/ (~135 GB).
   npz channel 0 = pancreas region, channel 1 = lesion, (C,z,y,x) -> .transpose(2,1,0). Lesion mask = seg == 2
   (NOT seg > 0). Sparse cache on PC: ~/research/nnunet_probs_502/ (every voxel with lesion p > 1e-4 as float32,
@@ -81,17 +95,33 @@ Note that there is a paucity of lesions < 10 mm in diameter so it's more importa
     over-grow (1.18x -> 1.43x). t_seg 0.1 is the grid edge. D's 19 "new touches" are grazes (median Dice 0.008).
   * A (out-of-pancreas filter): no-op (+0.0023, CI touches 0). 502 already keeps lesions inside its own gland, and
     grows its gland around lesions it detects.
-  * B (faint-candidate rescue): dead. Faint candidates touch missed lesions but never segment them.
+  * B (faint-candidate rescue ranked by 502's own peak prob): dead. Faint candidates TOUCH missed lesions (24-35 of
+    116 at 20-40 mm) but never segment them (none reach Dice 0.1); Sp 0.72 -> 0.53. This is the motivation for a
+    trained fine stage: candidates exist, the decision and the redraw are missing.
   * C+ (filter x D): post hoc; trades 22 detected lesions for 12 cleared negatives. NOT adopted.
+  * Lesson: the objective picks the winner (equal case weighting favoured C+). Fix objectives before results.
 - S14 (what 502 still misses; model = 502 + D; missed = not touched by RAW 502): 116/597 at 20-40 mm, 144 at 10-20 mm.
   D rescues none (0/116 reach Dice 0.1). Misses vs detected (20-40 mm): satellite 35% vs 7%; est non-contrast 31% vs
   17%; <50% inside predicted gland 47% vs 4%; GT separated 16% vs 2%; iso 42% vs 38% (NOT enriched).
   Missed lesions are inside the predicted gland 53%, adjacent 33%, away 15%, dents 0% (gland stops at them; no
   carving). 10-20 mm: 79/144 misses are satellites, 58 of those in cases 502 already localizes.
-  Faint 502 guess (p>0.01): +20.3 pts over chance on misses but median Dice 0.05 and 0.67 FP/negative.
-  S15 target: missed 20-40 mm INDEX lesions >=50% inside 502's predicted gland, not GT-separated: n=48 (30 enhanced,
-  16 enhanced and not iso); same-size reference: 461 detected-and-included; secondary 10-20 mm n=46.
-  Files: results/rescue_check_502/missed_lesions.csv.
+  Faint 502 guess (p>0.01, whole footprint): touches 30.2% of missed 20-40 mm vs 9.8% chance (+20.3 pts) but median
+  Dice 0.05 and 0.67 FP/negative. Files: results/rescue_check_502/missed_lesions.csv.
+
+## Mechanism: why does the pancreas label help? (open; S16 + S17)
+Hypotheses (H1 explains fewer FPs only; the 140 newly found tumors need H2-H4):
+- H1 location prior: model learns "tumors live in the gland" -> suppresses FPs elsewhere (S13: 502's lesion
+  components sit inside its own gland; separated lesions do not improve).
+- H2 tumor = abnormal gland: label 1 includes the tumor, so the tumor is learned as gland tissue that looks wrong.
+- H3 more supervision: every scan, incl. the 327 negatives, now gives dense gradient.
+- H4 more normal-gland practice: half the forced patches centre on the gland region (incl. healthy glands) ->
+  implicit normal model + hard negatives. The "sampling confound" may be a CAUSE of the gain, not a handicap.
+- H5 normalization stats (clip window). Small; not tested now.
+Tests: S16 gland-filter test (drop 501 components outside 502's OOF predicted gland; rule fixed in advance) for H1.
+S17 2x2 on 502's plan, fold 0 first: Run A = lesion loss only + gland-centred sampling; Run B = lesion + pancreas loss
++ lesion-centred sampling (forced fg on region 2 only). 501 and 502 fill the other cells. Pre-registered reading:
+A ~ 502 -> H4 (sampling/normal exposure); B ~ 502 -> H2/H3 (supervision); both partial -> both. One new trainer file;
+no existing script edited. Other organ masks are NOT needed (and may be incomplete).
 
 ## Dataset501 (old binary baseline: vanilla binary tumor, 3d_fullres, 5-fold CV, 1000 epochs)
 - Lesion Dice / detect@any-overlap by lesion Feret diameter, pooled: <5 mm 0.000/2% (n=49); 5-10 0.000/0% (37);
@@ -122,6 +152,7 @@ change class, both directions). Residual: >4 mm slices have the highest iso in e
 Iso by ESTIMATED phase (S8b; replaces the old metadata-based "non-contrast = 1/3 of lesions, ~50% iso"):
 est non-contrast holds 23% of lesions and is 55.1% iso (156/283; >=10 mm 61.5%); venous 33.1% (>=10 mm 33.4%);
 late arterial (pancreatic phase) 19.8% (20/101), the lowest.
+The fixed +-10 HU band means less in non-contrast scans (gland ~33 HU); report CNR (S3) alongside when it matters.
 "Arterial" parenchyma median 61 HU < venous 81 HU (S3) is explained in S12: metadata "Arterial" is a mixture.
 
 ## Contrast phase (S12; use results/phase_estimate/phase_estimate.csv, NOT metadata `ct phase`)
@@ -139,12 +170,16 @@ late arterial (pancreatic phase) 19.8% (20/101), the lowest.
 - The wide arterial component claims 10 scans with PV >= aorta; filter `aorta_hu > pv_hu` for clean arterial.
 - Oracle caveat: 1-voxel-shifted r=5 mm vein reads up to -7.2 HU low (fails 5 HU tolerance; aorta passes).
   Not "fixed" by changing the erosion (that would be tuning to the gate).
+- S15: the S12 estimator, unchanged, on the 300-scan bank: venous 152, non-contrast 63, late arterial 46, early
+  arterial 28, uncertain 8, unmeasurable 3 (refit reproduces the cohort labels 1291/1291).
 
 ## Location
 Head holds ~50% of gland tissue but 63-70% of lesions. Small (<20 mm) tumors are found more often in the head
 (zero-Dice rate 68% head vs 95% mid-gland). Only the PC1 head->tail axis is reliable; PC2/PC3 are not anatomical.
 Lesion tiers vs pancreas envelope: inside 880, embedded 111, abutting 174, separated 70
 (results/lesion_location_results/excluded_lesions.csv lists the 70 separated). Report results with and without them.
+The normal head reads as "unusual" for many spatial scores (S15: wide head next to narrow neck = an outward bulge),
+so any head-heavy hit rate needs a chance rate measured on normal glands (rule 9).
 
 ## S4 result (pancreas-restricted scale-normalized LoG blob map): NEGATIVE
 - Target group (10-20 mm, hypo/hyper v3, contrast-enhanced, n=106): the lesion's strongest blob response is beaten by a
@@ -160,23 +195,24 @@ Lesion tiers vs pancreas envelope: inside 880, embedded 111, abutting 174, separ
   reweighting barely changes it; thicker slices give MORE false peaks. Default FP denominator in later work =
   positives' search region >10 mm from every GT lesion.
 - 73/1235 lesions lie entirely outside the search region (mostly `abutting` tier).
-- Top false peaks sit on vessels (30.4%) and duodenum (24.9%).
+- Top LoG false peaks sit on vessels (30.4%) and duodenum (24.9%). 502's false candidates may differ -> S18 measures.
 - Files: results/log_candidates/, notes/LoG_notes/SESSION_4.md, src/log-candidates/. Vessel/bowel masks for the 1308
   cohort cases were git-lfs pulled on the PC (~2 GB).
 
-## S9 result (normative normal-patch anomaly model): FAILED all gates
+## S9 result (normative normal-patch anomaly model): FAILED all gates as a whole-gland detector
 - Bank: 300 non-cohort PanTS negatives (~/research/datasets/pants/ct_normal_bank/, 9.3 GB), matched to cohort positives
-  on METADATA phase and thickness (metadata phase is noisy, S12 - re-estimate before reusing the bank).
+  on METADATA phase and thickness (now re-estimated with S12, see Contrast phase).
 - 10-20 mm target median within-scan percentile 71.8 (S4: 23.5); top-10 16%. >=40 mm control 71.2 (gate 90).
   Insertion test nearly flat. Cause: normal patches vary ~44 HU SD within one pancreas; 23% of normal patches <20 HU
   (fat in spherical patches). Bank size 100/200/300 is flat. Within-scan z-scoring cannot change within-scan ranks.
-- Not a standalone detector. One revision "S9b" only if it proves complementary to 502.
+- Re-test planned as a fine-stage contender (S19): normal model of CANDIDATES from healthy scans; features on
+  gland-only, non-fat voxels, HU relative to the scan's own gland median; candidates compared with candidates.
 
 ## S10 result (duct atlas, 6061 glands, PC1 head->tail frame)
 One continuous curved ridge ~3.5-5.5 mm anterior to the gland centreline; densest head/neck, fades to tail (56% of
-cases have duct at u=0.2, 8% at u=0.8); axial head bimodal (posterior lobe near u 0.1); tumor+ glands carry ~4x more
-annotated duct, reaching body/tail. Duct label is disjoint from head/body/tail. Annotation fragmentary (median extent
-27.6 mm) -> atlas darkness = coverage x anatomy.
+cases have duct at u=0.2, 8% at u=0.8); axial head bimodal (posterior lobe near u 0.1; possibly the accessory duct -
+ask Dr. Akin); tumor+ glands carry ~4x more annotated duct, reaching body/tail. Duct label is disjoint from
+head/body/tail. Annotation fragmentary (median extent 27.6 mm) -> atlas darkness = coverage x anatomy.
 
 ## S11 rescue check on 501 (results/rescue_check/) - superseded by S14 on 502
 - Missed 20-40 mm (n=240): union of nnU-Net faint guess (t=0.01, case rank<=3; 17.9%), S9 top-10 (33.0%) and duct
@@ -187,22 +223,79 @@ annotated duct, reaching body/tail. Duct label is disjoint from head/body/tail. 
 - Duct CSVs live in results/geometry_results/duct_cutoff/ (not results/duct_cutoff/).
 
 ## Duct work (PARKED - not used as a signal)
+Definitions: dilation = MPD caliber along the GT duct centreline (skeleton + EDT); mpd_p95 > 3.21 mm (sens 0.384 /
+spec 0.936); head-end version = caliber_head_mm >= 3.21; cbd_p99 > 8.05 mm; cutoff = abrupt caliber step.
 Step-cutoff detector fires in 7.1% of tumor+ (0/327 neg): GT MPD masks are short fragments (median centerline
 28 mm; 255 empty). Head-end dilation: 56.8% of evaluable tumor+ MPDs vs 5.1% of negatives, concentrated in
 >=20 mm tumors. Component re-ranking on 501 (HistGB, leave-one-fold-out) at 90% recoverable: case spec raw prob 0.34,
 +nnU-Net feats 0.57, +GT pancreas location 0.83, +GT duct 0.79 (duct adds ~0). All GT anatomy = upper bound.
 S14: on 502's misses the duct signal is at or below chance (-2.5 pts, CI -6.9 to +2.0); missed lesions sit FARTHER
-from the MPD than random placement. Duct dilation tracks tumors 502 already finds. Dropped from the classifier plan.
+from the MPD than random placement. Duct dilation tracks tumors 502 already finds.
+GT duct masks do not exist at test time: any future duct feature must be measured from the CT (e.g. dark-tube width
+along 502's centreline) or from a predicted duct. A padded tube around the duct/centreline as a SEARCH AREA is
+rejected (S14: misses sit farther from the duct than chance). The accessory duct in the head was never modelled.
 pdac_classification.csv (2 cm periampullary rule) is circular - do not use it to scope PDAC.
 
-## S15 plan (gland shape profile pilot) - gates must be confirmed by Rahul BEFORE Part C runs
-Outline = RAW 502 predicted pancreas (channel 0 > 0.5); never GT masks. Centerline every 2 mm, perpendicular
-cross-sections, 24 rays (first exit, max 40 mm) -> radius map r(position, direction) + area curve A(position).
-Primary score = positive (outward) bulge_local (S14: no dents). Normal reference = S9 bank glands run through 502
-(5-fold ensemble), 250 reference / 50 held out for insertion tests; re-estimate bank phase with src/phase/ first.
-Gates: insertion 20 mm bulge median percentile >= 95; control detected >=40 mm median >= 90; target (S14's
-n=48) median >= 80 AND top-3 hit rate >= 2x chance AND >= 25%. Scope: S15 can address at most 48 of the 116 missed
-20-40 mm lesions.
+## S15 result (gland shape profile on 502's predicted gland): EXPLORATORY, NEGATIVE
+- Final tool (after 5 synthetic-only rounds, all rule changes logged in SESSION_15.md): outline = raw 502 channel 0
+  > 0.5; centreline every 2 mm; 12 axes, primary score = multi-scale bulge_local on WIDTH (r(theta)+r(theta+180),
+  first exit, 40 mm cap) with windows +-15/+-30/+-45 mm; extrapolated tip stops excluded. Residual-vs-normal score
+  is secondary (it put 47% of normal top cells at the head tip).
+- Insertion check FAILED (20 mm sphere on normal glands: median within-scan percentile 87.8 < 95; 30 mm: 100). The
+  noise-free bend core test failed on the iso grid (-0.498 z, bent tube scores LOWER). Per the pre-fixed rule,
+  Part C ran EXPLORATORY: it cannot pass a gate and feeds no classifier.
+- Part C (chance = larger of uniform and empirical-from-normal-glands): missed 20-40 mm targets (46 evaluable):
+  median 78.8, top-3 39% vs chance 41% (head 52% vs 51%; elsewhere 18% vs 23%). Detected 20-40 mm (455): 96.2,
+  68% vs 50%. Detected >=40 mm (246): 100.0, 85% vs 73%. Echo: per-case rho(shape, 502 lesion prob) median 0.285.
+  Case-level AUC: max bulge 0.566 (0.530-0.604), atrophy 0.560. A 2 mm tail shrink is not detected (2% vs 2%).
+- Reading: 502's misses do not deform the gland outline beyond chance; detected tumors do (partly echo). The normal
+  head looks like a bulge.
+- Files: results/gland_shape/ (labelled EXPLORATORY), src/glandshape/, profiles PC ~/research/gland_profiles/.
+  Bank 502 predictions (5-fold ENSEMBLE, ~20 GB) on the server in ~/research/gland_shape_bank/pred/: KEEP until S18's
+  per-fold bank run is done. Bank QC: 298/300 kept (249 reference / 49 held out, seed 15).
+
+## Next phase: coarse-to-fine (S16-S21). Plan doc: "Next Steps: Coarse-to-Fine Plan (S16 onward)"
+Design (fixed):
+- Stage 1 = 502 OOF lesion probability at a low threshold t; candidate = connected component of p > t. No gland
+  filter (S13: costs faint tumors). Candidate label = touches a GT lesion.
+- Stage 2 = fine stage, trained leave-one-fold-out: to test fold k, train ONLY on OOF candidates from the other 4
+  folds (rule 10). It outputs keep/drop and (S20) a redrawn mask.
+- Healthy-scan candidates come from the SAME fold model as the cohort candidates they are compared with: run each of
+  the 5 fold models separately on the bank (the S15 bank run was an ensemble -> fewer, cleaner false spots).
+- Contenders on identical candidates/folds/metrics: 0 = 502 peak prob (S13 B baseline); 1 = normal-candidate model
+  (Rahul's k-means on healthy-scan candidates; score = distance from normal clusters); 2 = gradient-boosted classifier
+  on hand-built features; 3 = 2 + contender 1's score as a feature; 4 = small 3D CNN on candidate crops (S20).
+- Hand-built features (S19, fixed list): 502 probabilities; size/shape; u; distance to predicted gland edge; fraction
+  inside predicted gland; intensity on gland-only non-fat (HU > -30) voxels relative to the scan's gland median: mean,
+  percentiles, spread inside the candidate, core-vs-ring contrast at 3/6/10 mm; est_phase; slice thickness.
+- Ceiling: stage 2 can only recover lesions stage 1 touches (S18 measures this per bin before S19/S20).
+Sessions:
+- S16 (PC, descriptive): satellites (distance to nearest lesion and index lesion, tier, distance to gland edge,
+  region; S8 numbers re-reported with lesions within 2/5/10 mm merged); scans binned by largest lesion; what the
+  outside-gland lesion voxels sit in (fat by HU; duodenum/veins/arteries/stomach from GT masks, evaluation only) +
+  12 PNGs for Dr. Akin; big-tumor Dice error map (20-40 / 40-60 / >=60 mm: inside vs outside predicted gland, edge
+  vs chunk, near vessels/duodenum; by phase/attenuation/tier); gland-filter test (H1).
+- S17 (server GPUs): Mechanism Run A and Run B, fold 0 first (~14 h each); then decide full 5 folds.
+- S18 (PC + server): per-fold bank inference (~7 h); funnel per bin and t in {0.5, 0.1, 0.05, 0.01, 0.001}
+  (lesions touched, all and 502-missed; candidates per healthy scan and per tumor scan's far region); stage-1 t
+  chosen from healthy scans only; what false candidates sit on (GT masks for evaluation only; spot-check 10 cases
+  for mask completeness); one-row-per-candidate table for S19/S20.
+- S19 (PC): contenders 0-3, LOFO, oracles first (synthetic candidate table; contender 0 reproduces S13 B).
+- S20 (server GPU): contender 4 (crop ~48 mm, 5 LOFO models, healthy-bank candidates as hard negatives, redraw).
+- S21 (only if >= half of false candidates sit on veins/duodenum): test-time anatomy from an off-the-shelf organ
+  model, or Dataset503 with vessel/duodenum labels (caveat: incomplete labels).
+PROPOSED decisions - Rahul confirms each BEFORE its session (rule 3):
+- S16 satellite merge distance: 5 mm main (2 and 10 mm also reported).
+- S18 stage-1 t: lowest t in the set with <= 5 candidates per healthy (bank) scan on average.
+- S18 go/no-go for S20: stage-1 candidates touch >= 20% of 502's missed lesions >= 10 mm, else skip S20 unless S19
+  passes.
+- S19/S20 gate: on lesions >= 10 mm that 502 missed, recovery >= 2x chance AND >= 10% absolute, at <= +0.2 extra false
+  candidates per healthy scan (S8b-reweighted), losing <= 1% of 502's existing detections; S20 additionally requires
+  recovered lesions to reach Dice >= 0.1. Normative "adds value" only if contender 1 or 3 beats 0 and 2 beyond CI.
+- GPU order: bank per-fold inference, then S17 Run A, then Run B, then S20.
+Open questions outside Claude Code: confirm with Prof. Tian what "coarse" means (502 itself vs a separate low-res
+model); Merlin access; R-Super (weights released? AbdomenAtlas 2.0 overlap with PanTS?); Dr. Akin review of S15
+targets, S16 PNGs, accessory duct, PanTS_00007757.
 
 ## Data gotchas (each one has already cost time)
 1. PanTS masks are int8 but split across two on-disk encodings (verified S0, 1308-case cohort, 5
@@ -244,7 +337,8 @@ n=48) median >= 80 AND top-3 hit rate >= 2x chance AND >= 25%. Scope: S15 can ad
    load_mask does the right thing; never resample masks by their own affine.
 5. Pancreas masks: lesion is carved out of pancreas.nii.gz in many cases; head/body/tail disagree with it.
    Use envelope = union(pancreas, head, body, tail) and hole-fill for any candidate search. NEVER let a search
-   region read the lesion mask. Duct is carved out of head/body/tail.
+   region read the lesion mask. Duct is carved out of head/body/tail. 44.8% of lesion voxels lie outside the
+   envelope anyway (see "Lesion voxels outside the gland masks").
 6. Memory: crop to bbox BEFORE EDT/label/resample. Worst case PanTS_00008854 (510x431x918). PC has 15 GB RAM:
    <=2-4 workers. Never cache full-volume 1 mm isotropic arrays (this exhausted disk before).
 7. Un-pulled git-LFS masks are ~131-byte pointer stubs ("not a gzip file"). Scoped `git lfs pull -I` include
@@ -263,18 +357,22 @@ n=48) median >= 80 AND top-3 hit rate >= 2x chance AND >= 25%. Scope: S15 can ad
     alone (likely S2's `common` rewriting tumorlib env paths at import). Run those files individually until isolated.
     Server venv has no pytest.
 13. `python -O` strips asserts: a smoke test under -O does not exercise assert-guarded code (S8).
+14. `pgrep -f` / `pkill -f` match their own command line (S9 killed its own wait loop; S15's wait loop over ssh
+    believed inference was still running). Use a PID file or a pattern that cannot appear in the invoking command.
 
 ## Machines
 - Laptop (WSL, /home/rahuldeb5/Cancer-Detection, ssh rahuldeb5@100.81.217.58, but there is nothing extra there and it could be offline): code + result CSVs, NO dataset. IDE has twice overwritten
   edited files with a stale buffer: re-read from disk before trusting contents.
 - PC -- this is what we are currently in (ssh rahuldeb5@100.103.52.84, RTX 5070, 15 GB RAM, 16 cores, py3.14): CTs in
   ~/research/datasets/pants/ct_staging; masks in .../masks/mask_only/{case}/segmentations/*.nii.gz.
-  Has unrelated uncommitted work: only add files, never reset/commit others.
+  Bank CTs in ~/research/datasets/pants/ct_normal_bank/. Has unrelated uncommitted work: only add files, never
+  reset/commit others.
 - Server (ssh rahul@deep-server.tail8e65db.ts.net, 12 cores, 31 GB, py at ~/nnunet_setup/.venv/bin/python;
   source ~/research/nnunet_env/env.sh): nnU-Net predictions/checkpoints, preprocessed data, gt_segmentations,
-  6 masks/case in ~/research/datasets/pants/duct_masks/. Its repo was force-synced to origin/main in S2
-  (old uncommitted MedFormer edits backed up in ~/repo_backup_pre_S2_2026-09-28/; untracked exp/ log/ kept). Untracked-on-server scripts (evaluate.py etc.) must be brought into git.
-  Dataset502 training is finished; GPUs 0,1 are free.
+  6 masks/case in ~/research/datasets/pants/duct_masks/, the 300 bank CTs and S15's ensemble bank predictions
+  (~/research/gland_shape_bank/). Its repo was force-synced to origin/main in S2 (old uncommitted MedFormer edits
+  backed up in ~/repo_backup_pre_S2_2026-09-28/; untracked exp/ log/ kept). Untracked-on-server scripts
+  (evaluate.py etc.) must be brought into git. GPUs 0,1 are free.
 - For CPU intensive tasks use the PC, for GPU intensive tasks use the server (only use the 2 2080 TIs)
 
 ## Rules
@@ -282,8 +380,10 @@ n=48) median >= 80 AND top-3 hit rate >= 2x chance AND >= 25%. Scope: S15 can ad
 2. Never report a number you did not compute this session. Label carried-over numbers as carried over.
 3. Nothing tuned on evaluation lesions. Detector settings are fixed a priori; anything learned uses
    leave-one-nnU-Net-fold-out. All reported results are 5-fold CV (out-of-fold). Gates are fixed before results
-   and never relaxed after.
-4. Units explicit (mm vs voxels). Bin edges: <5, 5-10, 10-20, 20-40, >=40 mm (Feret diameter).
+   and never relaxed after. A rule change after a failure is allowed only on synthetic/normal-gland checks, is
+   logged as such, and the outcome rule for the rerun is written down before it runs (S15).
+4. Units explicit (mm vs voxels). Bin edges: <5, 5-10, 10-20, 20-40, >=40 mm (Feret diameter); add 40-60 / >=60 for
+   segmentation-error analyses of large tumors.
 5. results/ holds ONLY the named deliverables (one CSV + README per session). Intermediates go in a
    git-ignored work/ dir.
 6. Hit definitions must be localization-aware: a predicted component touching the GT lesion. Report detection
@@ -291,5 +391,13 @@ n=48) median >= 80 AND top-3 hit rate >= 2x chance AND >= 25%. Scope: S15 can ad
    Report the chance rate next to every hit rate (S11).
 7. Standard reporting: estimated phase in S8b's 5 strata; specificity raw AND reweighted to the tumor+
    est_phase x thickness mix (S8b weights); FP per negative AND per tumor+ case in the region >10 mm from every
-   GT lesion; with and without the 70 separated lesions.
+   GT lesion; with and without the 70 separated lesions; every lesion metric by size bin.
 8. Each session ends with README: what was computed, how, caveats, and what surprised you. You can name it as SESSION_{x}.md and put it in notes/LoG_notes/
+9. Spatial scores (top-k hits, within-scan percentiles) report chance twice: uniform placement AND empirical from
+   normal glands at the same position; gate on the larger (S15: the normal head looks "unusual").
+10. Any learned second stage is trained only on out-of-fold candidates from the other folds and tested on the held-out
+    fold; healthy-scan candidates must come from the same fold model.
+11. GT anatomy masks (duct, vessels, organs, GT gland) are for evaluation only, never features at test time. Test-time
+    anatomy must come from a model (502's own gland channel, or an off-the-shelf organ model).
+12. Check whether a new signal just echoes 502 (correlation with 502's probability; behaviour on detected vs missed
+    lesions) before claiming it adds information.
